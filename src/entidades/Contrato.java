@@ -29,6 +29,15 @@ public class Contrato {
         private Movimiento movimiento;
         private Cuotas Cutoas;
         private Cliente cliente;
+        private int montoSellado;
+
+    public int getMontoSellado() {
+        return montoSellado;
+    }
+
+    public void setMontoSellado(int montoSellado) {
+        this.montoSellado = montoSellado;
+    }
 
     public Cliente getCliente() {
         return cliente;

@@ -169,7 +169,7 @@ public class NuevoPrecio extends javax.swing.JFrame {
         if(a <= b){
            try{
         
-        int monto=(Integer.parseInt(hastaCuota.getText())-Integer.parseInt(desdeCuota.getText())+1)*Integer.parseInt(precioAlquiler.getText());
+        int monto=(Integer.parseInt(hastaCuota.getText())-Integer.parseInt(desdeCuota.getText()))*Integer.parseInt(precioAlquiler.getText());
         
         tablaCuota.setDefaultRenderer(Object.class, new RenderCuotas());
         JButton btnEliminar=new JButton();
@@ -177,7 +177,7 @@ public class NuevoPrecio extends javax.swing.JFrame {
         btnEliminar.setContentAreaFilled(false);
         btnEliminar.setBorderPainted(false );
         
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross.png")));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menos.png")));
 
       
         DefaultTableModel model=(DefaultTableModel)tablaCuota.getModel();

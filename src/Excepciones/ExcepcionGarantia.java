@@ -30,7 +30,7 @@ public class ExcepcionGarantia extends Exception {
         }
     }
     
-    public static void VerificarTextField(String garantia,String cuotasGarantia,String punitorios,String comision)throws ExcepcionGarantia{
+    public static void VerificarTextField(String garantia,String cuotasGarantia,String punitorios,String comision, String punitorios1)throws ExcepcionGarantia{
         String txtGarantia=garantia;
         txtGarantia=txtGarantia.replaceAll(" ", "");
         if(txtGarantia.length()==0){
@@ -49,6 +49,11 @@ public class ExcepcionGarantia extends Exception {
         String txtComision=comision;
         txtComision=txtComision.replaceAll(" ", "");
         if(txtComision.length()==0){
+            throw new ExcepcionGarantia("Ingrese el valor de la Comision");
+        }
+         String txtPunitorios1=comision;
+        txtPunitorios1=txtPunitorios1.replaceAll(" ", "");
+        if(txtPunitorios1.length()==0){
             throw new ExcepcionGarantia("Ingrese el valor de la Comision");
         }
     }

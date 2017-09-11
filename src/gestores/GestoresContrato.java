@@ -239,8 +239,8 @@ public class GestoresContrato {
    public int altaContrato(Contrato cont) throws IOException{
 		int r=0;
 		String SQL="INSERT INTO `contrato`(`idContrato`, `idInmueble`, `idInquilino`, `idGarante`, `idGarante2`, `fechaComienzo`, `fechaVencimiento`, `cuota`,"
-                        + " `cuotaActual`, `estado`, `garantia`, `cuotasGarantia`, `punitorios`, `comicion`, `diadePago`)"
-                        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + " `cuotaActual`, `estado`, `garantia`, `cuotasGarantia`, `punitorios`, `comicion`, `diadePago`,`montoSellado` )"
+                        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				
 		
 		
@@ -262,6 +262,7 @@ public class GestoresContrato {
                 pst.setDouble(13, cont.getPunitorios());                             
                 pst.setDouble(14, cont.getHonorarios());               
                 pst.setInt(15, cont.getDiaPago());
+                pst.setInt(16, cont.getMontoSellado());
                 
 		r=pst.executeUpdate();
 
