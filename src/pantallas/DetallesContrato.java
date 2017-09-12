@@ -1432,6 +1432,7 @@ public class DetallesContrato extends javax.swing.JFrame {
             lblComision.setText(Double.toString(datosContrato.getHonorarios()*100)+"%");
             
             
+            
                 
            
                lblFolio.setText((inmDetalle.getFolio()));

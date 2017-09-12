@@ -45,7 +45,7 @@ public class ModeloTablaImpuesto extends AbstractTableModel {
         btnEliminar.setContentAreaFilled(false);
         btnEliminar.setBorderPainted(false );
         
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cross.png")));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menos.png")));
         if (fila > lista.size()) {
             return null;
         } else {

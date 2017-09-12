@@ -23,6 +23,16 @@ public class Cuotas {
     private Movimiento movimiento;
     private Contrato contrato;
     private CuotaImpuesto cuotaImpuesto;
+    private double totalSellado;
+
+    public double getTotalSellado() {
+        return totalSellado;
+    }
+
+    public void setTotalSellado(double totalSellado) {
+        this.totalSellado = totalSellado;
+    }
+    
 
     public CuotaImpuesto getCuotaImpuesto() {
         return cuotaImpuesto;

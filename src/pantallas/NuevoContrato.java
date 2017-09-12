@@ -148,7 +148,9 @@ public class NuevoContrato extends javax.swing.JFrame {
         cuotasGarantia = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        punitorios1 = new javax.swing.JTextField();
+        montoSellado = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        Sellado = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         imp1 = new javax.swing.JTextField();
         imp2 = new javax.swing.JTextField();
@@ -544,10 +546,20 @@ public class NuevoContrato extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel30.setText("Monto Sellado:");
 
-        punitorios1.setName(""); // NOI18N
-        punitorios1.addKeyListener(new java.awt.event.KeyAdapter() {
+        montoSellado.setName(""); // NOI18N
+        montoSellado.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                punitorios1KeyTyped(evt);
+                montoSelladoKeyTyped(evt);
+            }
+        });
+
+        jLabel31.setText("Cuotas Sellado: ");
+
+        Sellado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Sellado.setText("1");
+        Sellado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                SelladoKeyTyped(evt);
             }
         });
 
@@ -583,19 +595,26 @@ public class NuevoContrato extends javax.swing.JFrame {
                                     .addComponent(garantia)
                                     .addComponent(comision)
                                     .addComponent(punitorios, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                                    .addComponent(punitorios1, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboComision, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(comboPunitorio, 0, 171, Short.MAX_VALUE)
+                                    .addComponent(montoSellado, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel16)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(comboComision, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(comboPunitorio, 0, 171, Short.MAX_VALUE)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel16)
+                                                .addGap(12, 12, 12)
+                                                .addComponent(cuotasGarantia))))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jLabel31)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cuotasGarantia))))
+                                        .addComponent(Sellado))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel29)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(84, 84, 84)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -613,8 +632,8 @@ public class NuevoContrato extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(garantia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(cuotasGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cuotasGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -629,8 +648,10 @@ public class NuevoContrato extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(punitorios1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                    .addComponent(montoSellado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31)
+                    .addComponent(Sellado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jLabel29)
                 .addContainerGap())
         );
@@ -953,12 +974,12 @@ DefaultTableModel model=(DefaultTableModel)tablaCuota.getModel();
         contrato.setIdContrato(Integer.parseInt(numeroContrato.getText()));     
         contrato.setCuotaActual(1);
         
-        ExcepcionGarantia.VerificarTextField(garantia.getText(), cuotasGarantia.getText(),punitorios.getText(), comision.getText() ,punitorios1.getText());
+        ExcepcionGarantia.VerificarTextField(garantia.getText(), cuotasGarantia.getText(),punitorios.getText(), comision.getText() ,montoSellado.getText());
         
         contrato.setGarantia(Integer.parseInt(garantia.getText()));
         contrato.setEstado("Activo");
         contrato.setCuotasGarantia(Integer.parseInt(cuotasGarantia.getText()));  
-        contrato.setMontoSellado(Integer.parseInt(punitorios1.getText()));
+        contrato.setMontoSellado(Integer.parseInt(montoSellado.getText()));
         
 
         if(comboComision.getSelectedItem().equals("Monto Fijo")){       
@@ -1135,7 +1156,7 @@ char validar=evt.getKeyChar();
         // TODO add your handling code here:
     }//GEN-LAST:event_comisionActionPerformed
 
-    private void punitorios1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_punitorios1KeyTyped
+    private void montoSelladoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_montoSelladoKeyTyped
 
             char validar=evt.getKeyChar();
                     if(Character.isLetter(validar)){
@@ -1143,7 +1164,11 @@ char validar=evt.getKeyChar();
                         evt.consume();
                         JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_punitorios1KeyTyped
+    }//GEN-LAST:event_montoSelladoKeyTyped
+
+    private void SelladoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SelladoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SelladoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -1185,6 +1210,7 @@ char validar=evt.getKeyChar();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Sellado;
     private javax.swing.JComboBox<String> comboComision;
     private javax.swing.JComboBox<String> comboPunitorio;
     private javax.swing.JTextField comision;
@@ -1235,6 +1261,7 @@ char validar=evt.getKeyChar();
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1250,10 +1277,10 @@ char validar=evt.getKeyChar();
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField montoSellado;
     public static javax.swing.JTextField numeroContrato;
     public static javax.swing.JTextField propietario;
     private javax.swing.JTextField punitorios;
-    private javax.swing.JTextField punitorios1;
     private javax.swing.JButton seleccionarGara1;
     public static javax.swing.JButton seleccionarGara2;
     private javax.swing.JButton seleccionarInmueble;
@@ -1360,19 +1387,25 @@ public void AltaContrato(Contrato contrato){
             Cuota.setContrato(contrato);
             Cuota.setNroCuota(x);
             Cuota.setTotalImpuestos(0);
-            Cuota.setValorCuota(Integer.parseInt((String)  tablaCuota.getValueAt(i, 2)));         
+            Cuota.setValorCuota(Integer.parseInt((String)  tablaCuota.getValueAt(i, 2)));
             if(comboComision.getSelectedItem().equals("Monto Fijo")){
                Cuota.setComision(contrato.getHonorarios());
             }else{
                Cuota.setComision(Cuota.getValorCuota()*contrato.getHonorarios());
             }
+             if(x<=Integer.parseInt(Sellado.getText())){       
+                float valor=Float.parseFloat(montoSellado.getText())/Float.parseFloat(Sellado.getText());
+                Cuota.setTotalSellado(valor);
+            }else{
+                Cuota.setTotalSellado(0);
+            }   
             if(x<=Integer.parseInt(cuotasGarantia.getText())){       
                 float valor=Float.parseFloat(garantia.getText())/Float.parseFloat(cuotasGarantia.getText());
                 Cuota.setValorGarantia(valor);
             }else{
                 Cuota.setValorGarantia(0);
             }
-            Cuota.setTotalaPagar(Cuota.getValorCuota()+Cuota.getTotalImpuestos()+Cuota.getValorGarantia());          
+            Cuota.setTotalaPagar(Cuota.getValorCuota()+Cuota.getTotalImpuestos()+Cuota.getValorGarantia()+ Cuota.getTotalSellado());          
             gestorCuota2.AltaCuotas(Cuota);
             totalCuotas++;              
         }          
