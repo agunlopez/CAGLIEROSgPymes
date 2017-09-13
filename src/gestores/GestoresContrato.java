@@ -263,6 +263,7 @@ public class GestoresContrato {
                 pst.setDouble(14, cont.getHonorarios());               
                 pst.setInt(15, cont.getDiaPago());
                 pst.setInt(16, cont.getMontoSellado());
+
                 
 		r=pst.executeUpdate();
 
@@ -417,8 +418,8 @@ public class GestoresContrato {
         public int AltaCuotas(Cuotas contC){
 		int r=0;
 		String SQL="INSERT INTO `contratocuota`(`idContrato`, `nroCuota`, `totalImpuestos`, `valorCuota`, `montoTotal`, `punitorios`, `comicion`,"
-                        + " `valorGarantia`, `totalPagado`, `descuento`,`totalSellado` ) "
-                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                        + " `valorGarantia`, `totalPagado`, `descuento`,`totalSellado`, `expensas`) "
+                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try{PreparedStatement pst=Conexion.getConexionn().prepareStatement(SQL);
 		
@@ -433,6 +434,7 @@ public class GestoresContrato {
                 pst.setDouble(9, contC.getTotalPagado());
                 pst.setDouble(10, contC.getDescuento());
                 pst.setDouble(11, contC.getTotalSellado());
+                pst.setDouble(12, contC.getExpensas());
 
           
 		r=pst.executeUpdate();
@@ -471,8 +473,8 @@ public class GestoresContrato {
                           contratoCuota.setValorGarantia(Float.parseFloat(rs.getString("valorGarantia")));
                           contratoCuota.setDescuento(Double.parseDouble(rs.getString("descuento")));
                           contratoCuota.setPunitorios(Double.parseDouble(rs.getString("punitorios")));
-                           contratoCuota.setTotalSellado(Double.parseDouble(rs.getString("totalSellado")));
-                         
+                          contratoCuota.setTotalSellado(Double.parseDouble(rs.getString("totalSellado")));
+                          contratoCuota.setExpensas(Double.parseDouble(rs.getString("expensas")));
                           
                           
                           
@@ -519,6 +521,7 @@ public class GestoresContrato {
                           cuota.setPunitorios(Double.parseDouble(rs.getString("punitorios")));
                           cuota.setComision(Double.parseDouble(rs.getString("comicion")));
                           cuota.setTotalSellado(Double.parseDouble(rs.getString("totalSellado")));
+                          cuota.setExpensas(Double.parseDouble(rs.getString("expensas")));
                           
                           
                           
@@ -763,7 +766,7 @@ public class GestoresContrato {
         double total=0;
         ResultSet rs=null;
         
-        String sqlConsultaValor="SELECT `totalImpuestos`, `valorCuota`, `valorGarantia`, `totalPagado`,punitorios, `descuento`, `totalSellado`  FROM `contratocuota` WHERE idContrato=? and nroCuota=?";
+        String sqlConsultaValor="SELECT `totalImpuestos`, `valorCuota`, `valorGarantia`, `totalPagado`,punitorios, `descuento`, `totalSellado`,`expensas`   FROM `contratocuota` WHERE idContrato=? and nroCuota=?";
         String sqlMontoTotal="UPDATE `contratocuota` SET `montoTotal`=? WHERE idContrato=? and nroCuota=?";
         
         try{
@@ -775,7 +778,8 @@ public class GestoresContrato {
 			while(rs.next()){
                       
                             total=Double.parseDouble(rs.getString("totalImpuestos"))+Integer.parseInt(rs.getString("valorCuota"))+Double.parseDouble(rs.getString("valorGarantia"))
-                                    +Double.parseDouble(rs.getString("punitorios"))+Double.parseDouble(rs.getString("totalSellado"))-Double.parseDouble(rs.getString("totalPagado"))-Double.parseDouble(rs.getString("descuento"));
+                                    +Double.parseDouble(rs.getString("punitorios"))+Double.parseDouble(rs.getString("totalSellado"))+Double.parseDouble(rs.getString("expensas"))
+                                    -Double.parseDouble(rs.getString("totalPagado"))-Double.parseDouble(rs.getString("descuento"));
                         }
                   
             PreparedStatement pst2=Conexion.getConexionn().prepareStatement(sqlMontoTotal);  

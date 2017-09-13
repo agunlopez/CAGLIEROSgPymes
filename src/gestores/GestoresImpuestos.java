@@ -235,6 +235,51 @@ public int GestorAltaTitular(TitularImpuesto titular){
 	}
         return r;
     }
+     public int ActualizarExpensas(double expensas,int idContrato, int nroCuota) throws SQLException{
+        
+        int r=0;
+        ResultSet rs=null;
+        
+        String sqlActualizar="UPDATE `contratocuota` SET `expensas`=? WHERE idContrato=? and nroCuota=?";
+          
+        try{
+                   
+            PreparedStatement pst2=Conexion.getConexionn().prepareStatement(sqlActualizar);  
+            pst2.setDouble(1, expensas);
+            pst2.setInt(2, idContrato);
+            pst2.setInt(3, nroCuota);
+            r=pst2.executeUpdate();
+                        
+                                                                       
+        }catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al actualizar el Descuento"+e.toString());
+		
+	}
+        return r;
+    }
+       
+    public static String TraerValorExpensas(int idContrato,int nroCuota) throws SQLException{
+        
+        String descuento="";
+        String sql="SELECT expensas FROM `contratocuota` WHERE idContrato=? AND nroCuota=?";
+        ResultSet rs=null;
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+            pst.setInt(1, idContrato);
+            pst.setInt(2, nroCuota);
+            rs=pst.executeQuery();
+
+			while(rs.next()){
+                            descuento=rs.getString("expensas");
+                        }
+            
+        }catch (SQLException e) {
+            JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Expensas "+e.toString());
+		
+	}
+        return descuento;
+    }
+    
     
     public static String TraerValorDescuento(int idContrato,int nroCuota) throws SQLException{
         

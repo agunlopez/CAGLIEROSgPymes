@@ -31,9 +31,13 @@ public class RenderEliminarImpuesto extends DefaultTableCellRenderer{
         
          TableColumnModel columnModel = tablaImpuestos.getColumnModel();
         columnModel.getColumn(0).setCellRenderer(new RenderFondoImpuesto());
+        columnModel.getColumn(0).setPreferredWidth(50);
         columnModel.getColumn(1).setCellRenderer(new RenderFondoImpuesto());
+         columnModel.getColumn(1).setPreferredWidth(85);
         columnModel.getColumn(2).setCellRenderer(new RenderFondoImpuesto());
+         columnModel.getColumn(2).setPreferredWidth(85);
         columnModel.getColumn(3).setCellRenderer(new RenderFondoImpuesto());
+         columnModel.getColumn(3).setPreferredWidth(85);
 
 
 

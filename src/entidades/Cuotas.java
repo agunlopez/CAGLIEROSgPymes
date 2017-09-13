@@ -24,7 +24,17 @@ public class Cuotas {
     private Contrato contrato;
     private CuotaImpuesto cuotaImpuesto;
     private double totalSellado;
+    private double expensas;
 
+    public double getExpensas() {
+        return expensas;
+    }
+
+    public void setExpensas(double expensas) {
+        this.expensas = expensas;
+    }
+    
+    
     public double getTotalSellado() {
         return totalSellado;
     }

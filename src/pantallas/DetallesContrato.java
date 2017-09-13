@@ -1322,35 +1322,52 @@ public class DetallesContrato extends javax.swing.JFrame {
              if(habilitarTabla==true){
             ((JButton)value).doClick();
             JButton boton=(JButton) value;
-            if(boton.getName().equals("a")){
-                ModeloDetalleCuotasContrato modelo=(ModeloDetalleCuotasContrato)tablaDetalle.getModel();
-            int rowDetalle  = tablaDetalle.getSelectedRow()+1;
-            String Periodo= (String) tablaDetalle.getValueAt(row, 0);                       
-            
-           AgregarImpuestoCuota agregarImp=new AgregarImpuestoCuota();
-            
-           AgregarImpuestoCuota.nroCuota=row+1;
-           AgregarImpuestoCuota.idPeriodo.setText(PrincipalAdministrador.idConsAsociado+" - "+Periodo);
-           agregarImp.pack();
-           agregarImp.setLocationRelativeTo(null);
-           agregarImp.setVisible(true);
-           }
-           if(boton.getName().equals("d")){
-            String Periodo= (String) tablaDetalle.getValueAt(row, 0);  
-               Descuento descuento=new Descuento();
-               descuento.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
-               descuento.periodo.setText(Periodo);
-               int nroCuota=row+1;
-               descuento.numeroCuota=row+1;
-                try {
-                    
-                    Descuento.importeDescuento.setText(GestoresImpuestos.TraerValorDescuento(PrincipalAdministrador.idConsAsociado, nroCuota));
-                } catch (SQLException ex) {
-                    Logger.getLogger(DetallesContrato.class.getName()).log(Level.SEVERE, null, ex);
-                }
-               descuento.setLocationRelativeTo(null);
-               descuento.setVisible(true);
-           }        
+//            if(boton.getName().equals("a")){
+//                ModeloDetalleCuotasContrato modelo=(ModeloDetalleCuotasContrato)tablaDetalle.getModel();
+//            int rowDetalle  = tablaDetalle.getSelectedRow()+1;
+//            String Periodo= (String) tablaDetalle.getValueAt(row, 0);                       
+//            
+//           AgregarImpuestoCuota agregarImp=new AgregarImpuestoCuota();
+//            
+//           AgregarImpuestoCuota.nroCuota=row+1;
+//           AgregarImpuestoCuota.idPeriodo.setText(PrincipalAdministrador.idConsAsociado+" - "+Periodo);
+//           agregarImp.pack();
+//           agregarImp.setLocationRelativeTo(null);
+//           agregarImp.setVisible(true);
+//           }
+                    if(boton.getName().equals("a")){
+                    String Periodo= (String) tablaDetalle.getValueAt(row, 0);  
+                       Expensas expensas=new Expensas();
+                       expensas.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
+                       expensas.periodo.setText(Periodo);
+                       int nroCuota=row+1;
+                       expensas.numeroCuota=row+1;
+                        try {
+
+                            Expensas.importeExpensas.setText(GestoresImpuestos.TraerValorExpensas(PrincipalAdministrador.idConsAsociado, nroCuota));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(DetallesContrato.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                       expensas.setLocationRelativeTo(null);
+                       expensas.setVisible(true);
+                   }        
+
+                   if(boton.getName().equals("d")){
+                    String Periodo= (String) tablaDetalle.getValueAt(row, 0);  
+                       Descuento descuento=new Descuento();
+                       descuento.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
+                       descuento.periodo.setText(Periodo);
+                       int nroCuota=row+1;
+                       descuento.numeroCuota=row+1;
+                        try {
+
+                            Descuento.importeDescuento.setText(GestoresImpuestos.TraerValorDescuento(PrincipalAdministrador.idConsAsociado, nroCuota));
+                        } catch (SQLException ex) {
+                            Logger.getLogger(DetallesContrato.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                       descuento.setLocationRelativeTo(null);
+                       descuento.setVisible(true);
+                   }        
             }else{
             JOptionPane.showMessageDialog(new JDialog(),"El contrato ya esta Finalizado");
         }

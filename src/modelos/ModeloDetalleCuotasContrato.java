@@ -28,13 +28,13 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
   
     ArrayList<Cuotas> lista = null;
     Font negrita = new Font("Arial", Font.BOLD, 14);
-    public static JButton btnAgregar= new JButton("Agregar");
+    public static JButton btnAgregar= new JButton("Expensas");
     public static JButton btnDescuento= new JButton("Descuento");
     public static JButton brnExpensas= new JButton("Expensas");
     
 
 
-    final String[] COLUMN_NAMES = {"Periodo","Precio Alquiler $","Total Impuestos $","Punitorios $","Total a Pagar $","Total Pagado $","Descuento $","Monto Sellado $","Garantia $","Agregar","Descuento"}; //cambiar los titulos
+    final String[] COLUMN_NAMES = {"Periodo","Precio Alquiler $","Total Impuestos $","Punitorios $","Total a Pagar $","Total Pagado $","Descuento $","Expensas $","Monto Sellado $","Garantia $","Expensas","Descuento"}; //cambiar los titulos
     //retormanos el numero de elementos del array de datos
 
     public ModeloDetalleCuotasContrato(ArrayList lista) {
@@ -49,7 +49,7 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
     
     @Override
     public int getColumnCount() {
-        return 11;//numeros de titulos
+        return 12;//numeros de titulos
     }
 
     @Override
@@ -113,15 +113,17 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
                         
                         case 6: return lista.get(fila).getDescuento();
                         
-                        case 7: return lista.get(fila).getTotalSellado();
+                        case 7: return lista.get(fila).getExpensas();
                         
-                        case 8: return df.format(lista.get(fila).getValorGarantia());  
+                        case 8: return lista.get(fila).getTotalSellado();
+                        
+                        case 9: return df.format(lista.get(fila).getValorGarantia());  
   
-                        case 9: return btnAgregar;
+                        case 10: return btnAgregar;
                         
-                        case 10: return btnDescuento;
+                        case 11: return btnDescuento;
                         
-                        case 11: return brnExpensas;
+
                         
                         
                         
