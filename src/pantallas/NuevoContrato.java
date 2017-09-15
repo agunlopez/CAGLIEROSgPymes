@@ -1388,6 +1388,7 @@ public void AltaContrato(Contrato contrato){
             Cuota.setNroCuota(x);
             Cuota.setTotalImpuestos(0);
             Cuota.setValorCuota(Integer.parseInt((String)  tablaCuota.getValueAt(i, 2)));
+            Cuota.setPagoParcial("A");
             if(comboComision.getSelectedItem().equals("Monto Fijo")){
                Cuota.setComision(contrato.getHonorarios());
             }else{

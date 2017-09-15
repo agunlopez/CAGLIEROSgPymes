@@ -25,6 +25,15 @@ public class Cuotas {
     private CuotaImpuesto cuotaImpuesto;
     private double totalSellado;
     private double expensas;
+    private String pagoParcial;
+
+    public String getPagoParcial() {
+        return pagoParcial;
+    }
+
+    public void setPagoParcial(String pagoParcial) {
+        this.pagoParcial = pagoParcial;
+    }
 
     public double getExpensas() {
         return expensas;

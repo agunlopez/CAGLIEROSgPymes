@@ -173,7 +173,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtTotalPagado = new javax.swing.JTextField();
+        txtexpensas = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
@@ -182,12 +182,21 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         jLabel6 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtGanancia = new javax.swing.JTextField();
+        txtImpuestos = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        txtHonorarios = new javax.swing.JTextField();
+        txtGarantia = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        txtsellado = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        txtAlquiler = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         tablaCaja = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -695,10 +704,10 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Total Pagado");
+        jLabel4.setText("Expensas");
 
-        txtTotalPagado.setEditable(false);
-        txtTotalPagado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtexpensas.setEditable(false);
+        txtexpensas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -717,17 +726,17 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(0, 44, Short.MAX_VALUE))
+                        .addGap(0, 41, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotalPagado)))
+                        .addComponent(txtexpensas)))
                 .addContainerGap())
             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel14Layout.createSequentialGroup()
                     .addGap(69, 69, 69)
                     .addComponent(jLabel9)
-                    .addContainerGap(70, Short.MAX_VALUE)))
+                    .addContainerGap(45, Short.MAX_VALUE)))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -735,7 +744,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalPagado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtexpensas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(0, 11, Short.MAX_VALUE))
             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,7 +783,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(0, 37, Short.MAX_VALUE))
+                        .addGap(0, 12, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -799,10 +808,10 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Saldo Caja");
+        jLabel5.setText("Impuestos");
 
-        txtGanancia.setEditable(false);
-        txtGanancia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtImpuestos.setEditable(false);
+        txtImpuestos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -817,11 +826,11 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(0, 60, Short.MAX_VALUE))
+                        .addGap(0, 35, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtGanancia)))
+                        .addComponent(txtImpuestos)))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
@@ -830,7 +839,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGanancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtImpuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
@@ -841,10 +850,10 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Honorarios");
+        jLabel7.setText("Garantia");
 
-        txtHonorarios.setEditable(false);
-        txtHonorarios.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtGarantia.setEditable(false);
+        txtGarantia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -859,11 +868,11 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(0, 58, Short.MAX_VALUE))
+                        .addGap(0, 49, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtHonorarios)))
+                        .addComponent(txtGarantia)))
                 .addContainerGap())
         );
         jPanel18Layout.setVerticalGroup(
@@ -872,8 +881,111 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtHonorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGarantia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
+        jPanel17.setBackground(java.awt.Color.red);
+        jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel17.setPreferredSize(new java.awt.Dimension(150, 60));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Sellado");
+
+        txtsellado.setEditable(false);
+        txtsellado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("$");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("$");
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(0, 57, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtsellado)))
+                .addContainerGap())
+            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel17Layout.createSequentialGroup()
+                    .addGap(69, 69, 69)
+                    .addComponent(jLabel15)
+                    .addContainerGap(45, Short.MAX_VALUE)))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtsellado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(0, 11, Short.MAX_VALUE))
+            .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel17Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(jLabel15)
+                    .addContainerGap(21, Short.MAX_VALUE)))
+        );
+
+        jPanel19.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel19.setPreferredSize(new java.awt.Dimension(150, 60));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Alquileres");
+
+        txtAlquiler.setEditable(false);
+        txtAlquiler.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtAlquiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAlquilerActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("$");
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel19Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(0, 44, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAlquiler)))
+                .addContainerGap())
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
@@ -883,20 +995,26 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1688,7 +1806,7 @@ x=GestoresContrato.consultaIdContrato()+1;
    ModeloTablaCaja modeloCaja=new ModeloTablaCaja(listaCaja){
        @Override
                 public Class getColumnClass(int columna) {
-                    if (columna == 1 || columna == 2 || columna == 8 || columna == 9)
+                    if (columna == 1 || columna == 2 || columna == 9 || columna == 10)
                         return Integer.class;
                     return String.class;
                 }
@@ -1862,6 +1980,7 @@ x=GestoresContrato.consultaIdContrato()+1;
         int mesActual=ahora.get((Calendar.MONTH));
         int añoActual=ahora.get(Calendar.YEAR);
         String periodo;
+        
         if (jComboBox1.getSelectedItem().equals("Desde el origen de los tiempos")){
             ArrayList listaCaja=GestorMovimientos.consultaTabla();                                      
             ModeloTablaCaja modeloCaja=new ModeloTablaCaja(listaCaja){
@@ -1876,7 +1995,7 @@ x=GestoresContrato.consultaIdContrato()+1;
    tablaCaja.setModel(modeloCaja);
    
    DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-    tcr.setHorizontalAlignment(SwingConstants.LEFT);
+   tcr.setHorizontalAlignment(SwingConstants.LEFT);
    tablaCaja.getColumnModel().getColumn(1).setCellRenderer(tcr);
    tablaCaja.getColumnModel().getColumn(8).setCellRenderer(tcr);
    tablaCaja.setRowSorter(modeloOrdenadoCaja);
@@ -1931,7 +2050,6 @@ x=GestoresContrato.consultaIdContrato()+1;
    tablaCaja.getColumnModel().getColumn(1).setMaxWidth(100);
    tablaCaja.getColumnModel().getColumn(2).setMaxWidth(50);
    actualizarSaldos();                                                                       
-   actualizarSaldos();
         }else{
             periodo="%/"+añoActual+"%";
             ArrayList listaCaja=GestorMovimientos.consultaTablaPorEstado(periodo);            
@@ -1947,7 +2065,7 @@ x=GestoresContrato.consultaIdContrato()+1;
    tablaCaja.setModel(modeloCaja);
    
    DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-    tcr.setHorizontalAlignment(SwingConstants.LEFT);
+   tcr.setHorizontalAlignment(SwingConstants.LEFT);
    tablaCaja.getColumnModel().getColumn(1).setCellRenderer(tcr);
    tablaCaja.getColumnModel().getColumn(8).setCellRenderer(tcr);
    tablaCaja.setRowSorter(modeloOrdenadoCaja);
@@ -2176,7 +2294,7 @@ AltaCliente altaPropietario=new AltaCliente();
         try{
             conexion.ConexionReporte con=new conexion.ConexionReporte();
 
-            JasperReport listaInmuebles=JasperCompileManager.compileReport("https://github.com/agunlopez/CAGLIEROSgPymes/tree/master/src/Recibos/listaInmueblesDisponibles.jrxml");           
+            JasperReport listaInmuebles=JasperCompileManager.compileReport("C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\listaInmueblesDisponibles.jrxml");           
             JasperPrint jasperPrint=JasperFillManager.fillReport(listaInmuebles, null, con.conexion());
             
             
@@ -2301,6 +2419,10 @@ AltaCliente altaPropietario=new AltaCliente();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalCobradoActionPerformed
 
+    private void txtAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlquilerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAlquilerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2365,6 +2487,11 @@ AltaCliente altaPropietario=new AltaCliente();
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2403,7 +2530,9 @@ AltaCliente altaPropietario=new AltaCliente();
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2438,10 +2567,12 @@ AltaCliente altaPropietario=new AltaCliente();
     private javax.swing.JTable tablaInquilinos;
     private javax.swing.JTable tablaPropietarios;
     private javax.swing.JTable table;
-    private static javax.swing.JTextField txtGanancia;
-    private static javax.swing.JTextField txtHonorarios;
+    private static javax.swing.JTextField txtAlquiler;
+    private static javax.swing.JTextField txtGarantia;
+    private static javax.swing.JTextField txtImpuestos;
     private static javax.swing.JTextField txtTotalCobrado;
-    private static javax.swing.JTextField txtTotalPagado;
+    private static javax.swing.JTextField txtexpensas;
+    private static javax.swing.JTextField txtsellado;
     // End of variables declaration//GEN-END:variables
 
     private ArrayList listaInmueble=new ArrayList();
@@ -2469,37 +2600,73 @@ AltaCliente altaPropietario=new AltaCliente();
      
      
      public static void actualizarSaldos(){
-         
-        double totalCobrado=0;
-        double totalPagado=0;
-        double honorarios=0;
-        for(int i=0; i<tablaCaja.getRowCount();i++){
-            if(tablaCaja.getValueAt(i,7).equals("Ingreso")){
-                String cobrado=tablaCaja.getValueAt(i,8).toString();
-                totalCobrado=totalCobrado+Double.parseDouble(cobrado);
-            }else{
-               String pagado=tablaCaja.getValueAt(i,8).toString();
-               totalPagado=totalPagado+Double.parseDouble(pagado); 
-            }            
-        }
-   
-        for(int i=0; i<tablaCaja.getRowCount();i++){
-            if(tablaCaja.getValueAt(i,9).equals(" ")){
-                honorarios=honorarios+0;
-            }else{
-                honorarios=honorarios+Double.parseDouble((String) tablaCaja.getValueAt(i,9));
-            }            
-        }
         
-        double ganancia=totalCobrado-totalPagado;
+        double totalCobrado=0;
+        double expensas=0;
+        double impuestos=0;
+        double garantia=0;
+        double sellado=0;
+        double alquiler=0;
+        double cob=0;
+        
+        for(int i=0; i<tablaCaja.getRowCount();i++){
+            
+            if(tablaCaja.getValueAt(i,7).equals("Ingreso")){
+                
+              
+                String cobrado=tablaCaja.getValueAt(i,8).toString();
+                String ex=tablaCaja.getValueAt(i,9).toString();
+                String imp=tablaCaja.getValueAt(i,11).toString();
+                String gar=tablaCaja.getValueAt(i,12).toString();
+                String sell=tablaCaja.getValueAt(i,13).toString();
+                String alq=tablaCaja.getValueAt(i,14).toString();
+                totalCobrado=totalCobrado+Double.parseDouble(cobrado);
+                cob=Double.parseDouble(cobrado);
+                if(cob>Double.parseDouble(ex) ){
+                    expensas=expensas+Double.parseDouble(ex);
+                    cob=cob-Double.parseDouble(ex);
+                }
+                    
+                if(cob>Double.parseDouble(imp) ){
+                     impuestos=impuestos+Double.parseDouble(imp);
+                    cob=cob-Double.parseDouble(imp);
+                }
+                 if(cob>Double.parseDouble(gar) ){
+                    garantia=garantia+Double.parseDouble(gar);
+                    cob=cob-Double.parseDouble(gar);
+                }
+                if(cob>Double.parseDouble(sell) ){
+                    sellado=sellado+Double.parseDouble(sell);
+                    cob=cob-Double.parseDouble(sell);
+                }
+                 if(cob>Double.parseDouble(sell) ){
+                    alquiler=alquiler+Double.parseDouble(alq);
+                    cob=cob-Double.parseDouble(sell);
+                }
+                 
+                 
+//                expensas=expensas+Double.parseDouble(ex);
+// 
+//                impuestos=impuestos+Double.parseDouble(imp);
+//                
+//                garantia=garantia+Double.parseDouble(gar);
+//                
+//                sellado=sellado+Double.parseDouble(sell);
+//                
+//                alquiler=alquiler+Double.parseDouble(alq);
+
+            }            
+        }
         
         DecimalFormat df= new DecimalFormat("#0.00");
 
 
         txtTotalCobrado.setText(df.format(totalCobrado));
-        txtTotalPagado.setText(df.format(totalPagado));
-        txtGanancia.setText(df.format(ganancia));
-        txtHonorarios.setText(df.format(honorarios));
+        txtexpensas.setText(df.format(expensas));
+        txtImpuestos.setText(df.format(impuestos));
+        txtGarantia.setText(df.format(garantia));
+        txtsellado.setText(df.format(sellado));
+        txtAlquiler.setText(df.format(alquiler));
         
      }
 

@@ -20,7 +20,17 @@ public class Movimiento {
     private PropietarioPago propietarioPago;
     private Contrato contrato;
     private CuotaImpuesto cuotaImpuesto;
+    private int nroCuota;
 
+    public int getNroCuota() {
+        return nroCuota;
+    }
+
+    public void setNroCuota(int nroCuota) {
+        this.nroCuota = nroCuota;
+    }
+    
+    
     public CuotaImpuesto getCuotaImpuesto() {
         return cuotaImpuesto;
     }

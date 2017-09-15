@@ -61,12 +61,14 @@ public class GestorMovimientos {
        
        ResultSet rs=null;
        
-       String sql2="SELECT movimientos.*,inmueble.calle,inmueble.piso,inmueble.dpto,"
-               + "prop.apellido,prop.nombre,inq.apellido,inq.nombre"
-               + " FROM `movimientos` INNER JOIN contrato ON movimientos.idContrato=contrato.idContrato"
-               + " INNER JOIN inmueble on contrato.idInmueble=inmueble.idInmueble"
-               + " INNER JOIN cliente as prop on inmueble.idPropietario=prop.idCliente "
-               + "INNER JOIN cliente as inq on contrato.idInquilino=inq.idCliente";
+       String sql2="SELECT movimientos.*,cuota.totalImpuestos,cuota.totalPagado,cuota.totalSellado,cuota.valorGarantia,cuota.expensas,inmueble.calle,inmueble.piso,inmueble.dpto,"
+               +"prop.apellido,prop.nombre,inq.apellido,inq.nombre " 
+               +"FROM `movimientos` INNER JOIN contrato on movimientos.idContrato=contrato.idContrato "
+               +"INNER JOIN inmueble on contrato.idInmueble=inmueble.idInmueble " 
+               +"INNER JOIN cliente as prop on inmueble.idPropietario=prop.idCliente " 
+               +"INNER JOIN cliente as inq on contrato.idInquilino=inq.idCliente  " 
+               +"INNER JOIN contratocuota as cuota on contrato.idContrato=cuota.idContrato";
+
        String sql="SELECT movimientos.fecha,inmueble.calle,inmueble.numero,inmueble.piso,inmueble.dpto,prop.apellido,prop.nombre,inq.apellido,inq.nombre,movimientos.ingreso"
                + ",movimientos.egreso FROM `movimientos`,inmueble,cliente as prop,cliente as inq"
                + " WHERE movimientos.idInmueble=inmueble.idInmueble and movimientos.idInquilino=inq.idCliente and movimientos.idPropietario=prop.idCliente";
@@ -85,8 +87,7 @@ public class GestorMovimientos {
                             
                             inm.setCalle(rs.getString("inmueble.calle"));
                             inm.setPiso(rs.getString("inmueble.piso"));
-                            inm.setDpto(rs.getString("inmueble.dpto"));
-                            
+                            inm.setDpto(rs.getString("inmueble.dpto")); 
                             prop.setApellido(rs.getString("prop.apellido"));
                             prop.setNombre(rs.getString("prop.nombre"));
                             inm.setPropietario(prop);
@@ -96,11 +97,15 @@ public class GestorMovimientos {
                             contrato.setIdContrato(Integer.parseInt(rs.getString("movimientos.idContrato")));
                             contrato.setInmueble(inm);
                             contrato.setInquilino(inq);
-                            cuota.setNroCuota(Integer.parseInt(rs.getString("movimientos.nroCuota")));
+                            cuota.setNroCuota(Integer.parseInt(rs.getString("movimientos.nroCuota")));;
+                            cuota.setExpensas(Double.parseDouble(rs.getString("cuota.expensas")));
+                            cuota.setTotalSellado(Double.parseDouble(rs.getString("cuota.totalSellado")));
+                            cuota.setTotalImpuestos(Double.parseDouble(rs.getString("cuota.totalImpuestos")));
+                            cuota.setValorGarantia(Double.parseDouble(rs.getString("cuota.valorGarantia")));
+                            
                             mov.setFecha(rs.getString("movimientos.fecha"));
                             mov.setValorMovimiento(Double.parseDouble(rs.getString("valorMov")));
                             mov.setTipoMovimiento(rs.getString("tipoMov"));
-                            
                             mov.setRecibo(Integer.parseInt(rs.getString("recibo")));
                             mov.setHonorarios(Double.parseDouble(rs.getString("honorariosCobrados")));
                             mov.setContrato(contrato);
@@ -173,12 +178,15 @@ public class GestorMovimientos {
        
        ResultSet rs=null;
        
-       String sql2="SELECT movimientos.*,inmueble.calle,inmueble.piso,inmueble.dpto,"
-               + "prop.apellido,prop.nombre,inq.apellido,inq.nombre"
-               + " FROM `movimientos` INNER JOIN contrato ON movimientos.idContrato=contrato.idContrato"
-               + " INNER JOIN inmueble on contrato.idInmueble=inmueble.idInmueble"
-               + " INNER JOIN cliente as prop on inmueble.idPropietario=prop.idCliente "
-               + "INNER JOIN cliente as inq on contrato.idInquilino=inq.idCliente WHERE movimientos.fecha like ?";
+       String sql2="SELECT movimientos.*,cuota.totalImpuestos,cuota.valorCuota " 
+               +",cuota.totalPagado,cuota.totalSellado,cuota.valorGarantia,cuota.expensas,inmueble.calle,inmueble.piso,inmueble.dpto, " 
+               +"prop.apellido,prop.nombre,inq.apellido,inq.nombre " 
+               +"FROM `movimientos` INNER JOIN contrato on movimientos.idContrato=contrato.idContrato " 
+               +"INNER JOIN inmueble on contrato.idInmueble=inmueble.idInmueble " 
+               +"INNER JOIN cliente as prop on inmueble.idPropietario=prop.idCliente " 
+               +"INNER JOIN cliente as inq on contrato.idInquilino=inq.idCliente " 
+               +"INNER JOIN contratocuota as cuota on contrato.idContrato=cuota.idContrato WHERE movimientos.fecha like ? ";
+       
        String sql="SELECT movimientos.fecha,inmueble.calle,inmueble.numero,inmueble.piso,inmueble.dpto,prop.apellido,prop.nombre,inq.apellido,inq.nombre,movimientos.ingreso"
                + ",movimientos.egreso FROM `movimientos`,inmueble,cliente as prop,cliente as inq"
                + " WHERE movimientos.idInmueble=inmueble.idInmueble and movimientos.idInquilino=inq.idCliente and movimientos.idPropietario=prop.idCliente";
@@ -195,6 +203,8 @@ public class GestorMovimientos {
                             inq=new Cliente();
                             contrato=new Contrato();
                             cuota=new Cuotas();
+                           
+                            
                             
                             inm.setCalle(rs.getString("inmueble.calle"));
                             inm.setPiso(rs.getString("inmueble.piso"));
@@ -210,10 +220,14 @@ public class GestorMovimientos {
                             contrato.setInmueble(inm);
                             contrato.setInquilino(inq);
                             cuota.setNroCuota(Integer.parseInt(rs.getString("movimientos.nroCuota")));
+                            cuota.setExpensas(Double.parseDouble(rs.getString("cuota.expensas")));
+                            cuota.setTotalSellado(Double.parseDouble(rs.getString("cuota.totalSellado")));
+                            cuota.setTotalImpuestos(Double.parseDouble(rs.getString("cuota.totalImpuestos")));
+                            cuota.setValorGarantia(Double.parseDouble(rs.getString("cuota.valorGarantia")));
+                            cuota.setValorCuota(Integer.parseInt(rs.getString("cuota.valorCuota")));
                             mov.setFecha(rs.getString("movimientos.fecha"));
                             mov.setValorMovimiento(Double.parseDouble(rs.getString("valorMov")));
-                            mov.setTipoMovimiento(rs.getString("tipoMov"));
-                            
+                            mov.setTipoMovimiento(rs.getString("tipoMov"));                            
                             mov.setRecibo(Integer.parseInt(rs.getString("recibo")));
                             mov.setHonorarios(Double.parseDouble(rs.getString("honorariosCobrados")));
                             mov.setContrato(contrato);

@@ -418,8 +418,8 @@ public class GestoresContrato {
         public int AltaCuotas(Cuotas contC){
 		int r=0;
 		String SQL="INSERT INTO `contratocuota`(`idContrato`, `nroCuota`, `totalImpuestos`, `valorCuota`, `montoTotal`, `punitorios`, `comicion`,"
-                        + " `valorGarantia`, `totalPagado`, `descuento`,`totalSellado`, `expensas`) "
-                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + " `valorGarantia`, `totalPagado`, `descuento`,`totalSellado`, `expensas`,`pagoParcial`) "
+                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try{PreparedStatement pst=Conexion.getConexionn().prepareStatement(SQL);
 		
@@ -435,6 +435,7 @@ public class GestoresContrato {
                 pst.setDouble(10, contC.getDescuento());
                 pst.setDouble(11, contC.getTotalSellado());
                 pst.setDouble(12, contC.getExpensas());
+                pst.setString(13, contC.getPagoParcial());
 
           
 		r=pst.executeUpdate();
@@ -522,6 +523,8 @@ public class GestoresContrato {
                           cuota.setComision(Double.parseDouble(rs.getString("comicion")));
                           cuota.setTotalSellado(Double.parseDouble(rs.getString("totalSellado")));
                           cuota.setExpensas(Double.parseDouble(rs.getString("expensas")));
+                          cuota.setPagoParcial(rs.getString("pagoParcial"));
+                          
                           
                           
                           
@@ -607,6 +610,7 @@ public class GestoresContrato {
                 pst.setDouble(1, totalPagado);
                 pst.setInt(2, idContrato);
                 pst.setInt(3, cuotaActual);
+                
                 
 		r=pst.executeUpdate();
 		}

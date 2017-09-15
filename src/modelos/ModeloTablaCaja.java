@@ -12,7 +12,7 @@ import pantallas.ListaInmueble;
 
 public class ModeloTablaCaja extends AbstractTableModel {
 
-    final String[] COLUMN_NAMES = {"Recibo","ID Contrato","Cuota","Fecha","Inmueble","Inquilino","Propietario","Tipo Movimiento","Valor $","Honorarios $"}; //cambiar los titulos
+    final String[] COLUMN_NAMES = {"Recibo","ID Contrato","Cuota","Fecha","Inmueble","Inquilino","Propietario","Tipo Movimiento","Valor $","Expensas $","Honorarios $","Impuestos $","Garantias $","Sellado $","Valor Cuota $"}; //cambiar los titulos
     ArrayList<Movimiento> lista = null;
     //retormanos el numero de elementos del array de datos
 
@@ -28,7 +28,7 @@ public class ModeloTablaCaja extends AbstractTableModel {
     
     @Override
     public int getColumnCount() {
-        return 10;//numeros de titulos
+        return 15;//numeros de titulos
     }
 
     @Override
@@ -49,7 +49,8 @@ public class ModeloTablaCaja extends AbstractTableModel {
             if(lista.get(fila).getTipoMovimiento().equals("E")){
                 tipo="Egreso";
             }
-            
+           
+          
            
             if(lista.get(fila).getHonorarios()==0){
                 honorarios=" ";
@@ -69,7 +70,7 @@ public class ModeloTablaCaja extends AbstractTableModel {
                 
                 case 3: return lista.get(fila).getFecha();
                 
-               case 4: return lista.get(fila).getContrato().getInmueble().getCalle()+" "+lista.get(fila).getContrato().getInmueble().getPiso()+" "+lista.get(fila).getContrato().getInmueble().getDpto();
+                case 4: return lista.get(fila).getContrato().getInmueble().getCalle()+" "+lista.get(fila).getContrato().getInmueble().getPiso()+" "+lista.get(fila).getContrato().getInmueble().getDpto();
                 
                 case 5: return lista.get(fila).getContrato().getInquilino().getApellido()+" "+lista.get(fila).getContrato().getInquilino().getNombre();
                 
@@ -79,7 +80,22 @@ public class ModeloTablaCaja extends AbstractTableModel {
                 
                 case 8: return lista.get(fila).getValorMovimiento();
                 
-                case 9: return honorarios;
+                case 9: return lista.get(fila).getContratoCuota().getExpensas();
+                
+                case 10: return honorarios;
+                
+                case 11 : return lista.get(fila).getContratoCuota().getTotalImpuestos();
+                
+                case 12 : return lista.get(fila).getContratoCuota().getValorGarantia();
+                
+                case 13 : return lista.get(fila).getContratoCuota().getTotalSellado();
+                
+                case 14 : return lista.get(fila).getContratoCuota().getValorCuota();
+                
+              
+                
+                
+                
                
                 
                 default:
