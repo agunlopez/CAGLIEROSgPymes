@@ -21,6 +21,64 @@ public class Movimiento {
     private Contrato contrato;
     private CuotaImpuesto cuotaImpuesto;
     private int nroCuota;
+    private double expensasPagas;
+    private double impuestosPagos;
+    private double selladosPagos;
+    private double garantiaPagos;
+    private double alquileresPagos;
+    private String asignacion;
+
+    public String getAsignacion() {
+        return asignacion;
+    }
+
+    public void setAsignacion(String asignacion) {
+        this.asignacion = asignacion;
+    }
+    
+    
+
+    public double getExpensasPagas() {
+        return expensasPagas;
+    }
+
+    public void setExpensasPagas(double expensasPagas) {
+        this.expensasPagas = expensasPagas;
+    }
+
+    public double getImpuestosPagos() {
+        return impuestosPagos;
+    }
+
+    public void setImpuestosPagos(double impuestosPagos) {
+        this.impuestosPagos = impuestosPagos;
+    }
+
+    public double getSelladosPagos() {
+        return selladosPagos;
+    }
+
+    public void setSelladosPagos(double selladosPagos) {
+        this.selladosPagos = selladosPagos;
+    }
+
+    public double getGarantiaPagos() {
+        return garantiaPagos;
+    }
+
+    public void setGarantiaPagos(double garantiaPagos) {
+        this.garantiaPagos = garantiaPagos;
+    }
+
+    public double getAlquileresPagos() {
+        return alquileresPagos;
+    }
+
+    public void setAlquileresPagos(double alquileresPagos) {
+        this.alquileresPagos = alquileresPagos;
+    }
+    
+    
 
     public int getNroCuota() {
         return nroCuota;

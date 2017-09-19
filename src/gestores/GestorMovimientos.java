@@ -28,8 +28,8 @@ public class GestorMovimientos {
     
     public int AltaIngreso(Movimiento ingreso)throws IOException{
         int r=0;
-        String sql="INSERT INTO `movimientos`(`tipoMov`, `valorMov`, `fecha`, `idContrato`, `nroCuota`,honorariosCobrados)"
-                + " VALUES (?,?,?,?,?,?)";
+        String sql="INSERT INTO `movimientos`(`tipoMov`, `valorMov`, `fecha`, `idContrato`, `nroCuota`,honorariosCobrados,`alquilerPago`,`expensasPagas`,`selladoPago`,`impuestoPago`,`garantiaPaga` )"
+                + " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
            
@@ -39,6 +39,11 @@ public class GestorMovimientos {
             pst.setInt(4, ingreso.getContrato().getIdContrato());
             pst.setInt(5, ingreso.getContratoCuota().getNroCuota());
             pst.setDouble(6, ingreso.getHonorarios());
+            pst.setDouble(7, ingreso.getAlquileresPagos());
+            pst.setDouble(8, ingreso.getExpensasPagas());
+            pst.setDouble(9, ingreso.getSelladosPagos());
+            pst.setDouble(10, ingreso.getImpuestosPagos());
+            pst.setDouble(11, ingreso.getGarantiaPagos());
             
             r=pst.executeUpdate();
             
@@ -178,14 +183,13 @@ public class GestorMovimientos {
        
        ResultSet rs=null;
        
-       String sql2="SELECT movimientos.*,cuota.totalImpuestos,cuota.valorCuota " 
-               +",cuota.totalPagado,cuota.totalSellado,cuota.valorGarantia,cuota.expensas,inmueble.calle,inmueble.piso,inmueble.dpto, " 
-               +"prop.apellido,prop.nombre,inq.apellido,inq.nombre " 
-               +"FROM `movimientos` INNER JOIN contrato on movimientos.idContrato=contrato.idContrato " 
-               +"INNER JOIN inmueble on contrato.idInmueble=inmueble.idInmueble " 
-               +"INNER JOIN cliente as prop on inmueble.idPropietario=prop.idCliente " 
-               +"INNER JOIN cliente as inq on contrato.idInquilino=inq.idCliente " 
-               +"INNER JOIN contratocuota as cuota on contrato.idContrato=cuota.idContrato WHERE movimientos.fecha like ? ";
+       String sql2="SELECT movimientos.*,inmueble.calle,inmueble.piso,inmueble.dpto, prop.apellido,prop.nombre,inq.apellido,inq.nombre"
+               + " FROM `movimientos` "
+               + "INNER JOIN contrato on movimientos.idContrato=contrato.idContrato "
+               + "INNER JOIN inmueble on contrato.idInmueble=inmueble.idInmueble "
+               + "INNER JOIN cliente as prop on inmueble.idPropietario=prop.idCliente "
+               + "INNER JOIN cliente as inq on contrato.idInquilino=inq.idCliente  "
+               + "WHERE movimientos.fecha like ? ";
        
        String sql="SELECT movimientos.fecha,inmueble.calle,inmueble.numero,inmueble.piso,inmueble.dpto,prop.apellido,prop.nombre,inq.apellido,inq.nombre,movimientos.ingreso"
                + ",movimientos.egreso FROM `movimientos`,inmueble,cliente as prop,cliente as inq"
@@ -220,11 +224,11 @@ public class GestorMovimientos {
                             contrato.setInmueble(inm);
                             contrato.setInquilino(inq);
                             cuota.setNroCuota(Integer.parseInt(rs.getString("movimientos.nroCuota")));
-                            cuota.setExpensas(Double.parseDouble(rs.getString("cuota.expensas")));
-                            cuota.setTotalSellado(Double.parseDouble(rs.getString("cuota.totalSellado")));
-                            cuota.setTotalImpuestos(Double.parseDouble(rs.getString("cuota.totalImpuestos")));
-                            cuota.setValorGarantia(Double.parseDouble(rs.getString("cuota.valorGarantia")));
-                            cuota.setValorCuota(Integer.parseInt(rs.getString("cuota.valorCuota")));
+                            mov.setExpensasPagas(Double.parseDouble(rs.getString("expensasPagas")));
+                            mov.setAlquileresPagos(Double.parseDouble(rs.getString("alquilerPago")));
+                            mov.setGarantiaPagos(Double.parseDouble(rs.getString("garantiaPaga")));
+                            mov.setSelladosPagos(Double.parseDouble(rs.getString("selladoPago")));
+                            mov.setImpuestosPagos(Double.parseDouble(rs.getString("impuestoPago")));
                             mov.setFecha(rs.getString("movimientos.fecha"));
                             mov.setValorMovimiento(Double.parseDouble(rs.getString("valorMov")));
                             mov.setTipoMovimiento(rs.getString("tipoMov"));                            
@@ -244,8 +248,113 @@ public class GestorMovimientos {
        
        return listaMovimientos;
     }
-     
+     public static ArrayList<Movimiento> consultaPagados(int idContrato, int nroCuota){
+       ArrayList<Movimiento> listaMovimientos=new ArrayList<Movimiento>();
+       Movimiento mov=null;
    
+       
+       ResultSet rs=null;
+       
+       String sql2="SELECT movimientos.*"
+               + " FROM `movimientos` "
+               + "WHERE movimientos.idCuota like ? ";
+       
+       String sql="SELECT movimientos.fecha,inmueble.calle,inmueble.numero,inmueble.piso,inmueble.dpto,prop.apellido,prop.nombre,inq.apellido,inq.nombre,movimientos.ingreso"
+               + ",movimientos.egreso FROM `movimientos`,inmueble,cliente as prop,cliente as inq"
+               + " WHERE movimientos.idInmueble=inmueble.idInmueble and movimientos.idInquilino=inq.idCliente and movimientos.idPropietario=prop.idCliente";
+       
+       try{
+           PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql2);
+           pst.setInt(1, idContrato);
+           pst.setInt(2,nroCuota);
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+                            mov=new Movimiento();
+                            
+                           
+                            
+                            
+                      
+                            mov.setExpensasPagas(Double.parseDouble(rs.getString("expensasPagas")));
+                            mov.setAlquileresPagos(Double.parseDouble(rs.getString("alquilerPago")));
+                            mov.setGarantiaPagos(Double.parseDouble(rs.getString("garantiaPaga")));
+                            mov.setSelladosPagos(Double.parseDouble(rs.getString("selladoPago")));
+                            mov.setImpuestosPagos(Double.parseDouble(rs.getString("impuestoPago")));
+                            mov.setFecha(rs.getString("movimientos.fecha"));
+                            mov.setValorMovimiento(Double.parseDouble(rs.getString("valorMov")));
+                            mov.setTipoMovimiento(rs.getString("tipoMov"));                            
+                            mov.setRecibo(Integer.parseInt(rs.getString("recibo")));
+                            mov.setHonorarios(Double.parseDouble(rs.getString("honorariosCobrados")));
+                        
+                            
+                            
+                        }
+       }catch (SQLException e) {
+           JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Caja por Estado"+e.toString());
+		
+	}
+       
+       return listaMovimientos;
+    }
+     
+           public static Cuotas consultarPagadosLiquidacion( int idContrato, int nroCuota){
+            Cuotas cuota=new Cuotas();
+            Movimiento mov= new Movimiento();
+            Contrato contrato=null;
+            ResultSet rs=null;
+            
+            String sql="SELECT movimientos.* FROM `contrato` INNER JOIN movimientos on contrato.idContrato=movimientos.idContrato WHERE contrato.idContrato=? and movimiento.nroCuota=? ";
+            
+            try{
+			PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+//			pst.setInt(1, idContrato);
+                        pst.setInt(1, idContrato);
+                        pst.setInt(2, nroCuota);
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+                          cuota=new Cuotas();
+                          mov=new Movimiento();
+                          contrato=new Contrato();
+                          contrato.setIdContrato(Integer.parseInt(rs.getString("idContrato")));
+                          mov.setAlquileresPagos(Double.parseDouble(rs.getString("alquilerPago")));
+                          mov.setSelladosPagos(Double.parseDouble(rs.getString("selladoPago")));
+                          mov.setImpuestosPagos(Double.parseDouble(rs.getString("impuestoPago")));
+                          mov.setGarantiaPagos(Double.parseDouble(rs.getString("garantiaPaga")));
+                          mov.setExpensasPagas(Double.parseDouble(rs.getString("espensasPagas")));
+                          
+//			  cuota.setContrato(contrato);
+//                          cuota.setNroCuota(Integer.parseInt(rs.getString("nroCuota")));
+//                          cuota.setTotalImpuestos(Double.parseDouble(rs.getString("totalImpuestos")));
+//                          cuota.setValorCuota(Integer.parseInt(rs.getString("valorCuota")));
+//                          cuota.setTotalaPagar(Double.parseDouble(rs.getString("montoTotal")));                        
+//                          cuota.setTotalPagado(Double.parseDouble(rs.getString("totalPagado")));
+//                          cuota.setValorGarantia(Double.parseDouble(rs.getString("valorGarantia")));
+//                          cuota.setDescuento(Double.parseDouble(rs.getString("descuento")));
+//                          cuota.setPunitorios(Double.parseDouble(rs.getString("punitorios")));
+//                          cuota.setComision(Double.parseDouble(rs.getString("comicion")));
+//                          cuota.setTotalSellado(Double.parseDouble(rs.getString("totalSellado")));
+//                          cuota.setExpensas(Double.parseDouble(rs.getString("expensas")));
+//                          cuota.setPagoParcial(rs.getString("pagoParcial"));
+//                          
+//                          
+//                          
+                          
+                          
+            
+			}
+                        
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar "+e.toString());
+		
+	}
+        
+        return cuota;
+}
+           
+           
     public static ArrayList<Movimiento> consultaPagosPropietario(int idContrato ){
         ArrayList<Movimiento> listaMovimientos=new ArrayList<Movimiento>();
         Movimiento mov=null;

@@ -14,6 +14,7 @@ import entidades.Cliente;
 import entidades.Contrato;
 import entidades.Cuotas;
 import entidades.Inmueble;
+import entidades.Movimiento;
 import java.io.IOException;
 
 public class GestoresContrato {
@@ -491,7 +492,61 @@ public class GestoresContrato {
         return listaCuotas;
 }
 
+           public static Cuotas consultarPagadosLiquidacion( int idContrato, int nroCuota){
+            Cuotas cuota=new Cuotas();
+            Movimiento mov= new Movimiento();
+            Contrato contrato=null;
+            ResultSet rs=null;
+            
+            String sql="SELECT movimientos.* FROM `contrato` INNER JOIN movimientos on contrato.idContrato=movimientos.idContrato WHERE contrato.idContrato=? and movimientos.nroCuota=? ";
+            
+            try{
+			PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+//			pst.setInt(1, idContrato);
+                        pst.setInt(1, idContrato);
+                        pst.setInt(2, nroCuota);
+			rs=pst.executeQuery();
 
+			while(rs.next()){
+                          cuota=new Cuotas();
+                          mov=new Movimiento();
+                          contrato=new Contrato();
+                          contrato.setIdContrato(Integer.parseInt(rs.getString("idContrato")));
+                          mov.setAlquileresPagos(Double.parseDouble(rs.getString("alquilerPago")));
+                          mov.setSelladosPagos(Double.parseDouble(rs.getString("selladoPago")));
+                          mov.setImpuestosPagos(Double.parseDouble(rs.getString("impuestoPago")));
+                          mov.setGarantiaPagos(Double.parseDouble(rs.getString("garantiaPaga")));
+                          mov.setExpensasPagas(Double.parseDouble(rs.getString("expensasPagas")));
+                          
+//			  cuota.setContrato(contrato);
+//                          cuota.setNroCuota(Integer.parseInt(rs.getString("nroCuota")));
+//                          cuota.setTotalImpuestos(Double.parseDouble(rs.getString("totalImpuestos")));
+//                          cuota.setValorCuota(Integer.parseInt(rs.getString("valorCuota")));
+//                          cuota.setTotalaPagar(Double.parseDouble(rs.getString("montoTotal")));                        
+//                          cuota.setTotalPagado(Double.parseDouble(rs.getString("totalPagado")));
+//                          cuota.setValorGarantia(Double.parseDouble(rs.getString("valorGarantia")));
+//                          cuota.setDescuento(Double.parseDouble(rs.getString("descuento")));
+//                          cuota.setPunitorios(Double.parseDouble(rs.getString("punitorios")));
+//                          cuota.setComision(Double.parseDouble(rs.getString("comicion")));
+//                          cuota.setTotalSellado(Double.parseDouble(rs.getString("totalSellado")));
+//                          cuota.setExpensas(Double.parseDouble(rs.getString("expensas")));
+//                          cuota.setPagoParcial(rs.getString("pagoParcial"));
+//                          
+//                          
+//                          
+                          
+                          
+            
+			}
+                        
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar "+e.toString());
+		
+	}
+        
+        return cuota;
+}
         public static Cuotas consultarCuotaLiquidacion(int idContrato, int nroCuota){
             Cuotas cuota=new Cuotas();
 

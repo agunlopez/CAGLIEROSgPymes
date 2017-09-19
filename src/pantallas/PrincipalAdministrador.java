@@ -2616,45 +2616,23 @@ AltaCliente altaPropietario=new AltaCliente();
               
                 String cobrado=tablaCaja.getValueAt(i,8).toString();
                 String ex=tablaCaja.getValueAt(i,9).toString();
-                String imp=tablaCaja.getValueAt(i,11).toString();
-                String gar=tablaCaja.getValueAt(i,12).toString();
-                String sell=tablaCaja.getValueAt(i,13).toString();
-                String alq=tablaCaja.getValueAt(i,14).toString();
-                totalCobrado=totalCobrado+Double.parseDouble(cobrado);
-                cob=Double.parseDouble(cobrado);
-                if(cob>Double.parseDouble(ex) ){
-                    expensas=expensas+Double.parseDouble(ex);
-                    cob=cob-Double.parseDouble(ex);
-                }
-                    
-                if(cob>Double.parseDouble(imp) ){
-                     impuestos=impuestos+Double.parseDouble(imp);
-                    cob=cob-Double.parseDouble(imp);
-                }
-                 if(cob>Double.parseDouble(gar) ){
-                    garantia=garantia+Double.parseDouble(gar);
-                    cob=cob-Double.parseDouble(gar);
-                }
-                if(cob>Double.parseDouble(sell) ){
-                    sellado=sellado+Double.parseDouble(sell);
-                    cob=cob-Double.parseDouble(sell);
-                }
-                 if(cob>Double.parseDouble(sell) ){
-                    alquiler=alquiler+Double.parseDouble(alq);
-                    cob=cob-Double.parseDouble(sell);
-                }
-                 
-                 
-//                expensas=expensas+Double.parseDouble(ex);
-// 
-//                impuestos=impuestos+Double.parseDouble(imp);
-//                
-//                garantia=garantia+Double.parseDouble(gar);
-//                
-//                sellado=sellado+Double.parseDouble(sell);
-//                
-//                alquiler=alquiler+Double.parseDouble(alq);
+                String imp=tablaCaja.getValueAt(i,13).toString();
+                String gar=tablaCaja.getValueAt(i,11).toString();
+                String sell=tablaCaja.getValueAt(i,12).toString();
+                String alq=tablaCaja.getValueAt(i,10).toString();
 
+                totalCobrado=totalCobrado+Double.parseDouble(cobrado);
+                
+                expensas=expensas+Double.parseDouble(ex);
+        
+                impuestos=impuestos+Double.parseDouble(imp);
+
+                garantia=garantia+Double.parseDouble(gar);
+
+                sellado=sellado+Double.parseDouble(sell);
+
+                alquiler=alquiler+Double.parseDouble(alq);
+           
             }            
         }
         

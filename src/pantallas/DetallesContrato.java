@@ -1336,7 +1336,7 @@ public class DetallesContrato extends javax.swing.JFrame {
 //           agregarImp.setVisible(true);
 //           }
                     if(boton.getName().equals("a")){
-                    String Periodo= (String) tablaDetalle.getValueAt(row, 0);  
+                       String Periodo= (String) tablaDetalle.getValueAt(row, 0);  
                        Expensas expensas=new Expensas();
                        expensas.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
                        expensas.periodo.setText(Periodo);

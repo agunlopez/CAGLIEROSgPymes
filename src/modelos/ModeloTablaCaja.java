@@ -12,7 +12,7 @@ import pantallas.ListaInmueble;
 
 public class ModeloTablaCaja extends AbstractTableModel {
 
-    final String[] COLUMN_NAMES = {"Recibo","ID Contrato","Cuota","Fecha","Inmueble","Inquilino","Propietario","Tipo Movimiento","Valor $","Expensas $","Honorarios $","Impuestos $","Garantias $","Sellado $","Valor Cuota $"}; //cambiar los titulos
+    final String[] COLUMN_NAMES = {"Recibo","ID Contrato","Cuota","Fecha","Inmueble","Inquilino","Propietario","Tipo Movimiento","Valor $","Expensas $","Alquileres $","Garantias $","Sellado $","Impuestos $"}; //cambiar los titulos
     ArrayList<Movimiento> lista = null;
     //retormanos el numero de elementos del array de datos
 
@@ -28,7 +28,7 @@ public class ModeloTablaCaja extends AbstractTableModel {
     
     @Override
     public int getColumnCount() {
-        return 15;//numeros de titulos
+        return 14;//numeros de titulos
     }
 
     @Override
@@ -80,23 +80,16 @@ public class ModeloTablaCaja extends AbstractTableModel {
                 
                 case 8: return lista.get(fila).getValorMovimiento();
                 
-                case 9: return lista.get(fila).getContratoCuota().getExpensas();
+                case 9: return lista.get(fila).getExpensasPagas();
                 
-                case 10: return honorarios;
+                case 10 : return lista.get(fila).getAlquileresPagos();
                 
-                case 11 : return lista.get(fila).getContratoCuota().getTotalImpuestos();
+                case 11 : return lista.get(fila).getGarantiaPagos();
                 
-                case 12 : return lista.get(fila).getContratoCuota().getValorGarantia();
+                case 12 : return lista.get(fila).getSelladosPagos();
                 
-                case 13 : return lista.get(fila).getContratoCuota().getTotalSellado();
+                case 13 : return lista.get(fila).getImpuestosPagos();
                 
-                case 14 : return lista.get(fila).getContratoCuota().getValorCuota();
-                
-              
-                
-                
-                
-               
                 
                 default:
                     return null;

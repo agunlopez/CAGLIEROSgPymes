@@ -15,6 +15,7 @@ import entidades.Movimiento;
 import gestores.GestorEventos;
 import gestores.GestorMovimientos;
 import gestores.GestoresContrato;
+import gestores.GestoresImpuestos;
 import gestores.fechas;
 import java.awt.Cursor;
 import java.awt.Image;
@@ -37,6 +38,12 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.swing.JRViewer;
+import static pantallas.DetallesContrato.tablaDetalle;
+import static pantallas.cuotaIncompleta.alquiler;
+import static pantallas.cuotaIncompleta.expensas;
+import static pantallas.cuotaIncompleta.garantia;
+import static pantallas.cuotaIncompleta.impuestos;
+import static pantallas.cuotaIncompleta.sellado;
 
 /**
  *
@@ -49,6 +56,7 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
     conexion.Conexion con= new conexion.Conexion();
 
     public static boolean band=false;
+    
  
     public LiquidacionInquilino() {
         super();
@@ -87,6 +95,11 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
         lblTotalPagado = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblPagoParcial = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lblExpensas = new javax.swing.JLabel();
+        lblSellado = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Liquidacion Inquilino");
@@ -183,6 +196,25 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
         lblPagoParcial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblPagoParcial.setText("jLabel8");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Sellado: ");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Expensas: ");
+
+        lblExpensas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblExpensas.setText("jLabel8");
+
+        lblSellado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSellado.setText("jLabel8");
+
+        jButton3.setText("Asignar montos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -192,27 +224,40 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel7))
-                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTotalaPagar)
-                                    .addComponent(lblDescuento)
-                                    .addComponent(lblGarantia))
-                                .addContainerGap(416, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTotalPagado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblPagoParcial)
-                                .addGap(56, 56, 56))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel7))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblDescuento)
+                                            .addComponent(lblGarantia))
+                                        .addGap(169, 169, 169)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lblSellado))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel10)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(lblExpensas))))
+                                    .addComponent(lblTotalPagado)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblTotalaPagar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblPagoParcial))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -232,14 +277,12 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtMontoaPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)))
-                        .addContainerGap())))
+                                        .addComponent(txtMontoaPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton3)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(78, 78, 78)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,26 +309,42 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lblGarantia))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(lblDescuento))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(lblGarantia))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(lblDescuento)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(lblSellado))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(lblExpensas))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(lblTotalPagado)
-                    .addComponent(lblPagoParcial))
+                    .addComponent(lblTotalPagado))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(lblTotalaPagar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblPagoParcial)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(lblTotalaPagar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(txtMontoaPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtMontoaPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3))
+                    .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -295,10 +354,11 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public static double monto = 0;
+public static String peri;
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
-  
+
 
         cuotaActual=GestoresContrato.ConsultarCuotaActual(Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
         Cuotas cuota=new Cuotas();
@@ -309,11 +369,13 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
         lblGarantia.setText(Double.toString(cuota.getValorGarantia()));
         lblDescuento.setText("("+Double.toString(cuota.getDescuento())+")");
         lblTotalPagado.setText(Double.toString(cuota.getTotalPagado()));
-       
         lblTotalaPagar.setText(Double.toString(cuota.getTotalaPagar()));
         double txtTotal=cuota.getTotalaPagar();
         txtMontoaPagar.setText(Double.toString(txtTotal));
         lblPagoParcial.setText(cuota.getPagoParcial());
+        lblSellado.setText(Double.toString(cuota.getTotalSellado()));
+        lblExpensas.setText(Double.toString(cuota.getExpensas()));
+        
 
 
         
@@ -321,11 +383,33 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-this.setCursor(Cursor.WAIT_CURSOR);
-        
-GenerarLiquidacion();
+//this.setCursor(Cursor.WAIT_CURSOR);
+cuotaIncompleta incompleta = new cuotaIncompleta();
+//  monto=Double.parseDouble(txtMontoaPagar.getText());
+//    if(monto==0){
+//        JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
+//    }else{
+//        if(Double.parseDouble(txtMontoaPagar.getText())< Double.parseDouble(lblTotalaPagar.getText())&&incompleta.total==0){
+//            
+//                Object[] opciones = {"Asignar montos", "Cancelar"};
+//                int eleccion = JOptionPane.showOptionDialog(null, "El monto a pagar es menor al total, debe asignar los montos","Mensaje de Confirmacion",
+//                JOptionPane.YES_NO_OPTION,
+//                JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
+//                    if (eleccion == JOptionPane.YES_OPTION) {
+//
+//                        String Periodo= (String) lblPeriodo.getText();  
+//
+//                        incompleta.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
+//                        incompleta.periodo.setText(Periodo);
+//                        incompleta.setLocationRelativeTo(null);
+//                        monto=Double.parseDouble(txtMontoaPagar.getText());
+//                        incompleta.setVisible(true);  
+//                    }   
+//            }else{
 
-        
+                GenerarLiquidacion();
+//            }
+             
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -414,6 +498,23 @@ char validar=evt.getKeyChar();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMontoaPagarKeyTyped
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+//     monto=Double.parseDouble(txtMontoaPagar.getText());
+//        if(txtMontoaPagar.getText().isEmpty()){
+//            JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
+//        }else{
+            peri=(String) lblPeriodo.getText(); 
+            String Periodo= (String) lblPeriodo.getText();  
+            cuotaIncompleta incompleta = new cuotaIncompleta();
+            incompleta.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
+            incompleta.periodo.setText(Periodo);
+            incompleta.setLocationRelativeTo(null);
+            monto=Double.parseDouble(txtMontoaPagar.getText());
+            incompleta.setVisible(true);
+            // TODO add your handling code here:
+//        }                  
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -452,7 +553,9 @@ char validar=evt.getKeyChar();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
@@ -462,19 +565,22 @@ char validar=evt.getKeyChar();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblAlquiler;
     private javax.swing.JLabel lblDescuento;
+    private javax.swing.JLabel lblExpensas;
     private javax.swing.JLabel lblGarantia;
     private javax.swing.JLabel lblPagoParcial;
     public static javax.swing.JLabel lblPeriodo;
     private javax.swing.JLabel lblPunitorios;
+    private javax.swing.JLabel lblSellado;
     private javax.swing.JLabel lblTotalPagado;
     private javax.swing.JLabel lblTotalaPagar;
     public static javax.swing.JTable tablaImpuestosLiquidacion;
-    private javax.swing.JTextField txtMontoaPagar;
+    public static javax.swing.JTextField txtMontoaPagar;
     // End of variables declaration//GEN-END:variables
 
     
@@ -484,9 +590,12 @@ char validar=evt.getKeyChar();
   
     public void GenerarLiquidacion(){
         Cuotas cuota=new Cuotas();
+         Movimiento movimiento=new Movimiento();
+        
+     txtMontoaPagar.setText(Double.toString(monto));
 
          if(Double.parseDouble(lblTotalaPagar.getText()) >= Double.parseDouble(txtMontoaPagar.getText())){     
-
+//             if(movimiento.getAsignacion().equals("A") ){
              double pagado=GestoresContrato.totalPagado(cuotaActual, Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
                 if(Double.parseDouble(lblTotalaPagar.getText()) == Double.parseDouble(txtMontoaPagar.getText())){               
                     double totalPagado=Double.parseDouble(txtMontoaPagar.getText())+pagado;
@@ -499,13 +608,15 @@ char validar=evt.getKeyChar();
                     double totalPagado=Double.parseDouble(txtMontoaPagar.getText())+pagado;               
                     GestoresContrato gestorContrato=new GestoresContrato();              
                     gestorContrato.GenerarLiquidacion(totalPagado, cuotaActual,Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
-                }
+                       movimiento.setAsignacion("B");
+                   }      
+            
              
             
-            Movimiento movimiento=new Movimiento();
            
             Contrato contrato=new Contrato();
             Calendar ahora= Calendar.getInstance();
+            cuotaIncompleta inc= new cuotaIncompleta();
 
             int diaActual=ahora.get(Calendar.DATE);
             int mesActual=ahora.get((Calendar.MONTH))+1;
@@ -520,10 +631,21 @@ char validar=evt.getKeyChar();
             movimiento.setTipoMovimiento("I");
             movimiento.setValorMovimiento(Double.parseDouble(txtMontoaPagar.getText()));
             movimiento.setHonorarios(0);
+            movimiento.setFecha(diaActual+"/"+mesActual+"/"+añoActual);
+            movimiento.setAlquileresPagos(inc.alquilerPago);
+            
+            movimiento.setImpuestosPagos(inc.impuestoPago);
+            
+            movimiento.setSelladosPagos(inc.selladoPago);
+            movimiento.setGarantiaPagos(inc.garantiaPaga);
+            movimiento.setExpensasPagas(inc.expensaPaga);
+            
             
             GestorMovimientos gestorIngreso=new GestorMovimientos();
             GestoresContrato gestorContrato=new GestoresContrato();
              try {
+                
+     
                  Eventos evento=new Eventos();            
                  evento.setUsuario(InicioSesion.usuarioEnSesion);
                  evento.setTipo("MOVIMIENTO");
@@ -533,7 +655,7 @@ char validar=evt.getKeyChar();
                  gestorIngreso.AltaIngreso(movimiento);
                  int recibo=gestorIngreso.numeroRecibo();
                  int e=GestorEventos.AltaEvento(evento);
-
+                 JOptionPane.showMessageDialog(new JDialog(),"La liquidacion se cargo correctamente"); 
                  conexion.ConexionReporte con=new conexion.ConexionReporte();
 
 
@@ -553,22 +675,23 @@ char validar=evt.getKeyChar();
 //            reciboInq.setVisible(true);
 //        } catch (JRException ex) {
 //            Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        
+               
                  
              } catch (IOException ex) {
                  Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
              } catch (SQLException ex) {
                  Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
              }
+             
+//          }
             
-            
-            dispose();
             
             }else{
             JOptionPane.showMessageDialog(new JDialog(),"El monto a pagar no puede ser mayor al total");
             
         }
-        
+         
     }
     
     public Image getIconImage() {

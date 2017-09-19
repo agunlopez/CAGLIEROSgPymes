@@ -26,7 +26,53 @@ public class Cuotas {
     private double totalSellado;
     private double expensas;
     private String pagoParcial;
+    private double seguroPagado;
+    private double impuestoPagado;
+    private double selladoPagado;
+    private double garantiaPagada;
+    private double alquilerPagado;
 
+    public double getSeguroPagado() {
+        return seguroPagado;
+    }
+
+    public void setSeguroPagado(double seguroPagado) {
+        this.seguroPagado = seguroPagado;
+    }
+
+    public double getImpuestoPagado() {
+        return impuestoPagado;
+    }
+
+    public void setImpuestoPagado(double impuestoPagado) {
+        this.impuestoPagado = impuestoPagado;
+    }
+
+    public double getSelladoPagado() {
+        return selladoPagado;
+    }
+
+    public void setSelladoPagado(double selladoPagado) {
+        this.selladoPagado = selladoPagado;
+    }
+
+    public double getGarantiaPagada() {
+        return garantiaPagada;
+    }
+
+    public void setGarantiaPagada(double garantiaPagada) {
+        this.garantiaPagada = garantiaPagada;
+    }
+
+    public double getAlquilerPagado() {
+        return alquilerPagado;
+    }
+
+    public void setAlquilerPagado(double alquilerPagado) {
+        this.alquilerPagado = alquilerPagado;
+    }
+
+    
     public String getPagoParcial() {
         return pagoParcial;
     }
