@@ -356,6 +356,15 @@ public class LiquidacionInquilino extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 public static double monto = 0;
 public static String peri;
+public static double total=0;
+public static double totalAlquiler=0;
+public static double totalSellado=0;
+public static double totalExpensas=0;
+public static double totalImpuestos=0;
+public static double totalGarantia=0;
+public static boolean bandera=true;
+
+
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
 
@@ -371,12 +380,15 @@ public static String peri;
         lblTotalPagado.setText(Double.toString(cuota.getTotalPagado()));
         lblTotalaPagar.setText(Double.toString(cuota.getTotalaPagar()));
         double txtTotal=cuota.getTotalaPagar();
-        txtMontoaPagar.setText(Double.toString(txtTotal));
         lblPagoParcial.setText(cuota.getPagoParcial());
         lblSellado.setText(Double.toString(cuota.getTotalSellado()));
         lblExpensas.setText(Double.toString(cuota.getExpensas()));
-        
-
+        total= cuota.getTotalaPagar();
+        totalAlquiler= cuota.getValorCuota();
+        totalExpensas= cuota.getExpensas();
+        totalGarantia= cuota.getValorGarantia();
+        totalImpuestos= cuota.getTotalImpuestos();
+        totalSellado= cuota.getTotalSellado();
 
         
         // TODO add your handling code here:
@@ -384,32 +396,44 @@ public static String peri;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 //this.setCursor(Cursor.WAIT_CURSOR);
-cuotaIncompleta incompleta = new cuotaIncompleta();
-//  monto=Double.parseDouble(txtMontoaPagar.getText());
-//    if(monto==0){
-//        JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
-//    }else{
-//        if(Double.parseDouble(txtMontoaPagar.getText())< Double.parseDouble(lblTotalaPagar.getText())&&incompleta.total==0){
-//            
-//                Object[] opciones = {"Asignar montos", "Cancelar"};
-//                int eleccion = JOptionPane.showOptionDialog(null, "El monto a pagar es menor al total, debe asignar los montos","Mensaje de Confirmacion",
-//                JOptionPane.YES_NO_OPTION,
-//                JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
-//                    if (eleccion == JOptionPane.YES_OPTION) {
-//
-//                        String Periodo= (String) lblPeriodo.getText();  
-//
-//                        incompleta.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
-//                        incompleta.periodo.setText(Periodo);
-//                        incompleta.setLocationRelativeTo(null);
-//                        monto=Double.parseDouble(txtMontoaPagar.getText());
-//                        incompleta.setVisible(true);  
-//                    }   
-//            }else{
+    cuotaIncompleta incompleta = new cuotaIncompleta();
+    Cuotas cuota=new Cuotas();
+    double pagado= Double.parseDouble(lblTotalPagado.getText());
+    
+    if(bandera==true){
+        
+           monto=Double.parseDouble(txtMontoaPagar.getText());
+        if(txtMontoaPagar.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
+        }else if(Double.parseDouble(txtMontoaPagar.getText())==0){
+            JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede ser cero"); 
+        }else if(Double.parseDouble(txtMontoaPagar.getText())< Double.parseDouble(lblTotalaPagar.getText())&&incompleta.total==0 || (pagado != 0)){
+                    
+                    
+            Object[] opciones = {"Asignar montos", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(null, "Faltar asignar montos, debe asignar los montos","Mensaje de Confirmacion",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+                String Periodo= (String) lblPeriodo.getText();  
+                incompleta.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
+                incompleta.periodo.setText(Periodo);
+                incompleta.setLocationRelativeTo(null);
+                monto=Double.parseDouble(txtMontoaPagar.getText());  
+                bandera=false;
+                incompleta.setVisible(true);  
+            }   
+        }else{
+                    bandera=true;
+                    GenerarLiquidacion();
+        }  
+    }else{
+            txtMontoaPagar.setText(Double.toString(incompleta.total));
+            bandera=true;
+            GenerarLiquidacion();
+    }
+  
 
-                GenerarLiquidacion();
-//            }
-             
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -500,19 +524,31 @@ char validar=evt.getKeyChar();
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 //     monto=Double.parseDouble(txtMontoaPagar.getText());
-//        if(txtMontoaPagar.getText().isEmpty()){
-//            JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
-//        }else{
+      if(bandera==true){
+             if(txtMontoaPagar.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
+            
+        }else if(Double.parseDouble(txtMontoaPagar.getText())==0){
+            JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede ser cero");
+           
+        }else if(Double.parseDouble(txtMontoaPagar.getText()) > Double.parseDouble(lblTotalaPagar.getText()) ){    
+             JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede ser mayor al total a pagar");
+        }else{
             peri=(String) lblPeriodo.getText(); 
             String Periodo= (String) lblPeriodo.getText();  
             cuotaIncompleta incompleta = new cuotaIncompleta();
             incompleta.id.setText(Integer.toString(PrincipalAdministrador.idConsAsociado) );
             incompleta.periodo.setText(Periodo);
             incompleta.setLocationRelativeTo(null);
+            bandera = false;
             monto=Double.parseDouble(txtMontoaPagar.getText());
             incompleta.setVisible(true);
             // TODO add your handling code here:
-//        }                  
+        } 
+      } else{
+           JOptionPane.showMessageDialog(new JDialog(),"Ya se asignaron los montos");
+      } 
+                      
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -591,8 +627,11 @@ char validar=evt.getKeyChar();
     public void GenerarLiquidacion(){
         Cuotas cuota=new Cuotas();
          Movimiento movimiento=new Movimiento();
-        
-     txtMontoaPagar.setText(Double.toString(monto));
+           double to=0;
+            to=total;
+            double tal=0;
+            tal=Double.parseDouble(txtMontoaPagar.getText());
+//     txtMontoaPagar.setText(Double.toString(monto));
 
          if(Double.parseDouble(lblTotalaPagar.getText()) >= Double.parseDouble(txtMontoaPagar.getText())){     
 //             if(movimiento.getAsignacion().equals("A") ){
@@ -632,14 +671,21 @@ char validar=evt.getKeyChar();
             movimiento.setValorMovimiento(Double.parseDouble(txtMontoaPagar.getText()));
             movimiento.setHonorarios(0);
             movimiento.setFecha(diaActual+"/"+mesActual+"/"+añoActual);
-            movimiento.setAlquileresPagos(inc.alquilerPago);
+         
             
-            movimiento.setImpuestosPagos(inc.impuestoPago);
-            
-            movimiento.setSelladosPagos(inc.selladoPago);
-            movimiento.setGarantiaPagos(inc.garantiaPaga);
-            movimiento.setExpensasPagas(inc.expensaPaga);
-            
+            if(total == Double.parseDouble(txtMontoaPagar.getText())){
+                movimiento.setAlquileresPagos(totalAlquiler);
+                movimiento.setImpuestosPagos(totalImpuestos);
+                movimiento.setSelladosPagos(totalSellado);
+                movimiento.setGarantiaPagos(totalGarantia);
+                movimiento.setExpensasPagas(totalExpensas);
+            }else{
+                movimiento.setAlquileresPagos(inc.alquilerPago);
+                movimiento.setImpuestosPagos(inc.impuestoPago);
+                movimiento.setSelladosPagos(inc.selladoPago);
+                movimiento.setGarantiaPagos(inc.garantiaPaga);
+                movimiento.setExpensasPagas(inc.expensaPaga);
+            }
             
             GestorMovimientos gestorIngreso=new GestorMovimientos();
             GestoresContrato gestorContrato=new GestoresContrato();
@@ -657,7 +703,7 @@ char validar=evt.getKeyChar();
                  int e=GestorEventos.AltaEvento(evento);
                  JOptionPane.showMessageDialog(new JDialog(),"La liquidacion se cargo correctamente"); 
                  conexion.ConexionReporte con=new conexion.ConexionReporte();
-
+                
 
 //        try{
 //            
@@ -685,7 +731,7 @@ char validar=evt.getKeyChar();
              }
              
 //          }
-            
+              dispose();
             
             }else{
             JOptionPane.showMessageDialog(new JDialog(),"El monto a pagar no puede ser mayor al total");

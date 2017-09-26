@@ -385,7 +385,7 @@ public class DetallesContrato extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -891,7 +891,7 @@ public class DetallesContrato extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1057,7 +1057,7 @@ public class DetallesContrato extends javax.swing.JFrame {
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1745,28 +1745,6 @@ public class DetallesContrato extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaImpuestosMouseClicked
 
-    private void TablaPagoPropietariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaPagoPropietariosMouseClicked
-        JDialog reciboPropietario= new JDialog(new JFrame(),"Recibo",true);
-        if(evt.getClickCount()==2){
-           int row=TablaPagoPropietarios.getSelectedRow();
-           int recibo=Integer.parseInt(TablaPagoPropietarios.getValueAt(row, 0).toString());  
-           conexion.ConexionReporte con=new conexion.ConexionReporte();
-        try{            
-            Map parametro=new HashMap();          
-            parametro.put("Recibo",recibo); 
-            JasperReport reciboProp=JasperCompileManager.compileReport("C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\Recibos\\reciboPropietario.jrxml");           
-            JasperPrint jasperPrint=JasperFillManager.fillReport(reciboProp, parametro, con.conexion());
-            reciboPropietario.setSize(1000,700);
-            reciboPropietario.setLocationRelativeTo(null);
-            JRViewer jrv=new JRViewer(jasperPrint);
-            reciboPropietario.getContentPane().add(jrv);
-            reciboPropietario.setVisible(true);          
-        } catch (JRException ex) {
-            Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-        }     
-        }
-    }//GEN-LAST:event_TablaPagoPropietariosMouseClicked
-
     private void ChcActivarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChcActivarPagosActionPerformed
 
 
@@ -1793,6 +1771,28 @@ if(ChcActivarPagos.isSelected()){
         
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaRecibosInquilinosMouseClicked
+
+    private void TablaPagoPropietariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaPagoPropietariosMouseClicked
+        JDialog reciboPropietario= new JDialog(new JFrame(),"Recibo",true);
+        if(evt.getClickCount()==2){
+            int row=TablaPagoPropietarios.getSelectedRow();
+            int recibo=Integer.parseInt(TablaPagoPropietarios.getValueAt(row, 0).toString());
+            conexion.ConexionReporte con=new conexion.ConexionReporte();
+            try{
+                Map parametro=new HashMap();
+                parametro.put("Recibo",recibo);
+                JasperReport reciboProp=JasperCompileManager.compileReport("C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\Recibos\\reciboPropietario.jrxml");
+                JasperPrint jasperPrint=JasperFillManager.fillReport(reciboProp, parametro, con.conexion());
+                reciboPropietario.setSize(1000,700);
+                reciboPropietario.setLocationRelativeTo(null);
+                JRViewer jrv=new JRViewer(jasperPrint);
+                reciboPropietario.getContentPane().add(jrv);
+                reciboPropietario.setVisible(true);
+            } catch (JRException ex) {
+                Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_TablaPagoPropietariosMouseClicked
 
     /**
      * @param args the command line arguments

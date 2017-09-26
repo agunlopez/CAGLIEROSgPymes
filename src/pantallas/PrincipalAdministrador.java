@@ -2587,18 +2587,12 @@ AltaCliente altaPropietario=new AltaCliente();
     }
 	
      public static String inicioCon;
-     
-     public static int idConsAsociado;
-     
+     public static int idConsAsociado; 
      public static int idInmDatos;
-     
      public static Inmueble datosInmueble;
-     
      public static int punitorios;
      public static int diaPago;
 
-     
-     
      public static void actualizarSaldos(){
         
         double totalCobrado=0;
@@ -2621,34 +2615,20 @@ AltaCliente altaPropietario=new AltaCliente();
                 String sell=tablaCaja.getValueAt(i,12).toString();
                 String alq=tablaCaja.getValueAt(i,10).toString();
 
-                totalCobrado=totalCobrado+Double.parseDouble(cobrado);
-                
-                expensas=expensas+Double.parseDouble(ex);
-        
+                totalCobrado=totalCobrado+Double.parseDouble(cobrado);                
+                expensas=expensas+Double.parseDouble(ex);       
                 impuestos=impuestos+Double.parseDouble(imp);
-
                 garantia=garantia+Double.parseDouble(gar);
-
                 sellado=sellado+Double.parseDouble(sell);
-
-                alquiler=alquiler+Double.parseDouble(alq);
-           
+                alquiler=alquiler+Double.parseDouble(alq);          
             }            
-        }
-        
+        }      
         DecimalFormat df= new DecimalFormat("#0.00");
-
-
         txtTotalCobrado.setText(df.format(totalCobrado));
         txtexpensas.setText(df.format(expensas));
         txtImpuestos.setText(df.format(impuestos));
         txtGarantia.setText(df.format(garantia));
         txtsellado.setText(df.format(sellado));
-        txtAlquiler.setText(df.format(alquiler));
-        
+        txtAlquiler.setText(df.format(alquiler));        
      }
-
-     
-
-
 }

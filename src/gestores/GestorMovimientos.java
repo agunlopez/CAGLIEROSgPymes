@@ -54,6 +54,47 @@ public class GestorMovimientos {
 	JOptionPane.showMessageDialog(new JDialog(),"Error al Registrar el Ingreso"+e.toString());}
         return r;
     }
+     public static ArrayList<Movimiento> consultaPagosRealizados(int idContrato,int nroCuota){
+     
+        ArrayList<Movimiento> mov=new ArrayList<Movimiento>(); 
+        
+        Movimiento movi =null;
+        ResultSet rs=null;
+     
+      
+        
+        String sql="SELECT alquilerPago,selladoPago,impuestoPago,garantiaPaga,expensasPagas,fecha "
+                +"FROM movimientos " 
+                +"WHERE idContrato = ? and nroCuota=?";
+        
+     
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+			pst.setInt(1, idContrato);
+                        pst.setInt(2, nroCuota);
+			rs=pst.executeQuery();
+
+		while(rs.next()){
+                       movi=new Movimiento();   
+                       movi.setExpensasPagas(Double.parseDouble(rs.getString("expensasPagas")));
+                       movi.setSelladosPagos(Double.parseDouble(rs.getString("selladoPago")));
+                       movi.setImpuestosPagos(Double.parseDouble(rs.getString("impuestoPago")));
+                       movi.setAlquileresPagos(Double.parseDouble(rs.getString("alquilerPago")));
+                       movi.setGarantiaPagos(Double.parseDouble(rs.getString("garantiaPaga")));
+                       movi.setFecha(rs.getString("fecha"));
+                       
+                       mov.add(movi);
+ 
+                            
+
+                        }
+        } catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Pagos"+e.toString());
+		
+	}
+     
+        return mov;
+    }
     
     public static ArrayList<Movimiento> consultaTabla(){
        ArrayList<Movimiento> listaMovimientos=new ArrayList<Movimiento>();

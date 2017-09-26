@@ -25,6 +25,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import modelos.ModeloTablaImpuesto;
+import modelos.ModeloTablaPagosRealizados;
 import static pantallas.LiquidacionInquilino.cuotaActual;
 import static pantallas.LiquidacionInquilino.lblPeriodo;
 
@@ -80,6 +82,9 @@ public class cuotaIncompleta extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         lblMonto = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaPagos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Asignar Liquidacion");
@@ -243,6 +248,32 @@ public class cuotaIncompleta extends javax.swing.JFrame {
 
         jLabel9.setText("$");
 
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pagos Realizados", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+
+        tablaPagos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaPagos);
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -253,49 +284,52 @@ public class cuotaIncompleta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblExpensas)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(expensas, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblGarantia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(garantia, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblSellado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sellado, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblAlquiler)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                                .addComponent(alquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblImpuestos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(impuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(138, 138, 138)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblExpensas)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(expensas, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblGarantia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(garantia, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblSellado)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(sellado, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblAlquiler)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                                        .addComponent(alquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblImpuestos)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(impuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
@@ -304,28 +338,28 @@ public class cuotaIncompleta extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblMonto)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(lblMonto))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(alquiler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1)
-                                .addComponent(lblAlquiler))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(lblMonto))
+                        .addGap(30, 30, 30)
+                        .addComponent(alquiler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(lblAlquiler))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -350,24 +384,28 @@ public class cuotaIncompleta extends javax.swing.JFrame {
                     .addComponent(expensas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(lblExpensas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
 
-        jButton2.getAccessibleContext().setAccessibleName("Asignar");
+        jPanel11.getAccessibleContext().setAccessibleName("Pagos Realizados");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
- public double total=0;
- public static String monto2;
+ public static double total=0;
+ public static double montoPagado;
  public static double alquilerPago;
  public static double selladoPago;
  public static double expensaPaga;
  public static double impuestoPago;
  public static double garantiaPaga;
+ public static boolean ban = true;
+ 
  
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -386,99 +424,96 @@ public class cuotaIncompleta extends javax.swing.JFrame {
 
       public void GenerarAsignaciones(){
         Cuotas cuota=new Cuotas();
-        
+        ban=false;
+        montoPagado=Double.parseDouble(lblMonto.getText());
         total= Double.parseDouble(alquiler.getText())+Double.parseDouble(sellado.getText())+Double.parseDouble(impuestos.getText())+Double.parseDouble(garantia.getText())+Double.parseDouble(expensas.getText());
 
          if(Double.parseDouble(lblMonto.getText()) == total ){ 
-//             if((Integer.parseInt(alquiler.getText())<(cuota.getValorCuota()))) {
-//                 
-//                     if (Double.parseDouble(sellado.getText())<(cuota.getTotalSellado())) {
-//                         
-//                     
-//                     if (Double.parseDouble(impuestos.getText())< (cuota.getTotalSellado())){
-//                         
-//                     
-//                     if (Double.parseDouble(garantia.getText())< cuota.getValorGarantia() ){
-//                         
-//                     
-//                     if (Double.parseDouble(expensas.getText())<(cuota.getExpensas())){
-                 
-             
-                 
-             
-             
-            Movimiento movimiento=new Movimiento();
-           
-            Contrato contrato=new Contrato();
-            Calendar ahora= Calendar.getInstance();
+             if((Integer.parseInt(alquiler.getText()) <= ( Double.parseDouble(lblAlquiler.getText())))) {
+                
+                if (Double.parseDouble(sellado.getText())<= ( Double.parseDouble(lblSellado.getText()))) {  
 
-            int diaActual=ahora.get(Calendar.DATE);
-            int mesActual=ahora.get((Calendar.MONTH))+1;
-            int añoActual=ahora.get(Calendar.YEAR);
+                if (Double.parseDouble(impuestos.getText())<=  ( Double.parseDouble(lblImpuestos.getText()))){
+
+                if (Double.parseDouble(garantia.getText())<= (Double.parseDouble(lblGarantia.getText()))){                        
+
+                if (Double.parseDouble(expensas.getText())<= ( Double.parseDouble(lblExpensas.getText()))){
+                 
+  
+             
+             
+                    Movimiento movimiento=new Movimiento();
+
+                    Contrato contrato=new Contrato();
+                    Calendar ahora= Calendar.getInstance();
+
+                    int diaActual=ahora.get(Calendar.DATE);
+                    int mesActual=ahora.get((Calendar.MONTH))+1;
+                    int añoActual=ahora.get(Calendar.YEAR);
+
+
+//
+//                    movimiento.setContrato(contrato);
+//                    movimiento.setContratoCuota(cuota);
+//                    movimiento.setTipoMovimiento("I");
+//                    movimiento.setHonorarios(0);
+//                    movimiento.setFecha(diaActual+"/"+mesActual+"/"+añoActual);
+//                    movimiento.setAlquileresPagos(Double.parseDouble(alquiler.getText()));
+//                    movimiento.setImpuestosPagos(Double.parseDouble(impuestos.getText()));
+//                    movimiento.setSelladosPagos(Double.parseDouble(sellado.getText()));
+//                    movimiento.setGarantiaPagos(Double.parseDouble(garantia.getText()));
+//                    movimiento.setExpensasPagas(Double.parseDouble(expensas.getText()));
+
+                    alquilerPago=Double.parseDouble(alquiler.getText());
+                    selladoPago=(Double.parseDouble(sellado.getText()));
+                    garantiaPaga=(Double.parseDouble(garantia.getText()));
+                    impuestoPago=Double.parseDouble(impuestos.getText());
+                    expensaPaga=Double.parseDouble(expensas.getText());
+
+
+
+//                    GestorMovimientos gestorIngreso=new GestorMovimientos();
+
+//                     try {
+//
+//                         movimiento.setAsignacion("A");
+////                         gestorIngreso.AltaIngreso(movimiento);
+//                         int recibo=gestorIngreso.numeroRecibo();
+//
+//
+//                     } catch (IOException ex) {
+//                         Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
+//                     } catch (SQLException ex) {
+//                         Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
+//                     }
+
+                    JOptionPane.showMessageDialog(new JDialog(),"Los valores se asignaron correctamente");
+                    dispose();
             
+                }else{
+                    JOptionPane.showMessageDialog(new JDialog(),"Los montos asignados no pueden ser mayor a los montos de la cuota");
+
+                }
+                }else{
+                    JOptionPane.showMessageDialog(new JDialog(),"Los montos asignados no pueden ser mayor a los montos de la cuota");
+
+                }
+                }else{
+                    JOptionPane.showMessageDialog(new JDialog(),"Los montos asignados no pueden ser mayor a los montos de la cuota");
+
+                }
+                }else{
+                    JOptionPane.showMessageDialog(new JDialog(),"Los montos asignados no pueden ser mayor a los montos de la cuota");
+                }
         
+                }else{
+                    JOptionPane.showMessageDialog(new JDialog(),"Los montos asignados no pueden ser mayor a los montos de la cuota");
             
-            movimiento.setContrato(contrato);
-            movimiento.setContratoCuota(cuota);
-            movimiento.setTipoMovimiento("I");
-            movimiento.setHonorarios(0);
-            movimiento.setFecha(diaActual+"/"+mesActual+"/"+añoActual);
-            movimiento.setAlquileresPagos(Double.parseDouble(alquiler.getText()));
-            movimiento.setImpuestosPagos(Double.parseDouble(impuestos.getText()));
-            movimiento.setSelladosPagos(Double.parseDouble(sellado.getText()));
-            movimiento.setGarantiaPagos(Double.parseDouble(garantia.getText()));
-            movimiento.setExpensasPagas(Double.parseDouble(expensas.getText()));
-            
-            alquilerPago=Double.parseDouble(alquiler.getText());
-            selladoPago=(Double.parseDouble(sellado.getText()));
-            garantiaPaga=(Double.parseDouble(garantia.getText()));
-            impuestoPago=Double.parseDouble(impuestos.getText());
-            expensaPaga=Double.parseDouble(expensas.getText());
-            
-            
-            
-            GestorMovimientos gestorIngreso=new GestorMovimientos();
-
-             try {
-                 
-                 movimiento.setAsignacion("A");
-                 gestorIngreso.AltaIngreso(movimiento);
-                 int recibo=gestorIngreso.numeroRecibo();
-          
-
-             } catch (IOException ex) {
-                 Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
-             } catch (SQLException ex) {
-                 Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
-             }
-            
-            JOptionPane.showMessageDialog(new JDialog(),"Los valores se asignaron correctamente");
-            dispose();
-            } else{ 
-                 JOptionPane.showMessageDialog(new JDialog(),"Los montos asignados no pueden ser mayor a los monto de la cuota");
-             }
-//            }else{
-//            JOptionPane.showMessageDialog(new JDialog(),"El total asignado debe ser igual al monto total");
-//            
-//        }
-//                     }else{
-//            JOptionPane.showMessageDialog(new JDialog(),"El total asignado debe ser igual al monto total");
-//            
-//        }
-//                     }else{
-//            JOptionPane.showMessageDialog(new JDialog(),"El total asignado debe ser igual al monto total");
-//            
-//        }
-//                     }else{
-//            JOptionPane.showMessageDialog(new JDialog(),"El total asignado debe ser igual al monto total");
-//            
-//        }
-//             }else{
-//            JOptionPane.showMessageDialog(new JDialog(),"El total asignado debe ser igual al monto total");
-//            
-//        }
-      
-        
+                }
+         }else{ 
+                
+                 JOptionPane.showMessageDialog(new JDialog(),"El total asignado debe ser igual al monto total");
+        }       
   }
     private void alquilerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_alquilerKeyTyped
 
@@ -530,28 +565,58 @@ public class cuotaIncompleta extends javax.swing.JFrame {
 
 
         cuotaActual=GestoresContrato.ConsultarCuotaActual(Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
-        
+        double expensas=0;
+        double impuestos=0;
+        double garantia=0;
+        double sellado=0;
+        double alquiler=0;
         Cuotas cuota=new Cuotas();
         Cuotas cuota2=new Cuotas();
         Movimiento mov=new Movimiento();
         LiquidacionInquilino liq = new LiquidacionInquilino();
         String Periodo= (String) liq.lblPeriodo.getText();
-        ArrayList movim =GestorMovimientos.consultaPagados(Integer.parseInt(DetallesContrato.lblIdContrato.getText()), cuotaActual);
+//        ArrayList movim =GestorMovimientos.consultaPagados(Integer.parseInt(DetallesContrato.lblIdContrato.getText()), cuotaActual);
         cuota2=GestoresContrato.consultarPagadosLiquidacion(Integer.parseInt(DetallesContrato.lblIdContrato.getText()), cuotaActual);
         cuota=GestoresContrato.consultarCuotaLiquidacion(Integer.parseInt(DetallesContrato.lblIdContrato.getText()), cuotaActual);
-        double Alqui=(cuota2.getAlquilerPagado());
-        int intvalue= (int) Alqui;
+
 //        for(int i=0; i<movim.size() ;i++){
 //           Alqui= 
 //                   
 //        }
+    
+        ArrayList<Movimiento> Movimien=GestorMovimientos.consultaPagosRealizados(Integer.parseInt(DetallesContrato.lblIdContrato.getText()),cuotaActual);
+                        ModeloTablaPagosRealizados modelo=new ModeloTablaPagosRealizados(Movimien);
+                        tablaPagos.setModel(modelo);
+                    
+              for(int i=0; i<tablaPagos.getRowCount();i++){
+                String ex=tablaPagos.getValueAt(i,3).toString();
+                String imp=tablaPagos.getValueAt(i,1).toString();
+                String gar=tablaPagos.getValueAt(i,4).toString();
+                String sell=tablaPagos.getValueAt(i,2).toString();
+                String alq=tablaPagos.getValueAt(i,0).toString();
+       
+                expensas=expensas+Double.parseDouble(ex);
+        
+                impuestos=impuestos+Double.parseDouble(imp);
+
+                garantia=garantia+Double.parseDouble(gar);
+
+                sellado=sellado+Double.parseDouble(sell);
+
+                alquiler=alquiler+Double.parseDouble(alq);
+           
+            }    
+        int intvalue= (int) alquiler;
+        int punitorios= (int) cuota.getPunitorios();
+              
         lblPeriodo.setText((String) DetallesContrato.tablaDetalle.getValueAt((cuotaActual-1), 0));
-        lblAlquiler.setText(Integer.toString(cuota.getValorCuota()-intvalue));
-        lblGarantia.setText(Double.toString(cuota.getValorGarantia()+cuota.getPunitorios()));
+        lblAlquiler.setText(Integer.toString(cuota.getValorCuota()-intvalue + punitorios));
+        lblGarantia.setText(Double.toString(cuota.getValorGarantia()-garantia));
         lblMonto.setText(Double.toString(liq.monto));
-        lblSellado.setText(Double.toString(cuota.getTotalSellado()));
-        lblImpuestos.setText(Double.toString(cuota.getTotalImpuestos()));
-        lblExpensas.setText(Double.toString(cuota.getExpensas()));
+        lblSellado.setText(Double.toString(cuota.getTotalSellado()-sellado));
+        lblImpuestos.setText(Double.toString(cuota.getTotalImpuestos()-impuestos));
+        lblExpensas.setText(Double.toString(cuota.getExpensas()-expensas));
+        
         
         
         
@@ -621,6 +686,8 @@ public class cuotaIncompleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAlquiler;
     private javax.swing.JLabel lblExpensas;
     private javax.swing.JLabel lblGarantia;
@@ -629,6 +696,7 @@ public class cuotaIncompleta extends javax.swing.JFrame {
     private javax.swing.JLabel lblSellado;
     public static javax.swing.JLabel periodo;
     public static javax.swing.JTextField sellado;
+    private javax.swing.JTable tablaPagos;
     // End of variables declaration//GEN-END:variables
 
     public Image getIconImage() {

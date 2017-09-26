@@ -88,6 +88,12 @@ public class RenderLiquidacion extends DefaultTableCellRenderer {
          columnModel.getColumn(7).setCellRenderer(new RenderBordeAbajoTabla());
          columnModel.getColumn(8).setCellRenderer(new RenderBordeAbajoTabla());
          columnModel.getColumn(9).setCellRenderer(new RenderBordeAbajoTabla());
+          columnModel.getColumn(10).setPreferredWidth(100);
+           columnModel.getColumn(11).setPreferredWidth(100);
+            columnModel.getColumn(12).setPreferredWidth(100);
+            
+         
+
          
 
 

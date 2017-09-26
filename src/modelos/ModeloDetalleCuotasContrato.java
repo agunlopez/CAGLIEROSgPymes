@@ -28,13 +28,13 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
   
     ArrayList<Cuotas> lista = null;
     Font negrita = new Font("Arial", Font.BOLD, 14);
-    public static JButton btnAgregar= new JButton("Expensas");
+    public static JButton brnExpensa= new JButton("Expensas");
     public static JButton btnDescuento= new JButton("Descuento");
-    public static JButton brnExpensas= new JButton("Expensas");
+    public static JButton btnImpuesto= new JButton("Impuestos");
     
 
 
-    final String[] COLUMN_NAMES = {"Periodo","Precio Alquiler $","Total Impuestos $","Punitorios $","Total a Pagar $","Total Pagado $","Descuento $","Expensas $","Monto Sellado $","Garantia $","Expensas","Descuento"}; //cambiar los titulos
+    final String[] COLUMN_NAMES = {"Periodo","Precio Alquiler $","Total Impuestos $","Punitorios $","Total a Pagar $","Total Pagado $","Descuento $","Expensas $","Monto Sellado $","Garantia $","Expensas","Descuento","Impuestos"}; //cambiar los titulos
     //retormanos el numero de elementos del array de datos
 
     public ModeloDetalleCuotasContrato(ArrayList lista) {
@@ -49,7 +49,7 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
     
     @Override
     public int getColumnCount() {
-        return 12;//numeros de titulos
+        return 13;//numeros de titulos
     }
 
     @Override
@@ -62,12 +62,12 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
     @Override
     @SuppressWarnings("empty-statement")
     public Object getValueAt(int fila, int columna) {
-        btnAgregar.setFont(negrita);
+        brnExpensa.setFont(negrita);
         btnDescuento.setFont(negrita);
-        brnExpensas.setFont(negrita);
-        btnAgregar.setName("a");
+        btnImpuesto.setFont(negrita);
+        brnExpensa.setName("a");
         btnDescuento.setName("d");
-        brnExpensas.setName("e");
+        btnImpuesto.setName("e");
         
         if (fila > lista.size()) {
             return null;
@@ -85,13 +85,13 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
             Logger.getLogger(ModeloDetalleCuotasContrato.class.getName()).log(Level.SEVERE, null, ex);
         }
        
-        btnAgregar.setOpaque(false);
-        btnAgregar.setBorderPainted(false );
-        btnAgregar.setBackground(java.awt.Color.decode("#B7B7B7"));
+        brnExpensa.setOpaque(false);
+        brnExpensa.setBorderPainted(false );
+        brnExpensa.setBackground(java.awt.Color.decode("#B7B7B7"));
         
-        brnExpensas.setOpaque(false);
-        brnExpensas.setBorderPainted(false );
-        brnExpensas.setBackground(java.awt.Color.decode("#B7B7B7"));
+        btnImpuesto.setOpaque(false);
+        btnImpuesto.setBorderPainted(false );
+        btnImpuesto.setBackground(java.awt.Color.decode("#B7B7B7"));
         
         btnDescuento.setOpaque(false);
         btnDescuento.setBorderPainted(false );
@@ -119,9 +119,11 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
                         
                         case 9: return df.format(lista.get(fila).getValorGarantia());  
   
-                        case 10: return btnAgregar;
+                        case 10: return brnExpensa;
                         
                         case 11: return btnDescuento;
+                        
+                        case 12: return btnImpuesto;
                         
 
                         
