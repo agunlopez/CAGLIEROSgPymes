@@ -172,8 +172,8 @@ public class GestorMovimientos {
     
     public static int AltaEgreso(Movimiento egreso)throws IOException{
         int r=0;
-        String sql="INSERT INTO `movimientos`( `tipoMov`, `valorMov`, `fecha`, `honorariosCobrados`, `idContrato`, `nroCuota`) "
-                + "VALUES (?,?,?,?,?,?)";
+        String sql="INSERT INTO `movimientos`( `tipoMov`, `valorMov`, `fecha`, `honorariosCobrados`, `idContrato`, `nroCuota`,`expensasPagas`,`impuestoPago`,`selladoPago`,`garantiaPaga`,`alquilerPago`) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
             
@@ -183,6 +183,12 @@ public class GestorMovimientos {
             pst.setDouble(4, egreso.getHonorarios());
             pst.setInt(5, egreso.getContrato().getIdContrato());      
             pst.setInt(6, egreso.getContratoCuota().getNroCuota());
+            pst.setDouble(7,egreso.getExpensasPagas());
+            pst.setDouble(8,egreso.getImpuestosPagos());
+            pst.setDouble(9,egreso.getSelladosPagos());
+            pst.setDouble(10,egreso.getGarantiaPagos());
+            pst.setDouble(11,egreso.getAlquileresPagos());
+            
             
             r=pst.executeUpdate();
             

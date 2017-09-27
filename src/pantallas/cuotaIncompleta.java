@@ -127,10 +127,9 @@ public class cuotaIncompleta extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(java.awt.Color.red);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         periodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        periodo.setForeground(new java.awt.Color(255, 255, 255));
         periodo.setText("Expensas");
 
         id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -393,8 +392,6 @@ public class cuotaIncompleta extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel11.getAccessibleContext().setAccessibleName("Pagos Realizados");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
  public static double total=0;
@@ -426,6 +423,22 @@ public class cuotaIncompleta extends javax.swing.JFrame {
         Cuotas cuota=new Cuotas();
         ban=false;
         montoPagado=Double.parseDouble(lblMonto.getText());
+        if(alquiler.getText().isEmpty()){
+            alquiler.setText("0");
+        }
+        if(sellado.getText().isEmpty()){
+            sellado.setText("0");
+        }
+        if(impuestos.getText().isEmpty()){
+            impuestos.setText("0");
+        }
+        if(garantia.getText().isEmpty()){
+            garantia.setText("0");
+        }
+        if(expensas.getText().isEmpty()){
+            expensas.setText("0");
+        }
+        
         total= Double.parseDouble(alquiler.getText())+Double.parseDouble(sellado.getText())+Double.parseDouble(impuestos.getText())+Double.parseDouble(garantia.getText())+Double.parseDouble(expensas.getText());
 
          if(Double.parseDouble(lblMonto.getText()) == total ){ 
@@ -610,7 +623,7 @@ public class cuotaIncompleta extends javax.swing.JFrame {
         int punitorios= (int) cuota.getPunitorios();
               
         lblPeriodo.setText((String) DetallesContrato.tablaDetalle.getValueAt((cuotaActual-1), 0));
-        lblAlquiler.setText(Integer.toString(cuota.getValorCuota()-intvalue + punitorios));
+        lblAlquiler.setText(Integer.toString(cuota.getValorCuota() + punitorios - intvalue));
         lblGarantia.setText(Double.toString(cuota.getValorGarantia()-garantia));
         lblMonto.setText(Double.toString(liq.monto));
         lblSellado.setText(Double.toString(cuota.getTotalSellado()-sellado));

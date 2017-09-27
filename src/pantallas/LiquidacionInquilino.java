@@ -402,7 +402,7 @@ public static boolean bandera=true;
     
     if(bandera==true){
         
-           monto=Double.parseDouble(txtMontoaPagar.getText());
+//           monto=Double.parseDouble(txtMontoaPagar.getText());
         if(txtMontoaPagar.getText().isEmpty()) {
             JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
         }else if(Double.parseDouble(txtMontoaPagar.getText())==0){
@@ -672,19 +672,20 @@ char validar=evt.getKeyChar();
             movimiento.setHonorarios(0);
             movimiento.setFecha(diaActual+"/"+mesActual+"/"+añoActual);
          
-            
-            if(total == Double.parseDouble(txtMontoaPagar.getText())){
-                movimiento.setAlquileresPagos(totalAlquiler);
-                movimiento.setImpuestosPagos(totalImpuestos);
-                movimiento.setSelladosPagos(totalSellado);
-                movimiento.setGarantiaPagos(totalGarantia);
-                movimiento.setExpensasPagas(totalExpensas);
-            }else{
+            double pago= Double.parseDouble(lblTotalPagado.getText());
+            if(Double.parseDouble(txtMontoaPagar.getText())< Double.parseDouble(lblTotalaPagar.getText()) || (pago != 0)){
                 movimiento.setAlquileresPagos(inc.alquilerPago);
                 movimiento.setImpuestosPagos(inc.impuestoPago);
                 movimiento.setSelladosPagos(inc.selladoPago);
                 movimiento.setGarantiaPagos(inc.garantiaPaga);
                 movimiento.setExpensasPagas(inc.expensaPaga);
+            }else{
+                movimiento.setAlquileresPagos(totalAlquiler);
+                movimiento.setImpuestosPagos(totalImpuestos);
+                movimiento.setSelladosPagos(totalSellado);
+                movimiento.setGarantiaPagos(totalGarantia);
+                movimiento.setExpensasPagas(totalExpensas);
+               
             }
             
             GestorMovimientos gestorIngreso=new GestorMovimientos();

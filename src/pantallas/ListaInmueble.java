@@ -6,6 +6,7 @@
 package pantallas;
 
 import gestores.BusquedaInmueble;
+import pantallas.ImpuestoCompartido;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import modelos.ModeloTablaInmuebleContrato;
  * @author Nahuel
  */
 public class ListaInmueble extends javax.swing.JFrame {
-
+public static String donde;
     /**
      * Creates new form ListaPropietarios
      */
@@ -85,7 +86,7 @@ public class ListaInmueble extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jPanel2.setBackground(java.awt.Color.red);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 102));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Buscar");
@@ -139,10 +140,15 @@ public class ListaInmueble extends javax.swing.JFrame {
 				String id=tablaListaInmuebles.getValueAt(row, 0).toString();
 				String numero=tablaListaInmuebles.getValueAt(row, 2).toString();
                                 String propietario=tablaListaInmuebles.getValueAt(row, 6).toString();
-				
-                                NuevoContrato.propietario.setText(propietario);
-				NuevoContrato.inmueble.setText(id+" - "+calle+" "+numero);
-				
+				if("Impuesto".equals(donde)){
+                                    ImpuestoCompartido.lblInmueble.setText(id+" - "+calle+" "+numero); 
+                                    
+                                }else{
+                                    NuevoContrato.propietario.setText(propietario);
+                                    NuevoContrato.inmueble.setText(id+" - "+calle+" "+numero);
+				   
+                                }
+                               
 				dispose();
        }
        

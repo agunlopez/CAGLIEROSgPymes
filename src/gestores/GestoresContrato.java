@@ -436,7 +436,6 @@ public class GestoresContrato {
                 pst.setDouble(10, contC.getDescuento());
                 pst.setDouble(11, contC.getTotalSellado());
                 pst.setDouble(12, contC.getExpensas());
-                pst.setString(13, contC.getPagoParcial());
 
           
 		r=pst.executeUpdate();
@@ -578,7 +577,7 @@ public class GestoresContrato {
                           cuota.setComision(Double.parseDouble(rs.getString("comicion")));
                           cuota.setTotalSellado(Double.parseDouble(rs.getString("totalSellado")));
                           cuota.setExpensas(Double.parseDouble(rs.getString("expensas")));
-                          cuota.setPagoParcial(rs.getString("pagoParcial"));
+
                           
                           
                           

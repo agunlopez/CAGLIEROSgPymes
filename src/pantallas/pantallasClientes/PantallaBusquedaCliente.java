@@ -98,7 +98,7 @@ public class PantallaBusquedaCliente extends javax.swing.JFrame {
         setTitle("Buscar Cliente");
         setIconImage(getIconImage());
 
-        jPanel1.setBackground(java.awt.Color.red);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +126,6 @@ public class PantallaBusquedaCliente extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("DNI o Apellido");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

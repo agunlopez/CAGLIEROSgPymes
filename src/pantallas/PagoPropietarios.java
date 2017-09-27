@@ -84,11 +84,10 @@ JDialog reciboPropietario= new JDialog(new JFrame(),"Recibo",true);
             }
         });
 
-        jPanel1.setBackground(java.awt.Color.red);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         lblPagoPropietario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblPagoPropietario.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,7 +96,7 @@ JDialog reciboPropietario= new JDialog(new JFrame(),"Recibo",true);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblPagoPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +254,9 @@ JDialog reciboPropietario= new JDialog(new JFrame(),"Recibo",true);
             movimiento.setValorMovimiento(Double.parseDouble(lblTotal.getText()));
             movimiento.setHonorarios(Double.parseDouble(lblComision.getText()));
             movimiento.setContrato(contrato);
-            movimiento.setContratoCuota(cuota);                     
+            movimiento.setContratoCuota(cuota); 
+            movimiento.setExpensasPagas(0);
+            
                        
             propietarioPago.setPeriodo(cuotaActualProp+1);
             propietarioPago.setTotal(Double.parseDouble(lblTotal.getText()));
@@ -284,7 +285,7 @@ JDialog reciboPropietario= new JDialog(new JFrame(),"Recibo",true);
             Map parametro=new HashMap();
             
             parametro.put("Recibo",recibo); 
-            JasperReport reciboProp=JasperCompileManager.compileReport("C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\Recibos\\reciboPropietario.jrxml");           
+            JasperReport reciboProp=JasperCompileManager.compileReport("C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\reciboPropietario.jrxml");           
             JasperPrint jasperPrint=JasperFillManager.fillReport(reciboProp, parametro, con.conexion());
 
             reciboPropietario.setSize(1000,700);

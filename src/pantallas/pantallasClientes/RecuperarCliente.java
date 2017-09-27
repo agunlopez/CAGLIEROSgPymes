@@ -95,7 +95,7 @@ public class RecuperarCliente extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jPanel2.setBackground(java.awt.Color.red);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 102));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Buscar");

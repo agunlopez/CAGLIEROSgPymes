@@ -109,7 +109,7 @@ public class Alerta extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(java.awt.Color.red);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 102));
 
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

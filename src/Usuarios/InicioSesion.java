@@ -196,7 +196,7 @@ public class InicioSesion extends javax.swing.JFrame {
         
         Usuario usuario=new Usuario();
         usuario=GestorUsuario.traerUsuario(nombreUsuario);
-        try{     
+//        try{     
         if(nombreUsuario.equals(usuario.getUsuario()) && contraseña.compareTo(usuario.getClave())==0){
            if(usuario.getTipo().equals("ADMINISTRADOR")){
             try {                
@@ -271,9 +271,9 @@ public class InicioSesion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error al ingresar Usuario o Contraseña");
             txtcontraseña.setText("");
         }
-        }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "El Usuario no existe ");
-        }
+//        }catch(NullPointerException e){
+//            JOptionPane.showMessageDialog(null, "El Usuario no existe ");
+//        }
         
         
     }

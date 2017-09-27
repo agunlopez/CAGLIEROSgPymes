@@ -83,14 +83,12 @@ public class Expensas extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(java.awt.Color.red);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         periodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        periodo.setForeground(new java.awt.Color(255, 255, 255));
         periodo.setText("Expensas");
 
         id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        id.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

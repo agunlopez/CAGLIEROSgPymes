@@ -257,7 +257,7 @@ public class DetallesContrato extends javax.swing.JFrame {
             }
         });
 
-        jPanel5.setBackground(java.awt.Color.red);
+        jPanel5.setBackground(new java.awt.Color(255, 255, 102));
 
         btnLiquidacion.setText("Nueva Liquidacion");
         btnLiquidacion.addActionListener(new java.awt.event.ActionListener() {
@@ -267,10 +267,8 @@ public class DetallesContrato extends javax.swing.JFrame {
         });
 
         lblIdContrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblIdContrato.setForeground(new java.awt.Color(255, 255, 255));
 
         lblInmueble.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblInmueble.setForeground(new java.awt.Color(255, 255, 255));
 
         btnPagoPropietario.setText("Pago a Propietario");
         btnPagoPropietario.addActionListener(new java.awt.event.ActionListener() {
@@ -1322,19 +1320,19 @@ public class DetallesContrato extends javax.swing.JFrame {
              if(habilitarTabla==true){
             ((JButton)value).doClick();
             JButton boton=(JButton) value;
-//            if(boton.getName().equals("a")){
-//                ModeloDetalleCuotasContrato modelo=(ModeloDetalleCuotasContrato)tablaDetalle.getModel();
-//            int rowDetalle  = tablaDetalle.getSelectedRow()+1;
-//            String Periodo= (String) tablaDetalle.getValueAt(row, 0);                       
-//            
-//           AgregarImpuestoCuota agregarImp=new AgregarImpuestoCuota();
-//            
-//           AgregarImpuestoCuota.nroCuota=row+1;
-//           AgregarImpuestoCuota.idPeriodo.setText(PrincipalAdministrador.idConsAsociado+" - "+Periodo);
-//           agregarImp.pack();
-//           agregarImp.setLocationRelativeTo(null);
-//           agregarImp.setVisible(true);
-//           }
+            if(boton.getName().equals("e")){
+                ModeloDetalleCuotasContrato modelo=(ModeloDetalleCuotasContrato)tablaDetalle.getModel();
+            int rowDetalle  = tablaDetalle.getSelectedRow()+1;
+            String Periodo= (String) tablaDetalle.getValueAt(row, 0);                       
+            
+           AgregarImpuestoCuota agregarImp=new AgregarImpuestoCuota();
+            
+           AgregarImpuestoCuota.nroCuota=row+1;
+           AgregarImpuestoCuota.idPeriodo.setText(PrincipalAdministrador.idConsAsociado+" - "+Periodo);
+           agregarImp.pack();
+           agregarImp.setLocationRelativeTo(null);
+           agregarImp.setVisible(true);
+           }
                     if(boton.getName().equals("a")){
                        String Periodo= (String) tablaDetalle.getValueAt(row, 0);  
                        Expensas expensas=new Expensas();

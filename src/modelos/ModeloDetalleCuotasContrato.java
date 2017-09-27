@@ -30,7 +30,7 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
     Font negrita = new Font("Arial", Font.BOLD, 14);
     public static JButton brnExpensa= new JButton("Expensas");
     public static JButton btnDescuento= new JButton("Descuento");
-    public static JButton btnImpuesto= new JButton("Impuestos");
+    public static JButton btnImpuesto= new JButton("Impuesto");
     
 
 

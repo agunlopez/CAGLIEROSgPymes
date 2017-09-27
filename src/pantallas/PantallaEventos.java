@@ -74,34 +74,28 @@ public class PantallaEventos extends javax.swing.JFrame {
         setTitle("Eventos");
         setIconImage(getIconImage());
 
-        jPanel1.setBackground(java.awt.Color.red);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 102));
 
         comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos","CONTRATO","INMUEBLE","CLIENTE","MOVIMIENTO" }));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Filtrar:");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Tipo");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("desde: ");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("hasta:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Fecha");
 
         comboUsuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos","ADMIN" }));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Usuario");
 
         jButton1.setText("Buscar");
@@ -112,14 +106,12 @@ public class PantallaEventos extends javax.swing.JFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("(dd/MM/aaaa)");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("(dd/MM/aaaa)");
 
-        fechaDesde.setBackground(java.awt.Color.red);
+        fechaDesde.setBackground(new java.awt.Color(255, 255, 102));
         fechaDesde.setDateFormatString("dd/MM/yyyy");
         fechaDesde.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -127,7 +119,7 @@ public class PantallaEventos extends javax.swing.JFrame {
             }
         });
 
-        fechaHasta.setBackground(java.awt.Color.red);
+        fechaHasta.setBackground(new java.awt.Color(255, 255, 102));
         fechaHasta.setDateFormatString("dd/MM/yyyy");
         fechaHasta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

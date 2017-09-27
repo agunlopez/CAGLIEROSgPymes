@@ -12,7 +12,7 @@ import pantallas.ListaInmueble;
 
 public class ModeloTablaCaja extends AbstractTableModel {
 
-    final String[] COLUMN_NAMES = {"Recibo","ID Contrato","Cuota","Fecha","Inmueble","Inquilino","Propietario","Tipo Movimiento","Valor $","Expensas $","Alquileres $","Garantias $","Sellado $","Impuestos $"}; //cambiar los titulos
+    final String[] COLUMN_NAMES = {"Recibo","ID Contrato","Cuota","Fecha","Inmueble","Inquilino","Propietario","Tipo Movimiento","Valor $","Expensas $","Alquileres $","Garantias $","Sellado $","Impuestos $","Honorarios $"}; //cambiar los titulos
     ArrayList<Movimiento> lista = null;
     //retormanos el numero de elementos del array de datos
 
@@ -28,7 +28,7 @@ public class ModeloTablaCaja extends AbstractTableModel {
     
     @Override
     public int getColumnCount() {
-        return 14;//numeros de titulos
+        return 15;//numeros de titulos
     }
 
     @Override
@@ -89,6 +89,8 @@ public class ModeloTablaCaja extends AbstractTableModel {
                 case 12 : return lista.get(fila).getSelladosPagos();
                 
                 case 13 : return lista.get(fila).getImpuestosPagos();
+                
+                case 14 : return lista.get(fila).getHonorarios();
                 
                 
                 default:
