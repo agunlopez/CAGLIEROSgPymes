@@ -13,10 +13,50 @@ public class Impuesto {
     
     private int idImpuesto;
     private int idDescripcion;
+    private int idImpuestoCompartido;
     private double valor;
     private Cuotas cuotas;
     private CuotaImpuesto cuotaImpuestos;
     private DescripcionImpuesto descripcion;
+    private Inmueble inmueble;
+    private double porcentaje;
+    private Contrato contrato;
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
+  
+    
+    public double getPorcentaje() {
+        return porcentaje;
+    }
+
+    public Inmueble getInmueble() {
+        return inmueble;
+    }
+
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
+    }
+
+    public void setPorcentaje(double porcentaje) {
+        this.porcentaje = porcentaje;
+    }
+    
+    
+
+    public int getIdImpuestoCompartido() {
+        return idImpuestoCompartido;
+    }
+
+    public void setIdImpuestoCompartido(int idImpuestoCompartido) {
+        this.idImpuestoCompartido = idImpuestoCompartido;
+    }
 
     public DescripcionImpuesto getDescripcion() {
         return descripcion;

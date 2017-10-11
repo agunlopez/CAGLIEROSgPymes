@@ -17,6 +17,7 @@ import java.util.Date;
 public class fechas {
     public static int calcularMesesAFecha(Date fechaInicio, Date fechaFin) {
          try {
+            
              //Fecha inicio en objeto Calendar
              Calendar startCalendar = Calendar.getInstance();
              startCalendar.setTime(fechaInicio);
@@ -29,7 +30,7 @@ public class fechas {
              //Diferencia en meses entre las dos fechas
              int diffMonth = (endMes - startMes)+1;
              return diffMonth;
-         } catch (Exception e) {
+         }catch (Exception e) {
              return 0;
          }
     

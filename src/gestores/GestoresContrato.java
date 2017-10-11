@@ -419,8 +419,8 @@ public class GestoresContrato {
         public int AltaCuotas(Cuotas contC){
 		int r=0;
 		String SQL="INSERT INTO `contratocuota`(`idContrato`, `nroCuota`, `totalImpuestos`, `valorCuota`, `montoTotal`, `punitorios`, `comicion`,"
-                        + " `valorGarantia`, `totalPagado`, `descuento`,`totalSellado`, `expensas`,`pagoParcial`) "
-                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + " `valorGarantia`, `totalPagado`, `descuento`,`totalSellado`, `expensas`) "
+                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		try{PreparedStatement pst=Conexion.getConexionn().prepareStatement(SQL);
 		

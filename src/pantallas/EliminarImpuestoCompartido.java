@@ -41,12 +41,12 @@ import static pantallas.DetallesContrato.tablaImpuestos;
  *
  * @author Nahuel
  */
-public class ImpuestoCompartido extends javax.swing.JFrame {
+public class EliminarImpuestoCompartido extends javax.swing.JFrame {
 
     /**
      * Creates new form AgregarImpuestos
      */
-    public ImpuestoCompartido() {
+    public EliminarImpuestoCompartido() {
         initComponents();
         this.setResizable(false);
     }
@@ -68,14 +68,12 @@ int idic;
         jLabel3 = new javax.swing.JLabel();
         lblIdImpuestoCompartido = new javax.swing.JLabel();
         lblIdContrato = new javax.swing.JLabel();
-        lblImporte = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         importe = new javax.swing.JLabel();
-        idPeriodo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Agregar Impuesto");
+        setTitle("Eliminar Impuesto");
         setIconImage(getIconImage());
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -90,7 +88,7 @@ int idic;
             }
         });
 
-        jButton1.setText("Cargar Impuesto");
+        jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -100,7 +98,7 @@ int idic;
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Impuesto: ");
 
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inmuebles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inmuebles ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
         tablaInmuebles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -138,18 +136,16 @@ int idic;
 
         lblIdContrato.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        lblImporte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblImporte.setText("Importe:");
-
         lblDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         importe.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        idPeriodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        idPeriodo.setText("aa");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Periodo");
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,28 +165,23 @@ int idic;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblIdImpuestoCompartido))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(218, 218, 218))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(93, 93, 93)))
+                                .addComponent(jLabel1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(importe, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(218, 218, 218)
+                                        .addComponent(importe, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 78, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(idPeriodo)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -201,25 +192,25 @@ int idic;
                     .addComponent(jLabel3)
                     .addComponent(lblIdImpuestoCompartido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(idPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
                 .addComponent(lblIdContrato)
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(lblImporte))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDescripcion)
-                    .addComponent(importe))
-                .addGap(18, 18, 18)
+                    .addComponent(lblDescripcion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(importe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel11.getAccessibleContext().setAccessibleName("Inmuebles");
+
+        getAccessibleContext().setAccessibleName("Eliminar Impuesto");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -228,170 +219,36 @@ int idic;
            
         
         
-    GestoresContrato gestorCon=new GestoresContrato();
-    Contrato contrato=new Contrato();
-    Impuesto impuesto=new Impuesto();
-    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+1,13));
-        try{
-            String descripcion=(String) lblDescripcion.getText();
-            int iddes=(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
-            int idcon=(Integer.parseInt(idPeriodo.getText().substring(0, idPeriodo.getText().indexOf("-")-1)));
 
-
-            lblIdImpuestoCompartido.setText(GestoresImpuestos.TraerImpuestoCompartido(idcon, iddes));
 
             ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(Integer.parseInt(lblIdImpuestoCompartido.getText()));
             ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
 //          tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuestoCompartido());
             tablaInmuebles.setModel(modelo);
-            for(int i=0; i<tablaInmuebles.getRowCount();i++){
-                String idCont=tablaInmuebles.getValueAt(i,0).toString();
-                contrato.setIdContrato(Integer.parseInt(idCont));
-                String Porce=tablaInmuebles.getValueAt(i,1).toString();
-                impuesto.setValor(Valor*(Double.parseDouble(Porce)/100));
-                datosContrato=GestoresContrato.consultaDatosContrato(Integer.parseInt(idCont));
-                inicio = (datosContrato.getFechaInicio());
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");       
-                Calendar ahora= Calendar.getInstance();
-                int diaActual=ahora.get(Calendar.DATE);
-                int mesActual=ahora.get((Calendar.MONTH))+1;
-                int añoActual=ahora.get(Calendar.YEAR);
-                int mesV = 0;
-                String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
-
-                for(int e=0;e<meses.length;e++){
-                    if(meses[e].equals(perio.substring(1,4))){
-                        mesV=e+1;
-                    }
-                }
-                String fechaInicio = inicio;
-                String actual = diaActual+"/"+mesV+"/"+perio.substring(5,9); 
-
-                Date fechaInicial=dateFormat.parse(fechaInicio);
-                Date fechaFinal=dateFormat.parse(actual);
-                int cantmes = fechas.calcularMesesAFecha(fechaInicial ,fechaFinal );
-
-               
-                datosCuotas = gestorCon.consultarCuotaLiquidacion(Integer.parseInt(idCont),cantmes );
-                totalPagar = (datosCuotas.getTotalaPagar());
-                
-                if(totalPagar==0){
-                   JOptionPane.showMessageDialog(new JDialog(),"Ya se relizo la liquidacion de la cuota "+ perio + " del contrato "+idCont + " No se puede cargar el impuesto");
-                   dispose();
-                }
-            }
-   
-        
-      
-            
-//        lblIdImpuestoCompartido.setText(Integer.toString(idic));
-//        
-
-
-// TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(ImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (ParseException ex) {
-            Logger.getLogger(ImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
-        }
+           
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int idImpuestoCompartido=Integer.parseInt(lblIdImpuestoCompartido.getText());
+        Object[] opciones = {"Aceptar", "Cancelar"};
+        int eleccion = JOptionPane.showOptionDialog(null, "¿En realidad desea eliminar el impuesto compartido?", "Mensaje de Confirmacion",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
+        if (eleccion == JOptionPane.YES_OPTION) {
 
-    String descripcion=(String) lblDescripcion.getText();
-    Valor = Double.parseDouble(importe.getText());
-    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+1,13));
         try{
-            Contrato contrato=new Contrato();
-            Cuotas cuotas=new Cuotas();
-            CuotaImpuesto cuotaImp=new CuotaImpuesto();
-            Impuesto impuesto=new Impuesto();
-            
-            int idImpuestoCompartido= Integer.parseInt(lblIdImpuestoCompartido.getText());
-           
-            for(int i=0; i<tablaInmuebles.getRowCount();i++){
-                String idCon=tablaInmuebles.getValueAt(i,0).toString();
-                contrato.setIdContrato(Integer.parseInt(idCon));
-                String Porce=tablaInmuebles.getValueAt(i,1).toString();
-                impuesto.setValor(Valor*(Double.parseDouble(Porce)/100));
-                datosContrato=GestoresContrato.consultaDatosContrato(Integer.parseInt(idCon));
-                inicio = (datosContrato.getFechaInicio());
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");       
-                Calendar ahora= Calendar.getInstance();
-                int diaActual=ahora.get(Calendar.DATE);
-                int mesActual=ahora.get((Calendar.MONTH))+1;
-                int añoActual=ahora.get(Calendar.YEAR);
-                int mesV = 0;
-                String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
+        int r=GestoresImpuestos.EliminarImpuestoCompartido(idImpuestoCompartido);
 
-                for(int e=0;e<meses.length;e++){
-                    if(meses[e].equals(perio.substring(1,4))){
-                        mesV=e+1;
-                    }
-                }
-                String fechaInicio = inicio;
-                String actual = diaActual+"/"+mesV+"/"+perio.substring(5,9); 
-
-                Date fechaInicial=dateFormat.parse(fechaInicio);
-                Date fechaFinal=dateFormat.parse(actual);
-                int cantmes = fechas.calcularMesesAFecha(fechaInicial ,fechaFinal );
-
-                String sql2="SELECT * FROM `impuesto`ORDER BY idImpuesto DESC LIMIT 1";
-                ResultSet rs2=null;
-                GestoresContrato gestorCon=new GestoresContrato();
-                try{
-                    PreparedStatement pst2=Conexion.getConexionn().prepareStatement(sql2);
-                    rs2=pst2.executeQuery();            
-                    while(rs2.next()){
-                         idImpuesto=Integer.parseInt(rs2.getString("idImpuesto"))+1;
-                    }
-                }catch (SQLException e) {
-                    JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuesto"+e.toString());
-                }
-//                datosCuotas = gestorCon.consultarCuotaLiquidacion(Integer.parseInt(idCon),cantmes );
-//                totalPagar = (datosCuotas.getTotalaPagar());
-//                
-//                if(totalPagar==0){
-//                   JOptionPane.showMessageDialog(new JDialog(),"Ya se relizo la liquidacion de la cuota "+ perio + " del contrato "+idCon + " No se puede cargar el impuesto");
-//                   dispose();
-//                }else{
-                    
-                cuotas.setContrato(contrato);
-                cuotas.setNroCuota(cantmes);        
-
-                impuesto.setIdImpuesto(idImpuesto);
-                impuesto.setIdDescripcion(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
-
-                cuotaImp.setCuotas(cuotas);
-                cuotaImp.setImpuesto(impuesto);
-
-                GestoresImpuestos gestorImp=new GestoresImpuestos();
-                
-                int r=gestorImp.GestorAltaImpuesto(cuotaImp);
-                try {
-                    int rr=gestorImp.ActualizarTotalImpuesto(Integer.parseInt(idCon), cantmes);
-                    int actualizarTotal=gestorCon.ActualizarTotalaPagar(Integer.parseInt(idCon), cantmes);
-                } catch (SQLException ex) {
-                    Logger.getLogger(AgregarImpuestoCuota.class.getName()).log(Level.SEVERE, null, ex);
-                }   
-                  JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
-                lblIdContrato.setText(" ");
+            if(r==1){
+                JOptionPane.showMessageDialog(new JDialog(),"Eliminado Correctamente");
                 dispose();
-//                ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(idImpuestoCompartido);
-//                ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
-//                tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuestoCompartido());
-//                tablaInmuebles.setModel(modelo);
-//                }
-
             }
-        }catch(NumberFormatException ex){
-
-                JOptionPane.showMessageDialog(new JDialog(),"Inserte un Valor");
-
-        } catch (ParseException ex) {
-            Logger.getLogger(ImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CargaImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
         }
        // TODO add your handling code here:
+       // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -407,6 +264,11 @@ int idic;
     private void tablaInmueblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaInmueblesMouseClicked
       // TODO add your handling code here:
     }//GEN-LAST:event_tablaInmueblesMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,14 +287,18 @@ int idic;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarImpuestoCompartido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -441,24 +307,22 @@ int idic;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ImpuestoCompartido().setVisible(true);
+                new EliminarImpuestoCompartido().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JLabel idPeriodo;
     public static javax.swing.JLabel importe;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblDescripcion;
     public static javax.swing.JLabel lblIdContrato;
     public static javax.swing.JLabel lblIdImpuestoCompartido;
-    public static javax.swing.JLabel lblImporte;
     private javax.swing.JTable tablaInmuebles;
     // End of variables declaration//GEN-END:variables
 

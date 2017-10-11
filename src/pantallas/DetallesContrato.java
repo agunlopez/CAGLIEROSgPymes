@@ -1321,17 +1321,17 @@ public class DetallesContrato extends javax.swing.JFrame {
             ((JButton)value).doClick();
             JButton boton=(JButton) value;
             if(boton.getName().equals("e")){
-                ModeloDetalleCuotasContrato modelo=(ModeloDetalleCuotasContrato)tablaDetalle.getModel();
+            ModeloDetalleCuotasContrato modelo=(ModeloDetalleCuotasContrato)tablaDetalle.getModel();
             int rowDetalle  = tablaDetalle.getSelectedRow()+1;
             String Periodo= (String) tablaDetalle.getValueAt(row, 0);                       
             
-           AgregarImpuestoCuota agregarImp=new AgregarImpuestoCuota();
-            
-           AgregarImpuestoCuota.nroCuota=row+1;
-           AgregarImpuestoCuota.idPeriodo.setText(PrincipalAdministrador.idConsAsociado+" - "+Periodo);
-           agregarImp.pack();
-           agregarImp.setLocationRelativeTo(null);
-           agregarImp.setVisible(true);
+            AgregarImpuestoCuota agregarImp=new AgregarImpuestoCuota();
+
+            AgregarImpuestoCuota.nroCuota=row+1;
+            AgregarImpuestoCuota.idPeriodo.setText(PrincipalAdministrador.idConsAsociado+" - "+Periodo);
+            agregarImp.pack();
+            agregarImp.setLocationRelativeTo(null);
+            agregarImp.setVisible(true);
            }
                     if(boton.getName().equals("a")){
                        String Periodo= (String) tablaDetalle.getValueAt(row, 0);  
@@ -1737,7 +1737,7 @@ public class DetallesContrato extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(new JDialog(),"No se puede Eliminar habiendo generado la Liquidacion"); 
      }
     }else{
-        JOptionPane.showMessageDialog(new JDialog(),"No se puede Eliminar estando vencida el Contrato");
+        JOptionPane.showMessageDialog(new JDialog(),"No se puede Eliminar estando vencido el Contrato");
     }
 
         // TODO add your handling code here:

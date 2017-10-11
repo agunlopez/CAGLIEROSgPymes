@@ -28,6 +28,7 @@ import gestores.GestorEventos;
 import gestores.GestorMovimientos;
 import gestores.GestorParametros;
 import gestores.GestoresContrato;
+import gestores.GestoresImpuestos;
 import gestores.gestoresCliente.BusquedaGarante;
 import gestores.gestoresCliente.BusquedaInquilino;
 import gestores.fechas;
@@ -78,6 +79,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.swing.JRViewer;
 import static pantallas.Alerta.tablaAlerta;
 import pantallas.pantallasClientes.AltaCliente;
+import pantallas.pantallasClientes.BuscarImpuestoCompartido;
 import pantallas.pantallasClientes.DatosCliente;
 import pantallas.pantallasClientes.ListaBusquedaContrato;
 import pantallas.pantallasClientes.PantallaBusquedaCliente;
@@ -216,6 +218,8 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         jMenu4 = new javax.swing.JMenu();
         menuCrearContrato = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         menuPersonas = new javax.swing.JMenu();
         menuBuscarCliente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -1223,6 +1227,22 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
             }
         });
         jMenu4.add(jMenuItem10);
+
+        jMenuItem12.setText("Impuesto Compartido");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem12);
+
+        jMenuItem13.setText("Lista Impuestos Compartidos");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem13);
 
         jMenuBar1.add(jMenu4);
 
@@ -2546,6 +2566,21 @@ AltaCliente altaPropietario=new AltaCliente();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTotalPagadoActionPerformed
 
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        int x=GestoresImpuestos.ultimoIdImpuestoCompartido()+1;
+        String idImp= Integer.toString(x);
+        CargaImpuestoCompartido impcom = new CargaImpuestoCompartido();
+        impcom.lblIdImpuestoCompartido.setText(idImp);
+        impcom.setLocationRelativeTo(null);
+        impcom.setVisible(true);     
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        BuscarImpuestoCompartido BusquedaIC=new BuscarImpuestoCompartido();
+        BusquedaIC.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2640,6 +2675,8 @@ AltaCliente altaPropietario=new AltaCliente();
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem2;

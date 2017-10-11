@@ -6,22 +6,24 @@
 package pantallas;
 
 import gestores.BusquedaInmueble;
+import gestores.GestoresContrato;
 import pantallas.ImpuestoCompartido;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import modelos.ModeloTablaInmuebleContrato;
+import modelos.ModeloTablaContrato;
+
 
 /**
  *
  * @author Nahuel
  */
-public class ListaInmueble extends javax.swing.JFrame {
+public class ListaContratos extends javax.swing.JFrame {
 public static String donde;
     /**
      * Creates new form ListaPropietarios
      */
-    public ListaInmueble() {
+    public ListaContratos() {
         initComponents();
         this.setResizable(false);
     }
@@ -37,7 +39,7 @@ public static String donde;
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaListaInmuebles = new javax.swing.JTable();
+        tablaListaContratos = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jTextBusquedaInm = new javax.swing.JTextField();
@@ -48,24 +50,29 @@ public static String donde;
         setLocation(new java.awt.Point(650, 150));
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane1MouseClicked(evt);
+            }
+        });
 
-        tablaListaInmuebles.setModel(modelo
+        tablaListaContratos.setModel(modelo
         );
-        tablaListaInmuebles.addAncestorListener(new javax.swing.event.AncestorListener() {
+        tablaListaContratos.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                tablaListaInmueblesAncestorAdded(evt);
+                tablaListaContratosAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        tablaListaInmuebles.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaListaContratos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaListaInmueblesMouseClicked(evt);
+                tablaListaContratosMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablaListaInmuebles);
+        jScrollPane1.setViewportView(tablaListaContratos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,40 +132,41 @@ public static String donde;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tablaListaInmueblesAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tablaListaInmueblesAncestorAdded
+    private void tablaListaContratosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tablaListaContratosAncestorAdded
         // TODO add your handling code here:
         
                                 
-    }//GEN-LAST:event_tablaListaInmueblesAncestorAdded
+    }//GEN-LAST:event_tablaListaContratosAncestorAdded
 
-    private void tablaListaInmueblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaListaInmueblesMouseClicked
+    private void tablaListaContratosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaListaContratosMouseClicked
         if(evt.getClickCount()==2){
-          
-				int row = tablaListaInmuebles.getSelectedRow();
-				
-				String calle=tablaListaInmuebles.getValueAt(row, 1).toString();
-				String id=tablaListaInmuebles.getValueAt(row, 0).toString();
-				String numero=tablaListaInmuebles.getValueAt(row, 2).toString();
-                                String propietario=tablaListaInmuebles.getValueAt(row, 6).toString();
-			
-                                NuevoContrato.propietario.setText(propietario);
-                                NuevoContrato.inmueble.setText(id+" - "+calle+" "+numero);
+            int row = tablaListaContratos.getSelectedRow();
 
-				dispose();
+            String calle=tablaListaContratos.getValueAt(row, 1).toString();
+            String id=tablaListaContratos.getValueAt(row, 0).toString();
+            String numero=tablaListaContratos.getValueAt(row, 2).toString();
+            String propietario=tablaListaContratos.getValueAt(row, 6).toString();
+
+            CargaImpuestoCompartido.lblInmueble.setText(calle); 
+            CargaImpuestoCompartido.lblIdContrato.setText(id);
+            dispose();
        }
        
-    }//GEN-LAST:event_tablaListaInmueblesMouseClicked
+    }//GEN-LAST:event_tablaListaContratosMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-       ArrayList listaInmueble=BusquedaInmueble.consultaTablaBusquedaInmueble(jTextBusquedaInm.getText());
-       ModeloTablaInmuebleContrato modelo=new ModeloTablaInmuebleContrato(listaInmueble);
-       tablaListaInmuebles.setModel(modelo);
-      
-
-
+       ArrayList listaContrato=GestoresContrato.consultaTablaContrato();
+       ModeloTablaContrato modelo=new ModeloTablaContrato(listaContrato);
+       tablaListaContratos.setModel(modelo);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jScrollPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane1MouseClicked
+
+    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -177,14 +185,18 @@ public static String donde;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListaInmueble.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaContratos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListaInmueble.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaContratos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListaInmueble.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaContratos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListaInmueble.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListaContratos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -193,7 +205,7 @@ public static String donde;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListaInmueble().setVisible(true);
+                new ListaContratos().setVisible(true);
             }
         });
     }
@@ -204,12 +216,13 @@ public static String donde;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextBusquedaInm;
-    public static javax.swing.JTable tablaListaInmuebles;
+    public static javax.swing.JTable tablaListaContratos;
     // End of variables declaration//GEN-END:variables
 
     
-    ArrayList listaInmueble=BusquedaInmueble.consultaTablaInmuebleContrato();
-    ModeloTablaInmuebleContrato modelo=new ModeloTablaInmuebleContrato(listaInmueble);
+
+       ArrayList listaContrato=GestoresContrato.consultaTablaContrato();
+       ModeloTablaContrato modelo=new ModeloTablaContrato(listaContrato);
 
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().

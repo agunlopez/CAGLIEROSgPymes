@@ -69,6 +69,7 @@ public int GestorAltaTitular(TitularImpuesto titular){
                 pst.setInt(1, imp.getImpuesto().getIdImpuesto());
                 pst.setInt(2, imp.getImpuesto().getIdDescripcion());
                 pst.setDouble(3, imp.getImpuesto().getValor());
+  
                 
                 pst2.setInt(1, imp.getCuotas().getContrato().getIdContrato());
                 pst2.setInt(2, imp.getCuotas().getNroCuota());
@@ -83,11 +84,29 @@ public int GestorAltaTitular(TitularImpuesto titular){
                 
 		catch (SQLException e) {
 			JOptionPane.showMessageDialog(new JDialog(),"Error al Cargar Impuestos");}
-		
-		
-		
-		
-		
+
+		return r;
+	}
+    
+    public int GestorAltaImpuestoCompartido (CuotaImpuesto imp,int idContrato ){
+		int r=0;
+
+		String SQL="INSERT INTO `impuestocompartido`(`idImpuestoCompartido`,`idDescripcion`,`idContrato`,`Porcentaje`) VALUES (?,?,?,?)";
+
+		try{
+                    PreparedStatement pst=Conexion.getConexionn().prepareStatement(SQL);
+                    
+                pst.setInt(1, imp.getImpuesto().getIdImpuestoCompartido());
+                pst.setInt(2, imp.getImpuesto().getIdDescripcion());
+                pst.setInt(3,idContrato);
+                pst.setDouble(4, imp.getImpuesto().getPorcentaje());
+
+		r=pst.executeUpdate();
+
+		}
+		catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al Cargar Impuesto Compartido");}
+			
 		return r;
 	}
     
@@ -148,7 +167,51 @@ public int GestorAltaTitular(TitularImpuesto titular){
      
         return impuestos;
     }
-    
+      public static ArrayList<Impuesto> consultaTablaImpuestoCompartido(int idImpuestoCompartido){
+     
+        ArrayList<Impuesto> impuestos=new ArrayList<Impuesto>(); 
+        ResultSet rs=null;
+        
+        CuotaImpuesto cuotaImp=null;
+        Impuesto impuesto=null;
+        Inmueble inm=null;
+        Contrato con=null;
+        
+        String sql="SELECT impuestocompartido.* , inmueble.calle " 
+                +"FROM impuestocompartido , inmueble , contrato " 
+                +"WHERE impuestocompartido.idImpuestoCompartido =? and impuestocompartido.idContrato=contrato.idContrato and contrato.idInmueble=inmueble.idInmueble ";
+     
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+			pst.setInt(1, idImpuestoCompartido);
+                        
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+                            
+                            impuesto=new Impuesto();
+                            inm= new Inmueble();
+                            con=new Contrato();
+
+                            con.setIdContrato(rs.getInt("impuestocompartido.idContrato"));
+                            impuesto.setPorcentaje(rs.getDouble("impuestocompartido.Porcentaje"));
+                            impuesto.setIdImpuestoCompartido(rs.getInt("impuestocompartido.idImpuestoCompartido"));
+                            
+                            inm.setCalle(rs.getString("inmueble.calle"));
+                            
+                            impuesto.setContrato(con);
+                            impuesto.setInmueble(inm);
+                            impuestos.add(impuesto);
+                           
+
+                        }
+        } catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuestos"+e.toString());
+		
+	}
+     
+        return impuestos;
+    }
     public static String consultaTitularImpuesto(int idContrato, int idDescipcion){
         String titular=" ";
         String sqlTitulares="SELECT contrato.idContrato,descripcionimpuesto.idDescripcion,titularimp "
@@ -278,8 +341,29 @@ public int GestorAltaTitular(TitularImpuesto titular){
 		
 	}
         return descuento;
+        
     }
-    
+        public static String TraerImpuestoCompartido(int idContrato,int idDescripcion) throws SQLException{
+        
+        String IC="";
+        String sql="SELECT * FROM `impuestocompartido` WHERE idContrato=? and idDescripcion=?";
+        ResultSet rs=null;
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+            pst.setInt(1, idContrato);
+            pst.setInt(2, idDescripcion);
+            rs=pst.executeQuery();
+
+			while(rs.next()){
+                            IC=rs.getString("idImpuestoCompartido");
+                        }
+            
+        }catch (SQLException e) {
+            JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuesto Compartido "+e.toString());
+		
+	}
+        return IC;
+    }
     
     public static String TraerValorDescuento(int idContrato,int nroCuota) throws SQLException{
         
@@ -328,6 +412,29 @@ public int GestorAltaTitular(TitularImpuesto titular){
 	}
         return r;
     }
+        public static int EliminarImpuestoCompartido(int idImpuesto) throws SQLException{
+        
+        int r=0;
+        ResultSet rs=null;
+        
+        String sql="DELETE FROM `impuestocompartido` WHERE impuestocompartido.idImpuestocompartido=?" ;
+        String sql2="DELETE FROM cuotaimpuesto WHERE cuotaimpuesto.idImpuesto=?";
+          
+        try{
+                   
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);  
+            pst.setInt(1, idImpuesto);
+            r=pst.executeUpdate();
+            
+
+                        
+                                                                       
+        }catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al eliminar Impuesto compartido"+e.toString());
+		
+	}
+        return r;
+    }
     
     
     public static int GestorAltaImpuesto(DescripcionImpuesto impuesto){
@@ -362,6 +469,22 @@ public int GestorAltaTitular(TitularImpuesto titular){
 	}
         return id;
     }
+       public static int ultimoIdImpuestoCompartido(){
+        int id=0;
+        ResultSet rs=null;
+        String sql="SELECT idImpuestoCompartido FROM `impuestocompartido` ORDER BY `idImpuestoCompartido` DESC LIMIT 1";
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+            rs=pst.executeQuery();
+            while(rs.next()){
+               id=rs.getInt("idImpuestoCompartido");
+        }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(new JDialog(),"Error al consultar ID de Impuesto Compartido "+e.toString());
+		
+	}
+        return id;
+    }
     
     public static int inhabilitarImpuesto(int id){
         int r=0;
@@ -387,4 +510,49 @@ public int GestorAltaTitular(TitularImpuesto titular){
             JOptionPane.showMessageDialog(new JDialog(),"Error al habiliar el  Impuesto"+e.toString());}
         return r;
     }
+ 	public static ArrayList<Impuesto> consultarImpuestoCompartidoCalle(){
+		ArrayList<Impuesto> listaA=new ArrayList<Impuesto>();
+		Inmueble inm=null;
+		Impuesto impuesto=null;
+                DescripcionImpuesto desc=null;
+                Contrato con=null;
+		ResultSet rs=null;
+        String sql="SELECT IC.`idContrato`,IC.`idImpuestoCompartido`,IC.`Porcentaje`,IC.`idDescripcion`,INM.calle, D.descripcion "
+                +"FROM impuestocompartido as IC, contrato, inmueble  as INM , descripcionimpuesto as D "
+                +"WHERE INM.idInmueble=contrato.idInmueble and IC.idContrato=contrato.idContrato and IC.idDescripcion= D.idDescripcion ORDER BY IC.idImpuestoCompartido";
+            try{
+			PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+			   
+                            impuesto=new Impuesto();
+                            inm= new Inmueble();
+                            con=new Contrato();
+                            desc=new DescripcionImpuesto();
+
+                            con.setIdContrato(rs.getInt("IC.idContrato"));
+                            impuesto.setPorcentaje(rs.getDouble("IC.Porcentaje"));
+                            impuesto.setIdImpuestoCompartido(rs.getInt("IC.idImpuestoCompartido"));
+                            
+                            inm.setCalle(rs.getString("INM.calle"));
+                            
+                            desc.setDescripcion(rs.getString("D.descripcion"));
+                            
+                            impuesto.setDescripcion(desc);
+                            impuesto.setContrato(con);
+                            impuesto.setInmueble(inm);
+                            listaA.add(impuesto);
+		       
+		       
+			}
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar impuesto compartido por calle"+e.toString());
+		
+	}
+		
+		return listaA;
 }
+}
+

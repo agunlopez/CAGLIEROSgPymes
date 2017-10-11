@@ -452,7 +452,7 @@ public static boolean bandera=true;
             }
         }
         String vencimiento = PrincipalAdministrador.diaPago+"/"+mesV+"/"+lblPeriodo.getText().substring(4,8);
-        String actual = diaActual+"/"+mesActual+"/"+añoActual;
+        String actual = mesActual+"/"+añoActual;
  
         int dias;
         try {
