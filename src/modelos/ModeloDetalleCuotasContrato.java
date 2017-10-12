@@ -142,6 +142,6 @@ public class ModeloDetalleCuotasContrato extends AbstractTableModel{
     public static Date nuevafecha;
     public static int mesPeriodo;
     public static int añoPeriodo;
-    public static String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sept","Oct","Nov","Dic"};
+    public static String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
     private double garantia=1;
 }

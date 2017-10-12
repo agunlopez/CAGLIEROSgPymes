@@ -75,7 +75,7 @@ int idic;
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Agregar Impuesto");
+        setTitle("Cargar Impuesto Compartido");
         setIconImage(getIconImage());
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -146,10 +146,9 @@ int idic;
         importe.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         idPeriodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        idPeriodo.setText("aa");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Periodo");
+        jLabel2.setText("Periodo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,23 +225,20 @@ int idic;
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
            
-        
+     
         
     GestoresContrato gestorCon=new GestoresContrato();
     Contrato contrato=new Contrato();
     Impuesto impuesto=new Impuesto();
-    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+1,13));
+    int length = idPeriodo.getText().length();
+    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+2,length));
         try{
             String descripcion=(String) lblDescripcion.getText();
             int iddes=(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
             int idcon=(Integer.parseInt(idPeriodo.getText().substring(0, idPeriodo.getText().indexOf("-")-1)));
-
-
             lblIdImpuestoCompartido.setText(GestoresImpuestos.TraerImpuestoCompartido(idcon, iddes));
-
             ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(Integer.parseInt(lblIdImpuestoCompartido.getText()));
             ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
-//          tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuestoCompartido());
             tablaInmuebles.setModel(modelo);
             for(int i=0; i<tablaInmuebles.getRowCount();i++){
                 String idCont=tablaInmuebles.getValueAt(i,0).toString();
@@ -260,12 +256,12 @@ int idic;
                 String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
 
                 for(int e=0;e<meses.length;e++){
-                    if(meses[e].equals(perio.substring(1,4))){
+                    if(meses[e].equals(perio.substring(0,3))){
                         mesV=e+1;
                     }
                 }
                 String fechaInicio = inicio;
-                String actual = diaActual+"/"+mesV+"/"+perio.substring(5,9); 
+                String actual = diaActual+"/"+mesV+"/"+perio.substring(4,8); 
 
                 Date fechaInicial=dateFormat.parse(fechaInicio);
                 Date fechaFinal=dateFormat.parse(actual);
@@ -300,7 +296,7 @@ int idic;
 
     String descripcion=(String) lblDescripcion.getText();
     Valor = Double.parseDouble(importe.getText());
-    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+1,13));
+    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+1,12));
         try{
             Contrato contrato=new Contrato();
             Cuotas cuotas=new Cuotas();
@@ -348,13 +344,7 @@ int idic;
                 }catch (SQLException e) {
                     JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuesto"+e.toString());
                 }
-//                datosCuotas = gestorCon.consultarCuotaLiquidacion(Integer.parseInt(idCon),cantmes );
-//                totalPagar = (datosCuotas.getTotalaPagar());
-//                
-//                if(totalPagar==0){
-//                   JOptionPane.showMessageDialog(new JDialog(),"Ya se relizo la liquidacion de la cuota "+ perio + " del contrato "+idCon + " No se puede cargar el impuesto");
-//                   dispose();
-//                }else{
+
                     
                 cuotas.setContrato(contrato);
                 cuotas.setNroCuota(cantmes);        
@@ -374,14 +364,13 @@ int idic;
                 } catch (SQLException ex) {
                     Logger.getLogger(AgregarImpuestoCuota.class.getName()).log(Level.SEVERE, null, ex);
                 }   
-                  JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
+//                  JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
                 lblIdContrato.setText(" ");
                 dispose();
 //                ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(idImpuestoCompartido);
 //                ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
 //                tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuestoCompartido());
 //                tablaInmuebles.setModel(modelo);
-//                }
 
             }
         }catch(NumberFormatException ex){
@@ -477,7 +466,7 @@ int idic;
     public static String inicio;
     public static Contrato datosContrato;
     public static Cuotas datosCuotas;
-    public static String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sept","Oct","Nov","Dic"};
+    public static String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
 }
 
 

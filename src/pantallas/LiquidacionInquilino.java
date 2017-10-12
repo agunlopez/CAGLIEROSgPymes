@@ -445,7 +445,7 @@ public static boolean bandera=true;
         int mesActual=ahora.get((Calendar.MONTH))+1;
         int añoActual=ahora.get(Calendar.YEAR);
         int mesV = 0;
-        String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sept","Oct","Nov","Dic"};
+        String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
         for(int i=0;i<meses.length;i++){
             if(meses[i].equals(lblPeriodo.getText().substring(0,3))){
                 mesV=i+1;

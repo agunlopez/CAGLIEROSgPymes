@@ -341,7 +341,7 @@ dispose();        // TODO add your handling code here:
     public static String inicio;
     public static Contrato datosContrato;
     public static Cuotas datosCuotas;
-    public static String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sept","Oct","Nov","Dic"};
+    public static String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
 }
 
 

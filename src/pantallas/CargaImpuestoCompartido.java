@@ -239,9 +239,9 @@ int idic;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(porcentajeImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAgregarInmueble)
-                .addGap(18, 18, 18)
+                .addGap(49, 49, 49)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -252,8 +252,9 @@ int idic;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void CargarCombo(){
-    String sql="SELECT * FROM `descripcionimpuesto` ORDER BY `idDescripcion` ASC";
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        String sql="SELECT * FROM `descripcionimpuesto` ORDER BY `idDescripcion` ASC";
         ResultSet rs=null;
         try{
             PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
@@ -267,29 +268,27 @@ private void CargarCombo(){
         }catch (SQLException e) {
 			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuesto"+e.toString());
         }
-}
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        CargarCombo();
-        
-        
-//        lblIdImpuestoCompartido.setText(Integer.toString(idic));
-//        
-
-
+        int idImpuestoCompartido= Integer.parseInt(lblIdImpuestoCompartido.getText()); 
+            ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(idImpuestoCompartido);
+            ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
+            tablaInmuebles.setModel(modelo);   
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         double totalPorcentaje=0;
-        if(tablaInmuebles.getRowCount()>=1){
+        
+        int aa= tablaInmuebles.getRowCount();
+        if(tablaInmuebles.getRowCount()<1){
             JOptionPane.showMessageDialog(new JDialog(),"Debe cargar dos o mas inmuebles");
         }else{
             for(int i=0; i<tablaInmuebles.getRowCount();i++){
                 String porcentaje=tablaInmuebles.getValueAt(i,1).toString();
                 totalPorcentaje=totalPorcentaje+Double.parseDouble(porcentaje); 
             }
-            if(totalPorcentaje == 100){
-                dispose();  
+            if(totalPorcentaje == 100){ 
+            dispose(); 
+            
             }else{
                 JOptionPane.showMessageDialog(new JDialog(),"El total de los porcentajes debe ser igual a 100");
             }
@@ -361,7 +360,7 @@ private void CargarCombo(){
 
 
             GestoresImpuestos gestorImp=new GestoresImpuestos();
-    //      GestoresContrato gestorCon=new GestoresContrato();
+
 
             int rrr=gestorImp.GestorAltaImpuestoCompartido(cuotaImp, Integer.parseInt(lblIdContrato.getText()) );
 
@@ -414,47 +413,36 @@ private void CargarCombo(){
 
     private void tablaInmueblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaInmueblesMouseClicked
 
-//        int row=evt.getY()/tablaInmuebles.getRowHeight();
-//    int column=tablaInmuebles.getColumnModel().getColumnIndexAtX(evt.getX());
-//    if(habilitarTabla==true){  
-//    if(eliminarImp==true){      
-//    if(row < tablaInmuebles.getRowCount() && row >= 0 && column < tablaInmuebles.getColumnCount() && column >= 0){
-//        Object value = tablaInmuebles.getValueAt(row, column);
-//        if(value instanceof JButton){   
-//            
-//            Object[] opciones = {"Aceptar", "Cancelar"};
-//            int eleccion = JOptionPane.showOptionDialog(null, "¿En realidad desea eliminar el impuesto ?", "Mensaje de Confirmacion",
-//                    JOptionPane.YES_NO_OPTION,
-//                    JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
-//            if (eleccion == JOptionPane.YES_OPTION) {
-//                ((JButton)value).doClick();
-//                JButton boton=(JButton) value;
-//                int idImp=(int) tablaInmuebles.getValueAt(row, 0);
-//                try {
-//                    int r=GestoresImpuestos.EliminarImpuesto(idImp);
-//                    if(r==1){
-//                        JOptionPane.showMessageDialog(new JDialog(),"Eliminado Correctamente");
-//                        ArrayList<CuotaImpuesto> impuestos=GestoresImpuestos.consultaTablaImpuesto(idContratoImpuesto,numeroCuota);
-//                        ModeloTablaImpuesto modelo=new ModeloTablaImpuesto(impuestos);
-//                        tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuesto());
-//                        tablaInmuebles.setModel(modelo);
-//                        int i=GestoresImpuestos.ActualizarTotalImpuesto(idContratoImpuesto, numeroCuota);
-//                        int a=GestoresContrato.ActualizarTotalaPagar(idContratoImpuesto,numeroCuota);
-//                    }
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(DetallesContrato.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }else{
-//                
-//            }                                 
-//        }                      
-//    }
-//    }else{
-//        JOptionPane.showMessageDialog(new JDialog(),"No se puede Eliminar habiendo generado la Liquidacion"); 
-//     }
-//    }else{
-//        JOptionPane.showMessageDialog(new JDialog(),"No se puede Eliminar estando vencido el Contrato");
-//    }        // TODO add your handling code here:
+         if(evt.getClickCount()==2){
+ 
+            int idImpuestoCompartido= Integer.parseInt(lblIdImpuestoCompartido.getText()); 
+
+    
+
+            Object[] opciones = {"Aceptar", "Cancelar"};
+            int eleccion = JOptionPane.showOptionDialog(null, "¿Desea limpiar la lista de impuestos compartidos?", "Mensaje de Confirmacion",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
+            if (eleccion == JOptionPane.YES_OPTION) {
+
+                try{
+                    int r=GestoresImpuestos.EliminarImpuestoCompartido(idImpuestoCompartido);
+
+                    if(r==1){
+
+                        ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(idImpuestoCompartido);
+                        ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
+                        tablaInmuebles.setModel(modelo);
+                        comboImpuestos.setEnabled(true);
+                        
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(CargaImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
+                }
+  
+            }
+
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_tablaInmueblesMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -541,5 +529,6 @@ private void CargarCombo(){
     private int idImpuesto;
     public static int nroCuota;
     public static String idCom;
+    private boolean fin= false;
 }
 

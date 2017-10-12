@@ -4,7 +4,6 @@ import entidades.Impuesto;
 import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JButton;
-
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumnModel;
 import pantallas.ListaInmueble;
@@ -12,7 +11,7 @@ import pantallas.ListaInmueble;
 
 public class ModeloTablaImpuestoCompartido extends AbstractTableModel {
 
-    JButton btnEliminar=new JButton();
+    JButton btnEl=new JButton();
         
     final String[] COLUMN_NAMES = {"ID","Porcentaje","Inmueble"}; //cambiar los titulos
     ArrayList<Impuesto> lista = null;
@@ -40,17 +39,12 @@ public class ModeloTablaImpuestoCompartido extends AbstractTableModel {
 
 
     @Override
-    public Object getValueAt(int fila, int columna) {
-        Font negrita = new Font("Arial", Font.BOLD, 14);
-        btnEliminar.setFont(negrita);
-        btnEliminar.setName("e");
-        btnEliminar.setOpaque(false);
-        btnEliminar.setContentAreaFilled(false);
-        btnEliminar.setBorderPainted(false );
-        btnEliminar.setBackground(java.awt.Color.decode("#B7B7B7"));
+    public Object getValueAt(int fila, int columna)  {
+        btnEl.setOpaque(false);
+        btnEl.setContentAreaFilled(false);
+        btnEl.setBorderPainted(false );
         
-        
-////        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menos.png")));
+        btnEl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sm.png")));
         if (fila > lista.size()) {
             return null;
         } else {
@@ -67,9 +61,7 @@ public class ModeloTablaImpuestoCompartido extends AbstractTableModel {
                      return lista.get(fila).getInmueble().getCalle();
                 }
 
-//                case 3:{
-//                    return btnEliminar;
-//                }
+
 
                                                          
                 default:

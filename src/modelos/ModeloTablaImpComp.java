@@ -14,7 +14,7 @@ public class ModeloTablaImpComp extends AbstractTableModel {
 
     JButton btnEliminar=new JButton();
         
-    final String[] COLUMN_NAMES = {"ID","Porcentaje","Impuesto","Inmueble"}; //cambiar los titulos
+    final String[] COLUMN_NAMES = {"ID","Porcentaje","Inmueble","Impuesto"}; //cambiar los titulos
     ArrayList<Impuesto> lista = null;
     //retormanos el numero de elementos del array de datos
 

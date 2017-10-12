@@ -40,6 +40,7 @@ public class RenderEliminarImpuestoCompartido extends DefaultTableCellRenderer{
          columnModel.getColumn(2).setPreferredWidth(85);
         columnModel.getColumn(3).setCellRenderer(new RenderFondoImpuesto());
          columnModel.getColumn(3).setPreferredWidth(85);
+         
 
 
 
