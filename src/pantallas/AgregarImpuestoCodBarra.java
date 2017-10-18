@@ -105,7 +105,6 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
         lblCom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         ingresar.setText("Ingresar");
-        ingresar.setActionCommand("Ingresar");
         ingresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ingresarActionPerformed(evt);
@@ -199,11 +198,12 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
                     .addComponent(codBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ingresar))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblIdCon)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(lblIdCon)
+                        .addComponent(lblPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -295,7 +295,7 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
                     ImpuestoCompartido impcom = new ImpuestoCompartido();
                     ImpuestoCompartido.lblDescripcion.setText(descripcion);
                     ImpuestoCompartido.importe.setText(lblImporte.getText());
-                    ImpuestoCompartido.idPeriodo.setText(idPeriodo.getText());
+//                    ImpuestoCompartido.idPeriodo.setText(idPeriodo.getText());
                     ImpuestoCompartido.nroCuota=nroCuota;
                     impcom.setLocationRelativeTo(null);
                     impcom.setVisible(true); 
