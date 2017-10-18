@@ -477,20 +477,20 @@ public static boolean bandera=true;
                     double punitorio=(Double.parseDouble(lblAlquiler.getText())*DetallesContrato.datosContrato.getPunitorios())*dias;
                     
                     Object[] opciones = {"Aceptar", "Cancelar"};
-        int eleccion = JOptionPane.showOptionDialog(null, "Desea agregar el total de: "+punitorio+" en concepto de Punitorios?","Mensaje de Confirmacion",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
-        if (eleccion == JOptionPane.YES_OPTION) {
+                    int eleccion = JOptionPane.showOptionDialog(null, "Desea agregar el total de: "+punitorio+" en concepto de Punitorios?","Mensaje de Confirmacion",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE, null, opciones, "Cancelar");
+                    if (eleccion == JOptionPane.YES_OPTION) {
             
-            int r = gestPun.ActualizarPunitorios(DetallesContrato.datosContrato.getIdContrato(),punitorio, DetallesContrato.datosContrato.getCuotaActual() );
-                   double total=punitorio+Double.parseDouble(lblTotalaPagar.getText());
-                   gestPun.ActualizarTotalaPagar(DetallesContrato.datosContrato.getIdContrato(), DetallesContrato.datosContrato.getCuotaActual());
-                   if(r==1){
-                       JOptionPane.showMessageDialog(new JDialog(),"Punitorios Actualizados: "+punitorio);
-                   }
-        }else{
-            dispose();
-        }
+                        int r = gestPun.ActualizarPunitorios(DetallesContrato.datosContrato.getIdContrato(),punitorio, DetallesContrato.datosContrato.getCuotaActual() );
+                        double total=punitorio+Double.parseDouble(lblTotalaPagar.getText());
+                        gestPun.ActualizarTotalaPagar(DetallesContrato.datosContrato.getIdContrato(), DetallesContrato.datosContrato.getCuotaActual());
+                        if(r==1){
+                            JOptionPane.showMessageDialog(new JDialog(),"Punitorios Actualizados: "+punitorio);
+                        }
+                    }else{
+                        dispose();
+                    }
         
         
                    
@@ -513,7 +513,7 @@ public static boolean bandera=true;
 
     private void txtMontoaPagarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoaPagarKeyTyped
 
-char validar=evt.getKeyChar();
+         char validar=evt.getKeyChar();
         if(Character.isLetter(validar)){
             getToolkit().beep();
             evt.consume();

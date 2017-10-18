@@ -234,6 +234,29 @@ public int GestorAltaTitular(TitularImpuesto titular){
 	}
         return titular;
     }
+        public static int consultaIdPorTitular(String titularimp, int idDescipcion){
+        int idContrato=0;
+        String sqlTitulares="SELECT impuestoasociados.idContrato , descripcionimpuesto.idDescripcion,titularimp "
+                + "FROM descripcionimpuesto INNER JOIN impuestoasociados ON descripcionimpuesto.idDescripcion=impuestoasociados.idDescripcion "
+                + "WHERE impuestoasociados.`titularImp`=? and impuestoasociados.idDescripcion=?";
+        ResultSet rs=null;
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sqlTitulares);
+			pst.setString(1, titularimp);
+                        pst.setInt(2, idDescipcion);
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+
+                            idContrato=rs.getInt("impuestoasociados.idContrato");
+                            
+        }
+        } catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Id Contrato por  Titular "+e.toString());
+		
+	}
+        return idContrato;
+    }
     
     public static int ActualizarTotalImpuesto(int idContrato, int nroCuota) throws SQLException{
         

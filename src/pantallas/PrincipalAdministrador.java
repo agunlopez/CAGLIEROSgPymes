@@ -220,6 +220,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         menuPersonas = new javax.swing.JMenu();
         menuBuscarCliente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -249,7 +250,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         menuManualUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SM Inmobiliaria");
+        setTitle("Cagliero Inmobiliaria");
         setIconImage(getIconImage());
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
@@ -1243,6 +1244,14 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
             }
         });
         jMenu4.add(jMenuItem13);
+
+        jMenuItem14.setText("Cargar Impuestos");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem14);
 
         jMenuBar1.add(jMenu4);
 
@@ -2578,8 +2587,17 @@ AltaCliente altaPropietario=new AltaCliente();
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
         BuscarImpuestoCompartido BusquedaIC=new BuscarImpuestoCompartido();
+        
         BusquedaIC.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        AgregarImpuestoCodBarra ImpCod= new AgregarImpuestoCodBarra();
+        ImpCod.setLocationRelativeTo(null);
+        ImpCod.setVisible(true);
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2677,6 +2695,7 @@ AltaCliente altaPropietario=new AltaCliente();
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem2;
@@ -2751,7 +2770,7 @@ AltaCliente altaPropietario=new AltaCliente();
                 
      public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/casa.png"));
         return retValue;
     }
 	

@@ -423,7 +423,7 @@ public class AltaCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+ int Dni= Integer.parseInt(dni.getText());
         try {
             ExcepcionAltaCliente.validarDatos(nombre.getText(), apellido.getText(), direccion.getText(), dni.getText(),comboProvincia.getSelectedItem().toString(), comboCiudades.getSelectedItem().toString(),cuit.getText(),fechaNac.getDate());  
             int edad=fechas.calculaEdad(fechaNac.getCalendar());

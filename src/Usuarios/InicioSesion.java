@@ -198,52 +198,52 @@ public class InicioSesion extends javax.swing.JFrame {
         usuario=GestorUsuario.traerUsuario(nombreUsuario);
 //        try{     
         if(nombreUsuario.equals(usuario.getUsuario()) && contraseña.compareTo(usuario.getClave())==0){
-           if(usuario.getTipo().equals("ADMINISTRADOR")){
-            try {                
-                usuarioEnSesion=GestorUsuario.traerUsuario(nombreUsuario);
-                PrincipalAdministrador principal=new PrincipalAdministrador();
-                principal.setVisible(true);    
-                
-                try {
-                    Alerta alerta=new Alerta();
-                    Calendar ahora= Calendar.getInstance();
-                    String dmy = ahora.get(Calendar.DATE)+"/"+(ahora.get(Calendar.MONTH)+1)+"/"+ahora.get(Calendar.YEAR);
-                    ArrayList<Contrato> listaContratos=GestoresContrato.consultaPorEstado("Activo");
-                    DefaultTableModel modeloAlerta= (DefaultTableModel) alerta.tablaAlerta.getModel();        
-                    TableColumnModel columnModel = tablaAlerta.getColumnModel();
-                    for(int i=0;i<alerta.tablaAlerta.getColumnCount();i++){
-                        columnModel.getColumn(i).setCellRenderer(new RenderAlerta());
-                        alerta.tablaAlerta.getColumnModel().getColumn(i).setHeaderRenderer(new RenderAlertaTitulo());           
-                    }        
-                    for(int i=0;i<listaContratos.size();i++){
-                        String vencimiento=listaContratos.get(i).getFechaVencimiento();
-                        int dias;
-                        dias = fechas.cantidadDias(dmy,vencimiento);
-                        if(dias<1){
-                            GestoresContrato.FinalizarContrato(listaContratos.get(i).getIdContrato(),listaContratos.get(i).getInmueble().getId());
-                        }
-                        ArrayList<Parametros> parametro=GestorParametros.consultaParametros();
-                        int d=parametro.get(0).getDiasAlerta();
-                        if(dias<=d){              
-                            modeloAlerta.addRow(new Object[]{listaContratos.get(i).getIdContrato(),listaContratos.get(i).getFechaVencimiento(),
-                                listaContratos.get(i).getInmueble().getCalle(),
-                                listaContratos.get(i).getInmueble().getPropietario().getApellido()+" "+listaContratos.get(i).getInmueble().getPropietario().getNombre(),
-                                listaContratos.get(i).getInquilino().getApellido()+" "+listaContratos.get(i).getInquilino().getNombre(),dias});                               
-                        }
-                    }                             
-                    if(alerta.tablaAlerta.getRowCount()==0){            
-                    }else{
-                        alerta.setLocationRelativeTo(null);
-                        alerta.setVisible(true);
-                    }             
+            if(usuario.getTipo().equals("ADMINISTRADOR")){
+                try {                
+                    usuarioEnSesion=GestorUsuario.traerUsuario(nombreUsuario);
+                    PrincipalAdministrador principal=new PrincipalAdministrador();
+                    principal.setVisible(true);    
+
+                    try {
+                        Alerta alerta=new Alerta();
+                        Calendar ahora= Calendar.getInstance();
+                        String dmy = ahora.get(Calendar.DATE)+"/"+(ahora.get(Calendar.MONTH)+1)+"/"+ahora.get(Calendar.YEAR);
+                        ArrayList<Contrato> listaContratos=GestoresContrato.consultaPorEstado("Activo");
+                        DefaultTableModel modeloAlerta= (DefaultTableModel) alerta.tablaAlerta.getModel();        
+                        TableColumnModel columnModel = tablaAlerta.getColumnModel();
+                        for(int i=0;i<alerta.tablaAlerta.getColumnCount();i++){
+                            columnModel.getColumn(i).setCellRenderer(new RenderAlerta());
+                            alerta.tablaAlerta.getColumnModel().getColumn(i).setHeaderRenderer(new RenderAlertaTitulo());           
+                        }        
+                        for(int i=0;i<listaContratos.size();i++){
+                            String vencimiento=listaContratos.get(i).getFechaVencimiento();
+                            int dias;
+                            dias = fechas.cantidadDias(dmy,vencimiento);
+                            if(dias<1){
+                                GestoresContrato.FinalizarContrato(listaContratos.get(i).getIdContrato(),listaContratos.get(i).getInmueble().getId());
+                            }
+                            ArrayList<Parametros> parametro=GestorParametros.consultaParametros();
+                            int d=parametro.get(0).getDiasAlerta();
+                            if(dias<=d){              
+                                modeloAlerta.addRow(new Object[]{listaContratos.get(i).getIdContrato(),listaContratos.get(i).getFechaVencimiento(),
+                                    listaContratos.get(i).getInmueble().getCalle(),
+                                    listaContratos.get(i).getInmueble().getPropietario().getApellido()+" "+listaContratos.get(i).getInmueble().getPropietario().getNombre(),
+                                    listaContratos.get(i).getInquilino().getApellido()+" "+listaContratos.get(i).getInquilino().getNombre(),dias});                               
+                            }
+                        }                             
+                        if(alerta.tablaAlerta.getRowCount()==0){            
+                        }else{
+                            alerta.setLocationRelativeTo(null);
+                            alerta.setVisible(true);
+                        }             
+                    } catch (ParseException ex) {
+                        Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+                    }                 
+                    this.dispose();
                 } catch (ParseException ex) {
-                    Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-                }                 
-                this.dispose();
-            } catch (ParseException ex) {
-                Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           }else{
+                    Logger.getLogger(InicioSesion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
             
                usuarioEnSesion=GestorUsuario.traerUsuario(nombreUsuario);
                 PrincipalAdministrador principal=new PrincipalAdministrador();
@@ -266,11 +266,11 @@ public class InicioSesion extends javax.swing.JFrame {
                 principal.setVisible(true);               
                 this.dispose();
                
-           }
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Error al ingresar Usuario o Contraseña");
-            txtcontraseña.setText("");
-        }
+            txtcontraseña.setText("");       
+                }
 //        }catch(NullPointerException e){
 //            JOptionPane.showMessageDialog(null, "El Usuario no existe ");
 //        }
@@ -323,7 +323,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
      public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/casa.png"));
         return retValue;
     }
     public static Usuario usuarioEnSesion;
