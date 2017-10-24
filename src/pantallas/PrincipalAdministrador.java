@@ -214,7 +214,6 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         menuInmuebles = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuCrearContrato = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
@@ -822,7 +821,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         jLabel5.setText("Impuestos");
 
         txtImpuestos.setEditable(false);
-        txtImpuestos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtImpuestos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -864,7 +863,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         jLabel7.setText("Garantia");
 
         txtGarantia.setEditable(false);
-        txtGarantia.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtGarantia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -1200,14 +1199,6 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
             }
         });
         menuInmuebles.add(jMenuItem15);
-
-        jMenuItem2.setText("Lista Inmuebles Disponibles");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        menuInmuebles.add(jMenuItem2);
 
         jMenuBar1.add(menuInmuebles);
 
@@ -2436,27 +2427,6 @@ AltaCliente altaPropietario=new AltaCliente();
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-
-        
-        try{
-            conexion.ConexionReporte con=new conexion.ConexionReporte();
-
-            JasperReport listaInmuebles=JasperCompileManager.compileReport("C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\listaInmueblesDisponibles.jrxml");           
-            JasperPrint jasperPrint=JasperFillManager.fillReport(listaInmuebles, null, con.conexion());
-            
-            
-            inmueblesDisponibles.setSize(1000,1150);
-            inmueblesDisponibles.setLocationRelativeTo(null);
-            JRViewer jrv=new JRViewer(jasperPrint);
-            inmueblesDisponibles.getContentPane().add(jrv);
-            inmueblesDisponibles.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void menuRestaurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRestaurarActionPerformed
 
        JFileChooser copiaSeguridad=new JFileChooser("C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\BackUp");
@@ -2698,7 +2668,6 @@ AltaCliente altaPropietario=new AltaCliente();
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

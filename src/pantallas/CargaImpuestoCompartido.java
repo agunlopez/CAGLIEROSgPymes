@@ -523,7 +523,7 @@ int idic;
 
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/Cagliero.png"));
         return retValue;
     }
     private int idImpuesto;

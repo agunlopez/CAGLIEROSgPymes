@@ -14,8 +14,10 @@ import Renders.RenderLiquidacion;
 import Usuarios.InicioSesion;
 import conexion.Conexion;
 import entidades.CuotaImpuesto;
+import entidades.DescripcionImpuesto;
 import entidades.Eventos;
 import entidades.Movimiento;
+import entidades.TitularImpuesto;
 import gestores.GestorEventos;
 import gestores.GestorMovimientos;
 import gestores.GestoresContrato;
@@ -245,6 +247,33 @@ public class DetallesContrato extends javax.swing.JFrame {
         lblPropCel = new javax.swing.JLabel();
         lblPropEmail = new javax.swing.JLabel();
         lblPropDGI = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        imp1 = new javax.swing.JTextField();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        imp2 = new javax.swing.JTextField();
+        imp3 = new javax.swing.JTextField();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        imp4 = new javax.swing.JTextField();
+        imp5 = new javax.swing.JTextField();
+        imp6 = new javax.swing.JTextField();
+        imp7 = new javax.swing.JTextField();
+        imp8 = new javax.swing.JTextField();
+        imp9 = new javax.swing.JTextField();
+        imp10 = new javax.swing.JTextField();
+        imp11 = new javax.swing.JTextField();
+        imp12 = new javax.swing.JTextField();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        btnPagoPropietario1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Detalles del Contrato");
@@ -1272,6 +1301,188 @@ public class DetallesContrato extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Inmueble", jPanel3);
 
+        imp1.setText(" ");
+        imp1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imp1ActionPerformed(evt);
+            }
+        });
+
+        jLabel70.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel70.setText("Inmobiliario");
+
+        jLabel71.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel71.setText("Tasa Municipal");
+
+        imp2.setText(" ");
+
+        imp3.setText(" ");
+        imp3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imp3ActionPerformed(evt);
+            }
+        });
+
+        jLabel72.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel72.setText("Luz");
+
+        jLabel73.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel73.setText("Agua Potable");
+
+        imp4.setText(" ");
+
+        imp5.setText(" ");
+
+        imp6.setText(" ");
+
+        imp7.setText(" ");
+
+        imp8.setText(" ");
+
+        imp9.setText(" ");
+
+        imp10.setText(" ");
+
+        imp11.setText(" ");
+
+        imp12.setText(" ");
+
+        jLabel74.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel74.setText("Cuenca");
+
+        jLabel75.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel75.setText("API");
+
+        jLabel76.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel76.setText("Cloaca");
+
+        jLabel77.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel77.setText("Celular");
+
+        jLabel78.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel78.setText("Telefono");
+
+        jLabel79.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel79.setText("Internet");
+
+        jLabel80.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel80.setText("Cable Video");
+
+        jLabel81.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel81.setText("Gas");
+
+        jLabel82.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel82.setText("Numero de Cliente/Partida:");
+
+        btnPagoPropietario1.setText("Cargar");
+        btnPagoPropietario1.setActionCommand("Cargar");
+        btnPagoPropietario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagoPropietario1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnPagoPropietario1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel70)
+                            .addComponent(jLabel71)
+                            .addComponent(jLabel72)
+                            .addComponent(jLabel73)
+                            .addComponent(jLabel81)
+                            .addComponent(jLabel80)
+                            .addComponent(jLabel79)
+                            .addComponent(jLabel78)
+                            .addComponent(jLabel77)
+                            .addComponent(jLabel76)
+                            .addComponent(jLabel75)
+                            .addComponent(jLabel74))
+                        .addGap(246, 246, 246)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel82, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(imp1)
+                            .addComponent(imp2)
+                            .addComponent(imp3)
+                            .addComponent(imp4)
+                            .addComponent(imp5)
+                            .addComponent(imp6)
+                            .addComponent(imp7)
+                            .addComponent(imp8)
+                            .addComponent(imp9)
+                            .addComponent(imp10)
+                            .addComponent(imp11)
+                            .addComponent(imp12, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                .addContainerGap(997, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel82)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(imp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel70))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(imp2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel71))
+                        .addGap(18, 18, 18)
+                        .addComponent(imp3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel72))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel73))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel81))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel80))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel79))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel78))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel77))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel76))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel75))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(imp12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel74))
+                .addGap(26, 26, 26)
+                .addComponent(btnPagoPropietario1)
+                .addContainerGap(362, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Titulares Impuestos", jPanel14);
+
         getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -1792,6 +2003,58 @@ if(ChcActivarPagos.isSelected()){
         }
     }//GEN-LAST:event_TablaPagoPropietariosMouseClicked
 
+    private void imp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imp1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imp1ActionPerformed
+
+    private void imp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imp3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imp3ActionPerformed
+
+    private void btnPagoPropietario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoPropietario1ActionPerformed
+
+    GestoresImpuestos gestorImp=new GestoresImpuestos();
+    Contrato contrato=new Contrato();
+    String titulares[]={     
+        imp1.getText(),
+        imp2.getText(),
+        imp3.getText(),
+        imp4.getText(),
+        imp5.getText(),
+        imp6.getText(),
+        imp7.getText(),
+        imp8.getText(),
+        imp9.getText(),
+        imp10.getText(),
+        imp11.getText(),
+        imp12.getText(),
+
+    };
+    int r=0;
+    for(int i=0;i<titulares.length;i++){
+        String texto=titulares[i];
+        texto=texto.replaceAll(" ", "");
+        if(texto.length()==0){
+
+        }else{
+            TitularImpuesto titular=new TitularImpuesto();
+            DescripcionImpuesto descripcion=new DescripcionImpuesto();
+            descripcion.setIdDescripcion((i+1));
+            contrato.setIdContrato(Integer.parseInt(lblIdContrato.getText()));
+            titular.setContrato(contrato);
+            titular.setDescipcion(descripcion);
+            titular.setTitular(titulares[i]);
+
+            r=gestorImp.GestorAltaTitular(titular);    
+          
+            
+        }
+    }  
+    if(r>=1){
+        JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
+    }// TODO add your handling code here:
+    }//GEN-LAST:event_btnPagoPropietario1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1835,6 +2098,7 @@ if(ChcActivarPagos.isSelected()){
     public static javax.swing.JButton btnGarantia;
     public static javax.swing.JButton btnLiquidacion;
     public static javax.swing.JButton btnPagoPropietario;
+    public static javax.swing.JButton btnPagoPropietario1;
     public static javax.swing.JButton btnRescindir;
     public static javax.swing.JLabel domicilioInquilino;
     public static javax.swing.JLabel domicilioInquilino1;
@@ -1862,6 +2126,18 @@ if(ChcActivarPagos.isSelected()){
     private javax.swing.JLabel gar2Profesion;
     private javax.swing.JLabel gar2Provincia;
     private javax.swing.JLabel gar2Telefono;
+    private javax.swing.JTextField imp1;
+    private javax.swing.JTextField imp10;
+    private javax.swing.JTextField imp11;
+    private javax.swing.JTextField imp12;
+    private javax.swing.JTextField imp2;
+    private javax.swing.JTextField imp3;
+    private javax.swing.JTextField imp4;
+    private javax.swing.JTextField imp5;
+    private javax.swing.JTextField imp6;
+    private javax.swing.JTextField imp7;
+    private javax.swing.JTextField imp8;
+    private javax.swing.JTextField imp9;
     public static javax.swing.JLabel inqCUIT;
     public static javax.swing.JLabel inqCelular;
     public static javax.swing.JLabel inqCiudad;
@@ -1938,13 +2214,27 @@ if(ChcActivarPagos.isSelected()){
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2041,7 +2331,7 @@ if(ChcActivarPagos.isSelected()){
     
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/Cagliero.png"));
         return retValue;
     }
 }

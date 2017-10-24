@@ -174,7 +174,7 @@ public class ListaBusquedaInmueble extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/Cagliero.png"));
         return retValue;
     }
 

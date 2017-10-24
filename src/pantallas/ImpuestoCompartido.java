@@ -49,6 +49,7 @@ public class ImpuestoCompartido extends javax.swing.JFrame {
     public ImpuestoCompartido() {
         initComponents();
         this.setResizable(false);
+            
     }
 int idic;
     /**
@@ -222,7 +223,12 @@ int idic;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+private void CargarModelo() throws SQLException{
+      lblIdImpuestoCompartido.setText(GestoresImpuestos.TraerImpuestoCompartido(idcon, iddes));
+            ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(Integer.parseInt(lblIdImpuestoCompartido.getText()));
+            ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
+            tablaInmuebles.setModel(modelo);
+}
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
            
      
@@ -230,16 +236,21 @@ int idic;
     GestoresContrato gestorCon=new GestoresContrato();
     Contrato contrato=new Contrato();
     Impuesto impuesto=new Impuesto();
-    int length = idPeriodo.getText().length();
-    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+2,length));
+    String perio="";
+     if(bandera!=1){  
+        int length = idPeriodo.getText().length();
+        perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+2,length));     
+    }
+   
+  
         try{
             String descripcion=(String) lblDescripcion.getText();
-            int iddes=(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
-            int idcon=(Integer.parseInt(idPeriodo.getText().substring(0, idPeriodo.getText().indexOf("-")-1)));
-            lblIdImpuestoCompartido.setText(GestoresImpuestos.TraerImpuestoCompartido(idcon, iddes));
-            ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(Integer.parseInt(lblIdImpuestoCompartido.getText()));
-            ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
-            tablaInmuebles.setModel(modelo);
+            String idcontrato= (String) idPeriodo.getText();
+              if(bandera!=1){  
+                 iddes=(Integer.parseInt(descripcion.substring(0,descripcion.indexOf("-")-1)));
+                 idcon=(Integer.parseInt(idcontrato.substring(0,idcontrato.indexOf("-")-1)));   
+            }
+              CargarModelo();
             for(int i=0; i<tablaInmuebles.getRowCount();i++){
                 String idCont=tablaInmuebles.getValueAt(i,0).toString();
                 contrato.setIdContrato(Integer.parseInt(idCont));
@@ -247,7 +258,8 @@ int idic;
                 impuesto.setValor(Valor*(Double.parseDouble(Porce)/100));
                 datosContrato=GestoresContrato.consultaDatosContrato(Integer.parseInt(idCont));
                 inicio = (datosContrato.getFechaInicio());
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");       
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");    
+              if(bandera!=1){        
                 Calendar ahora= Calendar.getInstance();
                 int diaActual=ahora.get(Calendar.DATE);
                 int mesActual=ahora.get((Calendar.MONTH))+1;
@@ -256,38 +268,44 @@ int idic;
                 String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
 
                 for(int e=0;e<meses.length;e++){
-                    if(meses[e].equals(perio.substring(0,3))){
+                    actual="";
+                    int length = idPeriodo.getText().length();
+                    perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+2,length));  
+                    if(meses[e].equals(perio.substring(1,4))){
                         mesV=e+1;
                     }
                 }
-                String fechaInicio = inicio;
-                String actual = diaActual+"/"+mesV+"/"+perio.substring(4,8); 
 
+                    actual = diaActual+"/"+mesV+"/"+añoActual;     
+            }else{
+                    actual=idPeriodo.getText();
+                }
+                String fechaInicio = inicio;
                 Date fechaInicial=dateFormat.parse(fechaInicio);
                 Date fechaFinal=dateFormat.parse(actual);
                 int cantmes = fechas.calcularMesesAFecha(fechaInicial ,fechaFinal );
 
                
-                datosCuotas = gestorCon.consultarCuotaLiquidacion(Integer.parseInt(idCont),cantmes );
-                totalPagar = (datosCuotas.getTotalaPagar());
-                
-                if(totalPagar==0){
-                   JOptionPane.showMessageDialog(new JDialog(),"Ya se relizo la liquidacion de la cuota "+ perio + " del contrato "+idCont + " No se puede cargar el impuesto");
-                   dispose();
-                }
+//                datosCuotas = gestorCon.consultarCuotaLiquidacion(Integer.parseInt(idCont),cantmes );
+//                totalPagar = (datosCuotas.get());
+//                
+//                if(totalPagar==0){
+//                   JOptionPane.showMessageDialog(new JDialog(),"Ya se relizo la liquidacion de la cuota "+ perio + " del contrato "+idCont + " No se puede cargar el impuesto");
+//                   dispose();
+//                }
             }
    
         
       
             
-//        lblIdImpuestoCompartido.setText(Integer.toString(idic));
-//        
+        lblIdImpuestoCompartido.setText(Integer.toString(idic));
+        
 
 
-// TODO add your handling code here:
-        } catch (SQLException ex) {
-            Logger.getLogger(ImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
+ //TODO add your handling code here:
         }catch (ParseException ex) {
+            Logger.getLogger(ImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(ImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowGainedFocus
@@ -296,7 +314,9 @@ int idic;
 
     String descripcion=(String) lblDescripcion.getText();
     Valor = Double.parseDouble(importe.getText());
-    String perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+1,12));
+    String perio="";
+    int length = idPeriodo.getText().length();
+    perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+2,length));    
         try{
             Contrato contrato=new Contrato();
             Cuotas cuotas=new Cuotas();
@@ -312,22 +332,27 @@ int idic;
                 impuesto.setValor(Valor*(Double.parseDouble(Porce)/100));
                 datosContrato=GestoresContrato.consultaDatosContrato(Integer.parseInt(idCon));
                 inicio = (datosContrato.getFechaInicio());
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");       
-                Calendar ahora= Calendar.getInstance();
-                int diaActual=ahora.get(Calendar.DATE);
-                int mesActual=ahora.get((Calendar.MONTH))+1;
-                int añoActual=ahora.get(Calendar.YEAR);
-                int mesV = 0;
-                String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
+                if(bandera!=1){       
+                    Calendar ahora= Calendar.getInstance();
+                    int diaActual=ahora.get(Calendar.DATE);
+                    int mesActual=ahora.get((Calendar.MONTH))+1;
+                    int añoActual=ahora.get(Calendar.YEAR);
+                    int mesV = 0;
+                    String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
 
-                for(int e=0;e<meses.length;e++){
-                    if(meses[e].equals(perio.substring(1,4))){
-                        mesV=e+1;
+                    for(int e=0;e<meses.length;e++){
+                        if(meses[e].equals(perio.substring(1,4))){
+                            mesV=e+1;
+                        }
                     }
-                }
-                String fechaInicio = inicio;
-                String actual = diaActual+"/"+mesV+"/"+perio.substring(5,9); 
 
+                        actual = diaActual+"/"+mesV+"/"+añoActual;  
+                        iddes=(Integer.parseInt(descripcion.substring(0,descripcion.indexOf("-")-1)));
+                }else{
+                        actual=idPeriodo.getText();
+                    }
+                String fechaInicio = inicio;
                 Date fechaInicial=dateFormat.parse(fechaInicio);
                 Date fechaFinal=dateFormat.parse(actual);
                 int cantmes = fechas.calcularMesesAFecha(fechaInicial ,fechaFinal );
@@ -350,7 +375,7 @@ int idic;
                 cuotas.setNroCuota(cantmes);        
 
                 impuesto.setIdImpuesto(idImpuesto);
-                impuesto.setIdDescripcion(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
+                impuesto.setIdDescripcion(iddes);
 
                 cuotaImp.setCuotas(cuotas);
                 cuotaImp.setImpuesto(impuesto);
@@ -363,14 +388,17 @@ int idic;
                     int actualizarTotal=gestorCon.ActualizarTotalaPagar(Integer.parseInt(idCon), cantmes);
                 } catch (SQLException ex) {
                     Logger.getLogger(AgregarImpuestoCuota.class.getName()).log(Level.SEVERE, null, ex);
-                }   
-//                  JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
+                }  
+                if(r==1){
+                         JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
                 lblIdContrato.setText(" ");
                 dispose();
-//                ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(idImpuestoCompartido);
-//                ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
-//                tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuestoCompartido());
-//                tablaInmuebles.setModel(modelo);
+                }
+         
+                ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(idImpuestoCompartido);
+                ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
+                tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuestoCompartido());
+                tablaInmuebles.setModel(modelo);
 
             }
         }catch(NumberFormatException ex){
@@ -453,7 +481,7 @@ int idic;
 
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/Cagliero.png"));
         return retValue;
     }
     private int idImpuesto;
@@ -467,6 +495,10 @@ int idic;
     public static Contrato datosContrato;
     public static Cuotas datosCuotas;
     public static String[] meses = {"Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"};
+    public static int bandera;
+    public static int idcon=0;
+    public static int iddes=0;
+    public static String actual;
 }
 
 

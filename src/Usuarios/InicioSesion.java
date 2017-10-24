@@ -65,7 +65,7 @@ public class InicioSesion extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SM Inmobiliaria");
+        setTitle("Inmobiliaria");
         setIconImage(getIconImage());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

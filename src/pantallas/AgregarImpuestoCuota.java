@@ -246,21 +246,16 @@ public class AgregarImpuestoCuota extends javax.swing.JFrame {
             Cuotas cuotas=new Cuotas();
             CuotaImpuesto cuotaImp=new CuotaImpuesto();
             Impuesto impuesto=new Impuesto();
-
             contrato.setIdContrato(Integer.parseInt(idPeriodo.getText().substring(0, idPeriodo.getText().indexOf("-")-1)));
-
             cuotas.setContrato(contrato);
             cuotas.setNroCuota(nroCuota);        
-
             impuesto.setIdImpuesto(idImpuesto);
             impuesto.setIdDescripcion(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
             impuesto.setValor(Double.parseDouble(importeImpuesto.getText()));
-    //         impuesto.setIdImpuestoCompartido(Integer.parseInt(" "));
-
+ //         impuesto.setIdImpuestoCompartido(Integer.parseInt(" "));
             cuotaImp.setCuotas(cuotas);
             cuotaImp.setImpuesto(impuesto);
             int idcon=(Integer.parseInt(idPeriodo.getText().substring(0, idPeriodo.getText().indexOf("-")-1)));
-
             int iddes=(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
             try {
                 lblCom.setText(GestoresImpuestos.TraerImpuestoCompartido(idcon, iddes));
@@ -291,6 +286,7 @@ public class AgregarImpuestoCuota extends javax.swing.JFrame {
                     ImpuestoCompartido.importe.setText(importeImpuesto.getText());
                     ImpuestoCompartido.idPeriodo.setText(idPeriodo.getText());
                     ImpuestoCompartido.nroCuota=nroCuota;
+                    ImpuestoCompartido.bandera=0;
                     impcom.setLocationRelativeTo(null);
                     impcom.setVisible(true); 
                     dispose();  

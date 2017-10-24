@@ -486,32 +486,25 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="chcSelladoHabitacional" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="chcSelladoComercial" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="84" max="32767" attributes="0"/>
-                                          <Component id="montoSellado" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="Sellado" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="montoSellado" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="garantia" alignment="0" pref="67" max="32767" attributes="0"/>
+                                          <Component id="comision" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="punitorios" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="garantia" pref="67" max="32767" attributes="0"/>
-                                              <Component id="comision" max="32767" attributes="0"/>
-                                              <Component id="punitorios" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="comboComision" max="32767" attributes="0"/>
-                                              <Component id="comboPunitorio" max="32767" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                                  <Component id="cuotasGarantia" pref="99" max="32767" attributes="0"/>
-                                              </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="comboComision" max="32767" attributes="0"/>
+                                          <Component id="comboPunitorio" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Component id="cuotasGarantia" pref="99" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="Sellado" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -569,17 +562,14 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="chcSelladoComercial" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="montoSellado" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="chcSelladoHabitacional" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Sellado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <EmptySpace pref="86" max="32767" attributes="0"/>
                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   </Group>
@@ -774,29 +764,6 @@
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SelladoKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="chcSelladoHabitacional">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Habitacional"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chcSelladoHabitacionalActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chcSelladoComercial">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Comercial"/>
-                <Property name="actionCommand" type="java.lang.String" value="Comercial"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chcSelladoComercialActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel5">
@@ -829,7 +796,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel15" pref="150" max="32767" attributes="0"/>
+                          <Component id="jLabel15" max="32767" attributes="0"/>
                           <Component id="imp1" max="32767" attributes="0"/>
                           <Component id="imp2" max="32767" attributes="0"/>
                           <Component id="imp3" max="32767" attributes="0"/>
@@ -840,10 +807,10 @@
                           <Component id="imp8" max="32767" attributes="0"/>
                           <Component id="imp9" max="32767" attributes="0"/>
                           <Component id="imp10" max="32767" attributes="0"/>
-                          <Component id="imp11" pref="150" max="32767" attributes="0"/>
+                          <Component id="imp11" max="32767" attributes="0"/>
                           <Component id="imp12" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="146" max="32767" attributes="0"/>
+                      <EmptySpace pref="142" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -984,7 +951,7 @@
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Numeros de asociado:"/>
+                <Property name="text" type="java.lang.String" value="Numero de Cliente/Partida:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="imp12">
