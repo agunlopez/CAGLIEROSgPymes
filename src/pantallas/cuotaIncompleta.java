@@ -576,7 +576,6 @@ public class cuotaIncompleta extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
-
         cuotaActual=GestoresContrato.ConsultarCuotaActual(Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
         double expensas=0;
         double impuestos=0;

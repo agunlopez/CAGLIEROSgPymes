@@ -2691,7 +2691,6 @@
             <Component class="javax.swing.JButton" name="btnPagoPropietario1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cargar"/>
-                <Property name="actionCommand" type="java.lang.String" value="Cargar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPagoPropietario1ActionPerformed"/>

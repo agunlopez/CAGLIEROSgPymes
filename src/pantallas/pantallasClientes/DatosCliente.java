@@ -472,7 +472,7 @@ public class DatosCliente extends javax.swing.JFrame {
 
         if(jCheckBox1.isSelected()){         
             try {  
-                ExcepcionAltaCliente.validarDatos(nombre.getText(), apellido.getText(), direccion.getText(), dni.getText(),provincia.getText(),ciudad.getText(),cuit.getText(),fechaNac.getDate());
+                ExcepcionAltaCliente.validarDatos(nombre.getText(), apellido.getText(), direccion.getText(), dni.getText(),provincia.getText(),ciudad.getText(),cuit.getText(),fechaNac.getDate(),telefono.getText());
             
 
         Cliente prop=new Cliente();     
@@ -484,10 +484,10 @@ public class DatosCliente extends javax.swing.JFrame {
         prop.setDni(Integer.parseInt(dni.getText()));
         prop.setEstadoCivil(estadoCivil.getText());
         String dia=Integer.toString( fechaNac.getCalendar().get(Calendar.DAY_OF_MONTH));
-     String mes=Integer.toString(fechaNac.getCalendar().get(Calendar.MONTH)+1);
-     String año=Integer.toString(fechaNac.getCalendar().get(Calendar.YEAR));
-     String fechaNacimiento=dia+"/"+mes+"/"+año;
-     prop.setFechaNac(fechaNacimiento);
+        String mes=Integer.toString(fechaNac.getCalendar().get(Calendar.MONTH)+1);
+        String año=Integer.toString(fechaNac.getCalendar().get(Calendar.YEAR));
+        String fechaNacimiento=dia+"/"+mes+"/"+año;
+        prop.setFechaNac(fechaNacimiento);
         prop.setId(Integer.parseInt(idPropietario.getText()));
         prop.setLocalidad(ciudad.getText());
         prop.setNombre(nombre.getText());

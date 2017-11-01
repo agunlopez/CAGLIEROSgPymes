@@ -46,7 +46,7 @@ public class AltaInmueble extends javax.swing.JFrame {
             comboProvincia.addItem(listaProvincias.get(i).getProvincias());
         }
         comboProvincia.setSelectedItem("Santa Fe");
-        comboCiudades.setSelectedItem("Tostado");
+        comboCiudades.setSelectedItem("Sunchales");
     }
 
     /**

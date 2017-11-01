@@ -369,7 +369,7 @@ public static boolean bandera=true;
 
 
 
-        cuotaActual=GestoresContrato.ConsultarCuotaActual(Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
+//        cuotaActual=GestoresContrato.ConsultarCuotaActual(Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
         Cuotas cuota=new Cuotas();
         cuota=GestoresContrato.consultarCuotaLiquidacion(Integer.parseInt(DetallesContrato.lblIdContrato.getText()), cuotaActual);
         lblPeriodo.setText((String) DetallesContrato.tablaDetalle.getValueAt((cuotaActual-1), 0));
@@ -524,8 +524,8 @@ public static boolean bandera=true;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 //     monto=Double.parseDouble(txtMontoaPagar.getText());
-      if(bandera==true){
-             if(txtMontoaPagar.getText().isEmpty()) {
+//      if(bandera==true){
+            if(txtMontoaPagar.getText().isEmpty()) {
             JOptionPane.showMessageDialog(new JDialog(),"Monto a pagar no puede estar vacio");
             
         }else if(Double.parseDouble(txtMontoaPagar.getText())==0){
@@ -545,9 +545,9 @@ public static boolean bandera=true;
             incompleta.setVisible(true);
             // TODO add your handling code here:
         } 
-      } else{
-           JOptionPane.showMessageDialog(new JDialog(),"Ya se asignaron los montos");
-      } 
+//      } else{
+//           JOptionPane.showMessageDialog(new JDialog(),"Ya se asignaron los montos");
+//      } 
                       
     }//GEN-LAST:event_jButton3ActionPerformed
 

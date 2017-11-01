@@ -15,7 +15,7 @@ public class ExcepcionAltaCliente extends Exception {
     public ExcepcionAltaCliente(String msg) {
         super(msg);
     }
-    public static void validarDatos(String nombre, String apellido, String direccion,String dni,String provincia,String ciudad,String cuit,Date fechaNac) throws ExcepcionAltaCliente{
+    public static void validarDatos(String nombre, String apellido, String direccion,String dni,String provincia,String ciudad,String cuit,Date fechaNac,String tel) throws ExcepcionAltaCliente{
         if(nombre.equals("")){
             throw new ExcepcionAltaCliente("Ingresar el Nombre del Cliente");
         }
@@ -40,9 +40,9 @@ public class ExcepcionAltaCliente extends Exception {
         if(fechaNac==null){
             throw new ExcepcionAltaCliente("Ingrese fecha de Nacimiento");
         }
-        if(dni.length()<8 || dni.length()>8){
-            throw new ExcepcionAltaCliente("El DNI debe ser de 8 digitos ");
-        }
+//        if(dni.length()<8 || dni.length()>8){
+//            throw new ExcepcionAltaCliente("El DNI debe ser de 8 digitos ");
+//        }
         if(cuit.equals("")){
             
         }else{
@@ -50,6 +50,11 @@ public class ExcepcionAltaCliente extends Exception {
                 throw new ExcepcionAltaCliente("El CUIT debe ser de 11 digitos ");
             }
         }
+        if(tel.equals("(0    )-") ){
+       
+        }else{
+            throw new ExcepcionAltaCliente("Ingrese Telefono");
+     }
         
 
     }

@@ -167,7 +167,7 @@ public int GestorAltaTitular(TitularImpuesto titular){
      
         return impuestos;
     }
-      public static ArrayList<Impuesto> consultaTablaImpuestoCompartido(int idImpuestoCompartido){
+    public static ArrayList<Impuesto> consultaTablaImpuestoCompartido(int idImpuestoCompartido){
      
         ArrayList<Impuesto> impuestos=new ArrayList<Impuesto>(); 
         ResultSet rs=null;
@@ -253,6 +253,28 @@ public int GestorAltaTitular(TitularImpuesto titular){
         }
         } catch (SQLException e) {
 			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Id Contrato por  Titular "+e.toString());
+		
+	}
+        return idContrato;
+    }
+                public static int consultaIdPorNumeroSeguimiento(int Num){
+        int idContrato=0;
+        String sqlTitulares="SELECT contrato.idContrato " 
+                            +"From contrato " 
+                            +"Where numeroSeguimiento=? ";
+        ResultSet rs=null;
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sqlTitulares);
+                        pst.setInt(1, Num);
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+
+                            idContrato=rs.getInt("contrato.idContrato");
+                            
+        }
+        } catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Id Contrato por  Numero de Seguimiento "+e.toString());
 		
 	}
         return idContrato;

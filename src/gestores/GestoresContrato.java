@@ -34,11 +34,11 @@ public class GestoresContrato {
 		
 		ResultSet rs=null;
                 
-                String sql="SELECT contrato.idContrato,inmueble.idInmueble,inmueble.calle,contrato.fechaComienzo,contrato.fechaVencimiento,contrato.estado,contrato.cuotaActual,"
-                        + " prop.apellido,prop.nombre,inq.apellido,inq.nombre,gara.apellido,gara.nombre,gara2.nombre,gara2.apellido"
-                        + " FROM contrato,cliente as prop,cliente as inq,cliente as gara,cliente as gara2,inmueble "
-                        + "WHERE inmueble.idPropietario=prop.idCliente and contrato.idInquilino=inq.idCliente and contrato.idGarante=gara.idCliente and "
-                        + "contrato.idGarante2=gara2.idCliente and contrato.idInmueble=inmueble.idInmueble";
+                String sql="SELECT contrato.idContrato,inmueble.idInmueble,inmueble.calle,contrato.fechaComienzo,contrato.fechaVencimiento,contrato.estado,contrato.cuotaActual, " +
+                            "prop.apellido,prop.nombre,inq.apellido,inq.nombre,gara.apellido,gara.nombre,gara2.nombre,gara2.apellido, contrato.numeroSeguimiento " +
+                            "FROM contrato,cliente as prop,cliente as inq,cliente as gara,cliente as gara2,inmueble "+
+                            "WHERE inmueble.idPropietario=prop.idCliente and contrato.idInquilino=inq.idCliente and contrato.idGarante=gara.idCliente and " +
+                            "contrato.idGarante2=gara2.idCliente and contrato.idInmueble=inmueble.idInmueble ORDER BY contrato.numeroSeguimiento";
 	try{
 			PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
 			rs=pst.executeQuery();
@@ -72,6 +72,7 @@ public class GestoresContrato {
 				contrato.setFechaVencimiento(rs.getString("contrato.fechaVencimiento"));
 				contrato.setEstado(rs.getString("contrato.estado"));
 				contrato.setCuotaActual(Integer.parseInt(rs.getString("contrato.cuotaActual")));
+                                contrato.setNumeroSeguimietno(Integer.parseInt(rs.getString("contrato.numeroSeguimiento")));
 				
                 contrato.setInmueble(inmu);			
                 contrato.setInquilino(inq);
@@ -240,8 +241,8 @@ public class GestoresContrato {
    public int altaContrato(Contrato cont) throws IOException{
 		int r=0;
 		String SQL="INSERT INTO `contrato`(`idContrato`, `idInmueble`, `idInquilino`, `idGarante`, `idGarante2`, `fechaComienzo`, `fechaVencimiento`, `cuota`,"
-                        + " `cuotaActual`, `estado`, `garantia`, `cuotasGarantia`, `punitorios`, `comicion`, `diadePago`,`montoSellado` )"
-                        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        + " `cuotaActual`, `estado`, `garantia`, `cuotasGarantia`, `punitorios`, `comicion`, `diadePago`,`montoSellado`,`numeroSeguimiento` )"
+                        + " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				
 		
 		
@@ -264,6 +265,8 @@ public class GestoresContrato {
                 pst.setDouble(14, cont.getHonorarios());               
                 pst.setInt(15, cont.getDiaPago());
                 pst.setInt(16, cont.getMontoSellado());
+                pst.setInt(17,cont.getNumeroSeguimietno());
+                
 
                 
 		r=pst.executeUpdate();

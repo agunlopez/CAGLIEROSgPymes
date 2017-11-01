@@ -12,6 +12,10 @@ import static Excepciones.ExcepcionGarantia.VerificarTextField;
  * @author Nahuel
  */
 public class ExcepcionGarantia extends Exception {
+
+    public static void VerificarTextField(String text, String text0, String text1, String text2, String text3, String text4) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public ExcepcionGarantia(String msg) {
         super(msg);
     }
@@ -30,6 +34,16 @@ public class ExcepcionGarantia extends Exception {
         }
     }
     
+    /**
+     *
+     * @param garantia
+     * @param cuotasGarantia
+     * @param punitorios
+     * @param comision
+     * @param punitorios1
+     * @param txtPunitorios2
+     * @throws ExcepcionGarantia
+     */
     public static void VerificarTextField(String garantia,String cuotasGarantia,String punitorios,String comision, String punitorios1)throws ExcepcionGarantia{
         String txtGarantia=garantia;
         txtGarantia=txtGarantia.replaceAll(" ", "");
@@ -52,6 +66,11 @@ public class ExcepcionGarantia extends Exception {
             throw new ExcepcionGarantia("Ingrese el valor de la Comision");
         }
          String txtPunitorios1=comision;
+        txtPunitorios1=txtPunitorios1.replaceAll(" ", "");
+        if(txtPunitorios1.length()==0){
+            throw new ExcepcionGarantia("Ingrese el valor de la Comision");
+        }
+           String txtPunitorios2=comision;
         txtPunitorios1=txtPunitorios1.replaceAll(" ", "");
         if(txtPunitorios1.length()==0){
             throw new ExcepcionGarantia("Ingrese el valor de la Comision");

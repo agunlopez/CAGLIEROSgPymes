@@ -1591,27 +1591,33 @@ public class DetallesContrato extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaDetalleMouseClicked
 
     private void btnLiquidacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLiquidacionActionPerformed
+        SeleccionarPeriodo SelPer=new SeleccionarPeriodo();
+        SelPer.pack();
+        SelPer.idCon=Integer.parseInt(lblIdContrato.getText());
+        SelPer.setLocationRelativeTo(null);
+        SelPer.setVisible(true);
 
-        if((Double)tablaDetalle.getValueAt((tablaDetalle.getRowCount()-1), 4)==0){
-        JOptionPane.showMessageDialog(new JDialog(),"Pago de cuotas completo");
-
-        }else{
-         LiquidacionInquilino liquidacionInq=new LiquidacionInquilino();
-         int cuotaAct=GestoresContrato.ConsultarCuotaActual(Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
-         ArrayList<CuotaImpuesto> impuestos=GestoresImpuestos.consultaTablaImpuesto(Integer.parseInt(DetallesContrato.lblIdContrato.getText()),cuotaAct);
-        
-        for(int i=0;i<impuestos.size();i++){
-            DefaultTableModel model=(DefaultTableModel)LiquidacionInquilino.tablaImpuestosLiquidacion.getModel();
-            
-            model.addRow(new Object[]{
-                impuestos.get(i).getImpuesto().getDescripcion().getDescripcion(),impuestos.get(i).getImpuesto().getValor()
-            });
-        }
-         liquidacionInq.setSize(alto/2, ancho/2);
-         liquidacionInq.pack();
-         liquidacionInq.setLocationRelativeTo(null);
-         liquidacionInq.setVisible(true);
-        }
+       
+//        if((Double)tablaDetalle.getValueAt((tablaDetalle.getRowCount()-1), 4)==0){
+//        JOptionPane.showMessageDialog(new JDialog(),"Pago de cuotas completo");
+//
+//        }else{
+//         LiquidacionInquilino liquidacionInq=new LiquidacionInquilino();
+//         int cuotaAct=GestoresContrato.ConsultarCuotaActual(Integer.parseInt(DetallesContrato.lblIdContrato.getText()));
+//         ArrayList<CuotaImpuesto> impuestos=GestoresImpuestos.consultaTablaImpuesto(Integer.parseInt(DetallesContrato.lblIdContrato.getText()),cuotaAct);
+//        
+//        for(int i=0;i<impuestos.size();i++){
+//            DefaultTableModel model=(DefaultTableModel)LiquidacionInquilino.tablaImpuestosLiquidacion.getModel();
+//            
+//            model.addRow(new Object[]{
+//                impuestos.get(i).getImpuesto().getDescripcion().getDescripcion(),impuestos.get(i).getImpuesto().getValor()
+//            });
+//        }
+//         liquidacionInq.setSize(alto/2, ancho/2);
+//         liquidacionInq.pack();
+//         liquidacionInq.setLocationRelativeTo(null);
+//         liquidacionInq.setVisible(true);
+//        }
         
 
         // TODO add your handling code here:

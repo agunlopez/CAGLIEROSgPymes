@@ -100,6 +100,11 @@ public class AgregarImpuestoCuota extends javax.swing.JFrame {
                 comboImpuestosMouseClicked(evt);
             }
         });
+        comboImpuestos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboImpuestosActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Importe:");
@@ -334,6 +339,10 @@ public class AgregarImpuestoCuota extends javax.swing.JFrame {
     
 // TODO add your handling code here:
     }//GEN-LAST:event_comboImpuestosItemStateChanged
+
+    private void comboImpuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboImpuestosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboImpuestosActionPerformed
 
     /**
      * @param args the command line arguments

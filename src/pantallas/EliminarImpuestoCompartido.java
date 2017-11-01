@@ -243,6 +243,7 @@ int idic;
                 JOptionPane.showMessageDialog(new JDialog(),"Eliminado Correctamente");
                 dispose();
             }
+            dispose();
         } catch (SQLException ex) {
             Logger.getLogger(CargaImpuestoCompartido.class.getName()).log(Level.SEVERE, null, ex);
         }

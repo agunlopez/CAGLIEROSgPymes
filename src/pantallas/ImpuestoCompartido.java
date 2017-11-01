@@ -223,16 +223,13 @@ int idic;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private void CargarModelo() throws SQLException{
-      lblIdImpuestoCompartido.setText(GestoresImpuestos.TraerImpuestoCompartido(idcon, iddes));
-            ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(Integer.parseInt(lblIdImpuestoCompartido.getText()));
-            ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
-            tablaInmuebles.setModel(modelo);
-}
+    private void CargarModelo() throws SQLException{
+        lblIdImpuestoCompartido.setText(GestoresImpuestos.TraerImpuestoCompartido(idcon, iddes));
+        ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(Integer.parseInt(lblIdImpuestoCompartido.getText()));
+        ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
+        tablaInmuebles.setModel(modelo);
+    }
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-           
-     
-        
     GestoresContrato gestorCon=new GestoresContrato();
     Contrato contrato=new Contrato();
     Impuesto impuesto=new Impuesto();
@@ -311,11 +308,11 @@ private void CargarModelo() throws SQLException{
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
     String descripcion=(String) lblDescripcion.getText();
     Valor = Double.parseDouble(importe.getText());
     String perio="";
     int length = idPeriodo.getText().length();
+
     perio=(idPeriodo.getText().substring(idPeriodo.getText().indexOf("-")+2,length));    
         try{
             Contrato contrato=new Contrato();
@@ -369,14 +366,11 @@ private void CargarModelo() throws SQLException{
                 }catch (SQLException e) {
                     JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuesto"+e.toString());
                 }
-
-                    
+    
                 cuotas.setContrato(contrato);
                 cuotas.setNroCuota(cantmes);        
-
                 impuesto.setIdImpuesto(idImpuesto);
                 impuesto.setIdDescripcion(iddes);
-
                 cuotaImp.setCuotas(cuotas);
                 cuotaImp.setImpuesto(impuesto);
 
@@ -389,18 +383,13 @@ private void CargarModelo() throws SQLException{
                 } catch (SQLException ex) {
                     Logger.getLogger(AgregarImpuestoCuota.class.getName()).log(Level.SEVERE, null, ex);
                 }  
-                if(r==1){
-                         JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
-                lblIdContrato.setText(" ");
-                dispose();
-                }
-         
-                ArrayList<Impuesto> impuestos=GestoresImpuestos.consultaTablaImpuestoCompartido(idImpuestoCompartido);
-                ModeloTablaImpuestoCompartido modelo=new ModeloTablaImpuestoCompartido(impuestos);
-                tablaInmuebles.setDefaultRenderer(Object.class, new RenderEliminarImpuestoCompartido());
-                tablaInmuebles.setModel(modelo);
-
+//                if(r==1){
+//                         JOptionPane.showMessageDialog(new JDialog(),"Agregado Correctamente");
+//                lblIdContrato.setText(" ");
+//                dispose();
+//                }
             }
+            dispose();
         }catch(NumberFormatException ex){
 
                 JOptionPane.showMessageDialog(new JDialog(),"Inserte un Valor");

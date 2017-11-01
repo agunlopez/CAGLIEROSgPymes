@@ -43,7 +43,7 @@ public class AltaCliente extends javax.swing.JFrame {
             comboProvincia.addItem(listaProvincias.get(i).getProvincias());
         }
         comboProvincia.setSelectedItem("Santa Fe");
-        comboCiudades.setSelectedItem("Tostado");
+        comboCiudades.setSelectedItem("Sunchales");
     }
 
     /**
@@ -148,7 +148,7 @@ public class AltaCliente extends javax.swing.JFrame {
         jLabel11.setText("Provincia:");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("Telefono: ");
+        jLabel12.setText("Telefono: * ");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Celular:");
@@ -205,6 +205,11 @@ public class AltaCliente extends javax.swing.JFrame {
         lblTipoCliente.setText("Propietario");
 
         comboCiudades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Ciudad" }));
+        comboCiudades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCiudadesActionPerformed(evt);
+            }
+        });
 
         comboProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Provincia" }));
         comboProvincia.addActionListener(new java.awt.event.ActionListener() {
@@ -226,10 +231,11 @@ public class AltaCliente extends javax.swing.JFrame {
         });
 
         try {
-            telefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(0###*)-######*")));
+            telefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(0###*)-#########*")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        telefono.setFocusTraversalPolicyProvider(true);
         telefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,7 +431,7 @@ public class AltaCliente extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
  int Dni= Integer.parseInt(dni.getText());
         try {
-            ExcepcionAltaCliente.validarDatos(nombre.getText(), apellido.getText(), direccion.getText(), dni.getText(),comboProvincia.getSelectedItem().toString(), comboCiudades.getSelectedItem().toString(),cuit.getText(),fechaNac.getDate());  
+            ExcepcionAltaCliente.validarDatos(nombre.getText(), apellido.getText(), direccion.getText(), dni.getText(),comboProvincia.getSelectedItem().toString(), comboCiudades.getSelectedItem().toString(),cuit.getText(),fechaNac.getDate(), telefono.getText());  
             int edad=fechas.calculaEdad(fechaNac.getCalendar());
             boolean consultaDni=GestorAltaCliente.consultaDni(Integer.parseInt(dni.getText()));
             ExcepcionAltaCliente.validarEdad(edad);
@@ -471,9 +477,6 @@ public class AltaCliente extends javax.swing.JFrame {
             
         }
        
-
-        
-        
         // TODO add your handling code here:
     }//GEN-LAST:event_dniKeyTyped
 
@@ -569,6 +572,11 @@ public class AltaCliente extends javax.swing.JFrame {
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_telefonoKeyTyped
+
+    private void comboCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCiudadesActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboCiudadesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -792,11 +800,6 @@ public class AltaCliente extends javax.swing.JFrame {
      garante.setDireccion(direccion.getText());
      garante.setLocalidad(comboCiudades.getSelectedItem().toString());
      garante.setProvincia(comboProvincia.getSelectedItem().toString());
-     if(telefono.getText().equals("(0    )-       ") ){
-         garante.setTel(" ");
-     }else{
-         garante.setTel(telefono.getText());
-     }
      if(celular.getText().equals("0    -15       ") ){
          garante.setCelular(" ");
      }else{

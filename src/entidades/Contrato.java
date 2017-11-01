@@ -30,6 +30,30 @@ public class Contrato {
         private Cuotas Cutoas;
         private Cliente cliente;
         private int montoSellado;
+        private String numSegimiento;
+        private int numeroSeguimietno;
+
+    public int getNumeroSeguimietno() {
+        return numeroSeguimietno;
+    }
+
+    public void setNumeroSeguimietno(int numeroSeguimietno) {
+        this.numeroSeguimietno = numeroSeguimietno;
+    }
+        
+        
+
+    public String getNumSegimiento() {
+        return numSegimiento;
+    }
+
+    public void setNumSegimiento(String numSegimiento) {
+        this.numSegimiento = numSegimiento;
+    }
+        
+
+ 
+        
 
     public int getMontoSellado() {
         return montoSellado;

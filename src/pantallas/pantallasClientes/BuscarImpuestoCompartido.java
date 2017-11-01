@@ -48,6 +48,13 @@ public class BuscarImpuestoCompartido extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lista Impuestos Compartidos");
         setIconImage(getIconImage());
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jScrollPane1.setBorder(null);
 
@@ -129,6 +136,12 @@ public class BuscarImpuestoCompartido extends javax.swing.JFrame {
        
     }//GEN-LAST:event_tablaImpuestosCompartidosMouseClicked
 
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        ArrayList listaCliente=GestoresImpuestos.consultarImpuestoCompartidoCalle();
+        ModeloTablaImpComp modelo=new ModeloTablaImpComp(listaCliente);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowGainedFocus
+
     /**
      * @param args the command line arguments
      */
@@ -179,7 +192,7 @@ public class BuscarImpuestoCompartido extends javax.swing.JFrame {
 
 public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/casa.png"));
         return retValue;
     }
 }

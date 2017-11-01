@@ -67,7 +67,7 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
         lblNumClie = new javax.swing.JTextField();
         lblImporte = new javax.swing.JTextField();
         lblPeriodo = new javax.swing.JTextField();
-        lblImpuesto = new javax.swing.JTextField();
+        comboImpuestos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Impuesto");
@@ -162,15 +162,20 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
             }
         });
 
-        lblImpuesto.setEnabled(false);
-        lblImpuesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblImpuestoActionPerformed(evt);
+        comboImpuestos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        comboImpuestos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboImpuestosItemStateChanged(evt);
             }
         });
-        lblImpuesto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                lblImpuestoKeyTyped(evt);
+        comboImpuestos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboImpuestosMouseClicked(evt);
+            }
+        });
+        comboImpuestos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboImpuestosActionPerformed(evt);
             }
         });
 
@@ -179,43 +184,44 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(codBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(82, 82, 82)
-                            .addComponent(ingresar))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(jLabel2)
-                            .addGap(20, 20, 20)
-                            .addComponent(lblNumClie, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(8, 8, 8)
-                            .addComponent(lblIdCon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(6, 6, 6)
-                            .addComponent(jLabel6)
-                            .addGap(4, 4, 4)
-                            .addComponent(lblPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(7, 7, 7)
-                            .addComponent(jLabel5)
-                            .addGap(28, 28, 28)
-                            .addComponent(lblImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(78, 78, 78)
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(lblImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(86, 86, 86)
-                            .addComponent(lblCom, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(codBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82)
+                        .addComponent(ingresar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel2)
+                        .addGap(20, 20, 20)
+                        .addComponent(lblNumClie, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(jLabel6)
+                        .addGap(4, 4, 4)
+                        .addComponent(lblPeriodo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(lblCom, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel5)
+                                .addGap(28, 28, 28)
+                                .addComponent(lblImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(comboImpuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblIdCon, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,22 +240,25 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addComponent(lblNumClie)
                     .addComponent(lblPeriodo)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(lblIdCon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(jLabel4))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(jLabel5))
+                        .addComponent(lblImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(comboImpuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel5))
-                    .addComponent(lblImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel1))
-                    .addComponent(lblImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblIdCon, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)))
                 .addGap(19, 19, 19)
                 .addComponent(lblCom)
                 .addGap(18, 18, 18)
@@ -268,7 +277,7 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         
-        String descripcion= lblImpuesto.getText();
+        String descripcion= (String) comboImpuestos.getSelectedItem();
             try{
             int r=0;  
             String sql2="SELECT * FROM `impuesto`ORDER BY idImpuesto DESC LIMIT 1";
@@ -338,7 +347,6 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
                 lblIdCon.setText("");
                 codBarra.setText("");
                 lblImporte.setText("");
-                lblImpuesto.setText("");
                 lblPeriodo.setText("");
             }
             }catch(NumberFormatException ex){
@@ -365,11 +373,11 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
                 case 50://API                    
                     partida = (cb.substring(8,25));
                     periodo = (codBarra.getText().substring(33, 39)); 
-                    idCon=gestorImp.consultaIdPorTitular(partida,11);
+                    idCon=gestorImp.consultaIdPorTitular(partida,1);
                     if(idCon == 0){
-                        JOptionPane.showMessageDialog(new JDialog(),"No se encontro un contrato asociado a este impuesto");                   
+                        JOptionPane.showMessageDialog(new JDialog(),"No se encontro un contrato asociado a este impuesto");
                     }else{
-                    idDesc=11;                  
+                    idDesc=1;                  
                     actual = periodo.substring(4,6)+"/"+periodo.substring(2,4)+"/"+"20"+periodo.substring(0,2); 
                     Date fechaFinal=dateFormat.parse(actual);                 
                     datosContrato=GestoresContrato.consultaDatosContrato(Integer.parseInt(String.valueOf(idCon)));
@@ -452,21 +460,33 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
                     } 
                 break;
                 
-                case 22: // TASA MUNICIPAL
+                case 22: // TASA MUNICIPAL - VARIOS
                     partida = (cb.substring(5,9));                   
                     periodo = lblPeriodo.getText(); 
                     idCon=gestorImp.consultaIdPorTitular(partida,2); 
                    
                     if(lblPeriodo.getText().isEmpty()){
-                        JOptionPane.showMessageDialog(new JDialog(),"Cargar la fecha de vencimiento(dd/mm/aaaa)");  
+                        JOptionPane.showMessageDialog(new JDialog(),"Cargar la fecha de vencimiento(dd/mm/aaaa) y Impuesto");  
                         lblPeriodo.setEnabled(true);
                         jButton2.setEnabled(false);
+                        String sql="SELECT * FROM `descripcionimpuesto` WHERE codBarra=21" ;
+                            ResultSet rs=null;
+                             try{
+                                PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+                                rs=pst.executeQuery();
+                                while(rs.next()){
+                                    comboImpuestos.addItem(rs.getString("idDescripcion")+" - "+rs.getString("descripcion"));
+                                }
+                            }catch (SQLException e) {
+                                JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuesto"+e.toString());
+                            } 
+                            String des=(String) comboImpuestos.getSelectedItem();
+                            idDesc=(Integer.parseInt(des.substring(0,(des.indexOf("-")-1))));
                     }else{
                         jButton2.setEnabled(true);
                         if(idCon == 0){
                             JOptionPane.showMessageDialog(new JDialog(),"No se encontro un contrato asociado a este impuesto");                   
                         }else{
-                            idDesc=2;
                             String actual = periodo; 
                             Date fechaFinal=dateFormat.parse(actual);  
                             datosContrato=GestoresContrato.consultaDatosContrato(Integer.parseInt(String.valueOf(idCon)));
@@ -479,7 +499,6 @@ public class AgregarImpuestoCodBarra extends javax.swing.JFrame {
                             lblPeriodo.setEnabled(false);
                             lblPeriodo.setText(actual);
                             lblNumClie.setText(partida);
-                            descripcion();     
                             cb3=cb.substring(16,21);
                             cb2 = Integer.parseInt(cb.substring(16,21));                  
                             tam= (String.valueOf(cb2).length());
@@ -542,7 +561,7 @@ private void descripcion(){
                         PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
                         rs=pst.executeQuery();
                     while(rs.next()){
-                        lblImpuesto.setText(rs.getString("descripcion"));
+                         comboImpuestos.addItem(rs.getString("descripcion"));
                     }
 
 
@@ -583,13 +602,19 @@ private void descripcion(){
         // TODO add your handling code here:
     }//GEN-LAST:event_lblPeriodoKeyTyped
 
-    private void lblImpuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblImpuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblImpuestoActionPerformed
+    private void comboImpuestosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboImpuestosItemStateChanged
 
-    private void lblImpuestoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblImpuestoKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblImpuestoKeyTyped
+    }//GEN-LAST:event_comboImpuestosItemStateChanged
+
+    private void comboImpuestosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboImpuestosMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboImpuestosMouseClicked
+
+    private void comboImpuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboImpuestosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboImpuestosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -631,6 +656,7 @@ private void descripcion(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codBarra;
+    private javax.swing.JComboBox<String> comboImpuestos;
     private javax.swing.JButton ingresar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -642,7 +668,6 @@ private void descripcion(){
     private javax.swing.JLabel lblCom;
     private javax.swing.JLabel lblIdCon;
     private javax.swing.JTextField lblImporte;
-    private javax.swing.JTextField lblImpuesto;
     private javax.swing.JTextField lblNumClie;
     private javax.swing.JTextField lblPeriodo;
     // End of variables declaration//GEN-END:variables
