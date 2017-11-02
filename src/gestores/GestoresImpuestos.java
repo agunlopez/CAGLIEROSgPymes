@@ -56,12 +56,9 @@ public int GestorAltaTitular(TitularImpuesto titular){
     public int GestorAltaImpuesto(CuotaImpuesto imp){
 		int r=0;
                 int rr=0;
-		String SQL="INSERT INTO `impuesto`(`idImpuesto`, `idDescripcion`, `valorImp`) VALUES (?,?,?)";
-                String sql2="INSERT INTO `cuotaimpuesto`(`idCcontrato`, `nroCuota`, `idImpuesto`) VALUES (?,?,?)";
-				
-		
-		
-		
+		String SQL="INSERT INTO `impuesto`(`idImpuesto`, `idDescripcion`, `valorImp`, `codigoBarra`, `pagado`) VALUES (?,?,?,?,?)";
+                String sql2="INSERT INTO `impuesto`(`idImpuesto`, `idDescripcion`, `valorImp`, `codigoBarra`, `pagado`) VALUES (?,?,?,?,?)";
+
 		try{
                     PreparedStatement pst=Conexion.getConexionn().prepareStatement(SQL);
                     PreparedStatement pst2=Conexion.getConexionn().prepareStatement(sql2);
@@ -69,6 +66,8 @@ public int GestorAltaTitular(TitularImpuesto titular){
                 pst.setInt(1, imp.getImpuesto().getIdImpuesto());
                 pst.setInt(2, imp.getImpuesto().getIdDescripcion());
                 pst.setDouble(3, imp.getImpuesto().getValor());
+                pst.setString(4, imp.getImpuesto().getCodigoBarra());
+                pst.setDouble(5, imp.getImpuesto().getPagado());
   
                 
                 pst2.setInt(1, imp.getCuotas().getContrato().getIdContrato());

@@ -976,14 +976,18 @@ DefaultTableModel model=(DefaultTableModel)tablaCuota.getModel();
 
         try {
         //Validamos que se seleccionen los Clientes    
-        ExcepcionClientesContrato.validarDatos(idInm, idInq, idGara1, idGara2);
+        ExcepcionClientesContrato.validarDatos(idInm, idInq, idGara1);
         inm.setId(Integer.parseInt(idInm.substring(0,(idInm.indexOf("-")-1))));
         prop.setId(Integer.parseInt(idProp.substring(0,(idProp.indexOf("-")-1))));
         inm.setPropietario(prop);       
         inq.setId(Integer.parseInt(idInq.substring(0,(idInq.indexOf("-")-1))));
         gara1.setId(Integer.parseInt(idGara1.substring(0,(idGara1.indexOf("-")-1))));
-        gara2.setId(Integer.parseInt(idGara2.substring(0,(idGara2.indexOf("-")-1))));
-
+        if(garante2.getText().isEmpty()){
+            gara2.setId(0);
+        }else{
+            gara2.setId(Integer.parseInt(idGara2.substring(0,(idGara2.indexOf("-")-1))));
+        }
+        
         contrato.setInmueble(inm);
         contrato.setInquilino(inq);
         contrato.setGarante1(gara1);

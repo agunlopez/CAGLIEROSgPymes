@@ -257,6 +257,8 @@ public class AgregarImpuestoCuota extends javax.swing.JFrame {
             impuesto.setIdImpuesto(idImpuesto);
             impuesto.setIdDescripcion(Integer.parseInt(descripcion.substring(0,(descripcion.indexOf("-")-1))));
             impuesto.setValor(Double.parseDouble(importeImpuesto.getText()));
+            impuesto.setCodigoBarra("");
+            impuesto.setPagado(0);
  //         impuesto.setIdImpuestoCompartido(Integer.parseInt(" "));
             cuotaImp.setCuotas(cuotas);
             cuotaImp.setImpuesto(impuesto);
@@ -292,6 +294,7 @@ public class AgregarImpuestoCuota extends javax.swing.JFrame {
                     ImpuestoCompartido.idPeriodo.setText(idPeriodo.getText());
                     ImpuestoCompartido.nroCuota=nroCuota;
                     ImpuestoCompartido.bandera=0;
+                    ImpuestoCompartido.codigoBarra="";
                     impcom.setLocationRelativeTo(null);
                     impcom.setVisible(true); 
                     dispose();  

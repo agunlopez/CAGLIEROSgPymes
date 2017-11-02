@@ -293,6 +293,8 @@ public class AgregarImpCodigoBarraCorrelativo extends javax.swing.JFrame {
             impuesto.setIdImpuesto(idImpuesto);
             impuesto.setIdDescripcion(idDesc);
             impuesto.setValor(Double.parseDouble(lblImporte.getText()));
+            impuesto.setCodigoBarra(codBarra.getText());
+            impuesto.setPagado(0);
             cuotaImp.setCuotas(cuotas);
             cuotaImp.setImpuesto(impuesto);
 
@@ -427,6 +429,7 @@ public class AgregarImpCodigoBarraCorrelativo extends javax.swing.JFrame {
                         ImpuestoCompartido.bandera=1;
                         ImpuestoCompartido.idcon=idCon;
                         ImpuestoCompartido.iddes = idDesc;
+                        ImpuestoCompartido.codigoBarra= codBarra.getText();
                         impcom.setLocationRelativeTo(null);
                         impcom.setVisible(true); 
                         dispose();  

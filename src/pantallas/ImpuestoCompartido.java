@@ -371,6 +371,8 @@ int idic;
                 cuotas.setNroCuota(cantmes);        
                 impuesto.setIdImpuesto(idImpuesto);
                 impuesto.setIdDescripcion(iddes);
+                impuesto.setCodigoBarra(codigoBarra);
+                impuesto.setPagado(0);
                 cuotaImp.setCuotas(cuotas);
                 cuotaImp.setImpuesto(impuesto);
 
@@ -488,6 +490,7 @@ int idic;
     public static int idcon=0;
     public static int iddes=0;
     public static String actual;
+    public static String codigoBarra;
 }
 
 

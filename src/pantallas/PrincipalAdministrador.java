@@ -2637,8 +2637,6 @@ AltaCliente altaPropietario=new AltaCliente();
     }//GEN-LAST:event_jMenuItem18ActionPerformed
 
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
-
-       this.setCursor(Cursor.WAIT_CURSOR);
         try{
             conexion.ConexionReporte con=new conexion.ConexionReporte();
 

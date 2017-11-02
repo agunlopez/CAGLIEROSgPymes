@@ -412,14 +412,11 @@ public class cuotaIncompleta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-  
-        
-        GenerarAsignaciones();
-
+          GenerarAsignaciones();
     }//GEN-LAST:event_jButton2ActionPerformed
 
       public void GenerarAsignaciones(){
+        LiquidacionInquilino liquidacion = new LiquidacionInquilino();
         Cuotas cuota=new Cuotas();
         ban=false;
         montoPagado=Double.parseDouble(lblMonto.getText());
@@ -451,54 +448,20 @@ public class cuotaIncompleta extends javax.swing.JFrame {
                 if (Double.parseDouble(garantia.getText())<= (Double.parseDouble(lblGarantia.getText()))){                        
 
                 if (Double.parseDouble(expensas.getText())<= ( Double.parseDouble(lblExpensas.getText()))){
-                 
-  
-             
-             
                     Movimiento movimiento=new Movimiento();
-
                     Contrato contrato=new Contrato();
                     Calendar ahora= Calendar.getInstance();
 
                     int diaActual=ahora.get(Calendar.DATE);
                     int mesActual=ahora.get((Calendar.MONTH))+1;
                     int añoActual=ahora.get(Calendar.YEAR);
-
-
-//
-//                    movimiento.setContrato(contrato);
-//                    movimiento.setContratoCuota(cuota);
-//                    movimiento.setTipoMovimiento("I");
-//                    movimiento.setHonorarios(0);
-//                    movimiento.setFecha(diaActual+"/"+mesActual+"/"+añoActual);
-//                    movimiento.setAlquileresPagos(Double.parseDouble(alquiler.getText()));
-//                    movimiento.setImpuestosPagos(Double.parseDouble(impuestos.getText()));
-//                    movimiento.setSelladosPagos(Double.parseDouble(sellado.getText()));
-//                    movimiento.setGarantiaPagos(Double.parseDouble(garantia.getText()));
-//                    movimiento.setExpensasPagas(Double.parseDouble(expensas.getText()));
-
                     alquilerPago=Double.parseDouble(alquiler.getText());
                     selladoPago=(Double.parseDouble(sellado.getText()));
                     garantiaPaga=(Double.parseDouble(garantia.getText()));
                     impuestoPago=Double.parseDouble(impuestos.getText());
                     expensaPaga=Double.parseDouble(expensas.getText());
-
-
-
-//                    GestorMovimientos gestorIngreso=new GestorMovimientos();
-
-//                     try {
-//
-//                         movimiento.setAsignacion("A");
-////                         gestorIngreso.AltaIngreso(movimiento);
-//                         int recibo=gestorIngreso.numeroRecibo();
-//
-//
-//                     } catch (IOException ex) {
-//                         Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
-//                     } catch (SQLException ex) {
-//                         Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
-//                     }
+                    liquidacion.txtMontoaPagar.setEnabled(false);
+                    
 
                     JOptionPane.showMessageDialog(new JDialog(),"Los valores se asignaron correctamente");
                     dispose();

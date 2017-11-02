@@ -13,7 +13,7 @@ public class ExcepcionClientesContrato extends Exception {
     public ExcepcionClientesContrato(String msg) {
         super(msg);
     }
-    public static void validarDatos(String Inmueble, String Inquilino, String Garante1, String Garante2) throws ExcepcionClientesContrato{
+    public static void validarDatos(String Inmueble, String Inquilino, String Garante1) throws ExcepcionClientesContrato{
         if(Inmueble.equals("")){
             throw new ExcepcionClientesContrato("Ingrese el Inmueble");
         }
@@ -23,9 +23,9 @@ public class ExcepcionClientesContrato extends Exception {
         if(Garante1.equals("")){
             throw new ExcepcionClientesContrato("Ingrese el Primer Garante");
         }
-        if(Garante2.equals("")){
-            throw new ExcepcionClientesContrato("Ingrese el Segundo Garante");
-        }
+//        if(Garante2.equals("")){
+//            throw new ExcepcionClientesContrato("Ingrese el Segundo Garante");
+//        }
 
     }
 }

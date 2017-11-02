@@ -530,5 +530,6 @@ int idic;
     public static int nroCuota;
     public static String idCom;
     private boolean fin= false;
+    public static String codigoBarra;
 }
 

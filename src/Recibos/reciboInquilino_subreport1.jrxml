@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteInquilino_subreport" language="groovy" columnCount="2" printOrder="Horizontal" pageWidth="555" pageHeight="802" columnWidth="277" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b449947c-a8df-4474-90d1-77c169fc6568">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteInquilino_subreport" language="groovy" columnCount="2" printOrder="Horizontal" pageWidth="555" pageHeight="802" columnWidth="277" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a9cbfa26-60ca-4027-9afc-713d28b14d72">
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
@@ -23,9 +23,9 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<subDataset name="dataset1" uuid="9a34bab0-01d0-478e-827d-2c8a9a79ab8c"/>
-	<subDataset name="dataset2" uuid="2b28fb4f-5fe9-401f-b2ee-8b391712f3b6"/>
-	<subDataset name="datasett" uuid="0d6d14be-8e14-42e9-aad9-ea3cbff25a49">
+	<subDataset name="dataset1" uuid="d47b4f71-55af-4af8-bd8e-3df4b4239f0b"/>
+	<subDataset name="dataset2" uuid="8a1161f3-92f0-4630-8099-7965d9d4c798"/>
+	<subDataset name="datasett" uuid="b654e910-c828-47e9-8a2a-65f3fa1eade3">
 		<queryString language="SQL">
 			<![CDATA[SELECT descripcionimpuesto.descripcion,impuesto.valorImp FROM impuesto INNER JOIN cuotaimpuesto on impuesto.idImpuesto=cuotaimpuesto.idImpuesto INNER JOIN descripcionimpuesto ON impuesto.idDescripcion=descripcionimpuesto.idDescripcion INNER JOIN movimientos on movimientos.idContrato=cuotaimpuesto.idCcontrato AND movimientos.nroCuota=cuotaimpuesto.nroCuota WHERE movimientos.recibo=0000000014]]>
 		</queryString>
@@ -38,7 +38,7 @@
 	</subDataset>
 	<parameter name="Recibo" class="java.lang.Integer"/>
 	<queryString>
-		<![CDATA[SELECT descripcionimpuesto.descripcion,impuesto.valorImp FROM impuesto INNER JOIN cuotaimpuesto on impuesto.idImpuesto=cuotaimpuesto.idImpuesto INNER JOIN descripcionimpuesto ON impuesto.idDescripcion=descripcionimpuesto.idDescripcion INNER JOIN movimientos on movimientos.idContrato=cuotaimpuesto.idCcontrato AND movimientos.nroCuota=cuotaimpuesto.nroCuota WHERE movimientos.recibo=$P{Recibo}]]>
+		<![CDATA[SELECT descripcionimpuesto.descripcion,impuesto.valorImp,movimientos.impuestoPago FROM impuesto INNER JOIN cuotaimpuesto on impuesto.idImpuesto=cuotaimpuesto.idImpuesto INNER JOIN descripcionimpuesto ON impuesto.idDescripcion=descripcionimpuesto.idDescripcion INNER JOIN movimientos on movimientos.idContrato=cuotaimpuesto.idCcontrato AND movimientos.nroCuota=cuotaimpuesto.nroCuota WHERE movimientos.recibo=$P{Recibo}]]>
 	</queryString>
 	<field name="descripcion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -46,13 +46,14 @@
 	<field name="valorImp" class="java.lang.Double">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="impuestoPago" class="java.lang.Double"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="21" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="1" width="100" height="20" uuid="11e9f9c6-d4e6-42e9-b8f0-03e5898931e5"/>
+				<reportElement x="0" y="1" width="100" height="20" uuid="fe1bedb4-ffec-429f-8418-6386936d4a77"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -67,17 +68,17 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="cd46dbe8-f47b-4425-b364-291079f1da3d"/>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a4b735cf-899c-4476-9b5a-4b73c04c44b3"/>
 				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="152" y="0" width="100" height="20" uuid="cc457f5d-75e1-4cd1-bf92-8b874314bb6f"/>
+				<reportElement x="152" y="0" width="100" height="20" uuid="4c7df74f-c8d6-4318-b749-e13cd8303660"/>
 				<textFieldExpression><![CDATA[$F{valorImp}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="140" y="0" width="12" height="20" uuid="01c432e2-2f72-4998-9672-49c191b49bbb"/>
+				<reportElement x="140" y="0" width="12" height="20" uuid="3b5da09e-9f04-4ef5-8873-7d2fea6fa8cb"/>
 				<text><![CDATA[$]]></text>
 			</staticText>
 		</band>
@@ -86,7 +87,19 @@
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band splitType="Stretch"/>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="6463fdf6-f3ad-4939-8898-bc5f6b53c047"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Pagado]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="152" y="0" width="100" height="20" uuid="44c80fd4-40e0-4edd-a137-fa540719c509"/>
+				<textFieldExpression><![CDATA[$F{impuestoPago}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band splitType="Stretch"/>

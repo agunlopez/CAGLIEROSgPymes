@@ -21,7 +21,26 @@ public class Impuesto {
     private Inmueble inmueble;
     private double porcentaje;
     private Contrato contrato;
+    private String codigoBarra;
+    private double pagado;
 
+    public String getCodigoBarra() {
+        return codigoBarra;
+    }
+
+    public void setCodigoBarra(String codigoBarra) {
+        this.codigoBarra = codigoBarra;
+    }
+
+    public double getPagado() {
+        return pagado;
+    }
+
+    public void setPagado(double pagado) {
+        this.pagado = pagado;
+    }
+
+    
     public Contrato getContrato() {
         return contrato;
     }

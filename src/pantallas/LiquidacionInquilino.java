@@ -706,23 +706,23 @@ public static boolean bandera=true;
                  conexion.ConexionReporte con=new conexion.ConexionReporte();
                 
 
-//        try{
-//            
-//            Map parametro=new HashMap();
-//            
-//            parametro.put("Recibo",recibo); 
-////            JasperReport reciboInquilino=JasperCompileManager.compileReport("C"esktop\\SM Inmobiliaria\\src\\Recibos\\reciboInq.jrxml");           
-////            JasperPrint jasperPrint=JasperFillManager.fillReport(reciboInquilino, parametro, con.conexion());
-//            
-//            
-//            reciboInq.setSize(1000,700);
-//            reciboInq.setLocationRelativeTo(null);
-//            JRViewer jrv=new JRViewer(jasperPrint);
-//            reciboInq.getContentPane().add(jrv);
-//            reciboInq.setVisible(true);
-//        } catch (JRException ex) {
-//            Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-        
+        try{
+            
+            Map parametro=new HashMap();
+            
+            parametro.put("Recibo",recibo); 
+             JasperReport reciboInquilino=JasperCompileManager.compileReport("C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\reciboInq.jrxml");               
+            JasperPrint jasperPrint=JasperFillManager.fillReport(reciboInquilino, parametro, con.conexion());
+            
+            
+            reciboInq.setSize(1000,700);
+            reciboInq.setLocationRelativeTo(null);
+            JRViewer jrv=new JRViewer(jasperPrint);
+            reciboInq.getContentPane().add(jrv);
+            reciboInq.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
+        }
                
                  
              } catch (IOException ex) {
@@ -731,7 +731,7 @@ public static boolean bandera=true;
                  Logger.getLogger(LiquidacionInquilino.class.getName()).log(Level.SEVERE, null, ex);
              }
              
-//          }
+        
               dispose();
             
             }else{

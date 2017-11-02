@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="396" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28b3a7ab-b31a-46cc-b999-81d277ce323c">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="396" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e1d5ba29-41e1-4be7-a7a4-5253365fb9c4">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="Recibo" class="java.lang.Integer"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\Recibos\\"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT contratocuota.idContrato,contratocuota.nroCuota,contratocuota.punitorios,
@@ -52,7 +52,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 	<title>
 		<band height="79" splitType="Stretch">
 			<image>
-				<reportElement x="0" y="0" width="90" height="60" uuid="a1a2e195-6b74-4222-86d4-f24cee4c1fce"/>
+				<reportElement x="0" y="0" width="90" height="60" uuid="b86131a8-bf5f-49bc-913c-bf57101d0b69"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -60,10 +60,10 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<imageExpression><![CDATA["C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\Imagenes\\smLogo.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Imagenes\\Cagliero.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="110" y="0" width="100" height="20" uuid="69d5a030-2e97-4621-9b3d-79896e6ee1a7"/>
+				<reportElement x="110" y="0" width="100" height="20" uuid="47652202-aff4-43ee-b9b7-63eb23269865"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -71,10 +71,10 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[SM Inmobiliaria]]></text>
+				<text><![CDATA[Cagliero Inmobiliaria	]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="110" y="20" width="138" height="20" uuid="43d8d659-773b-4971-bff6-47c92e87faa2"/>
+				<reportElement x="110" y="20" width="138" height="20" uuid="d824f988-4743-42c5-b7de-b22c2df618fa"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -82,10 +82,10 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[12 de Ocrubre y Santa Fe ]]></text>
+				<text><![CDATA[Av. Sarmiento 138]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="110" y="59" width="100" height="20" uuid="8c907280-6710-41d5-a56a-d7f0cfcf38bf"/>
+				<reportElement x="110" y="59" width="100" height="20" uuid="0157bac2-6603-471f-bde6-26a7315e61e4"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -93,10 +93,10 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[Tel: 04842469846]]></text>
+				<text><![CDATA[Tel: 03493 42-0846]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="0" width="41" height="20" uuid="8bebaa15-8f88-44fa-83b7-40a32ea938a1"/>
+				<reportElement x="339" y="0" width="41" height="20" uuid="21580c4a-54f0-429c-ab5b-f8bfa2c69d40"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -107,7 +107,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<text><![CDATA[Recibo:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="20" width="41" height="20" uuid="33ed7bd9-b835-4057-be91-8146c9fb212d"/>
+				<reportElement x="339" y="20" width="41" height="20" uuid="9231e9ae-64f6-4360-827c-ced36805cf64"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -118,7 +118,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<text><![CDATA[Fecha: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="380" y="0" width="100" height="20" uuid="7730be30-513a-48cb-a08d-bf992f603294"/>
+				<reportElement x="380" y="0" width="100" height="20" uuid="dd924c22-bf9a-4880-b6f7-5eb2dace91e5"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -129,7 +129,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA[$F{recibo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="380" y="20" width="100" height="20" uuid="e5687b1e-1f19-4550-81f0-333aa5d2df2c"/>
+				<reportElement x="380" y="20" width="100" height="20" uuid="148a3407-14b2-433f-a950-69160f143a86"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -140,7 +140,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="110" y="39" width="100" height="20" uuid="8bb5b9cb-cd7b-43fb-9eb3-2e8ba6ef2ac8"/>
+				<reportElement x="110" y="39" width="100" height="20" uuid="d3d7fa5e-da7b-4c0b-ae81-9a43cf8c1061"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -148,10 +148,10 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[Tostado - Santa Fe]]></text>
+				<text><![CDATA[Sunchales - Santa Fe]]></text>
 			</staticText>
 			<frame>
-				<reportElement x="0" y="0" width="555" height="79" uuid="4bdceec6-a9ae-48e7-9688-c30dfda517cd"/>
+				<reportElement x="0" y="0" width="555" height="79" uuid="5911bb83-f465-4264-b30c-087a74aac27e"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -160,7 +160,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<frame>
-					<reportElement x="0" y="0" width="555" height="79" uuid="bc4fe188-4efe-44ff-83a3-781ad9442975"/>
+					<reportElement x="0" y="0" width="555" height="79" uuid="d1b98bf2-535f-4f31-b384-20f3c12c19ca"/>
 					<box>
 						<pen lineWidth="1.0"/>
 						<topPen lineWidth="0.0"/>
@@ -175,7 +175,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="2" width="100" height="20" uuid="e752ef04-526b-4bcf-be54-c25e3da828bb"/>
+				<reportElement x="0" y="2" width="100" height="20" uuid="b34b012b-747b-4f8f-aa25-9fe5d02ab6cf"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -189,7 +189,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<text><![CDATA[Concepto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="148" y="2" width="100" height="20" uuid="bc0bd43f-5320-448d-9d42-1917f8f45955"/>
+				<reportElement x="148" y="2" width="100" height="20" uuid="7ba9494f-410d-455b-950f-c07397fa5cf9"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -203,7 +203,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<text><![CDATA[Importe]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="280" y="2" width="100" height="20" uuid="c7425ac0-e645-44b1-90d3-1c13bc1086b7"/>
+				<reportElement x="280" y="2" width="100" height="20" uuid="51723e19-b259-4bdd-92f7-b6833bf7e64d"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -217,7 +217,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<text><![CDATA[Concepto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="413" y="0" width="100" height="20" uuid="430804f4-a2c5-40e8-92e9-368c720662ce"/>
+				<reportElement x="413" y="0" width="100" height="22" uuid="fc735a0e-f350-4331-b6e3-3ec6c7f5c0c0"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -235,7 +235,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 	<detail>
 		<band height="40" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="20" width="100" height="20" uuid="146dcce1-bf14-4780-afba-616fcfc0abcc"/>
+				<reportElement x="0" y="20" width="100" height="20" uuid="616d8868-c314-466d-9266-b95f86ae57f9"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -246,7 +246,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<text><![CDATA[Honorarios]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="280" y="0" width="100" height="20" uuid="722ca39a-9df0-429a-baa7-54ec421cc59b"/>
+				<reportElement x="280" y="0" width="100" height="20" uuid="500a9643-1b91-44e7-bc93-e022fc2c187b"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -254,10 +254,10 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[Descuento]]></text>
+				<text><![CDATA[ Descuento]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="148" y="0" width="100" height="20" uuid="ca5add5d-70a8-489f-afc4-eb9bdd2512ad"/>
+				<reportElement x="163" y="0" width="100" height="20" uuid="f780a44a-3dd5-4aab-91d7-a9e0c119fcca"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -268,7 +268,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA[$F{valorCuota}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="148" y="20" width="100" height="20" uuid="fe74e12e-ff5c-4273-9072-80becc1a257a"/>
+				<reportElement x="163" y="20" width="100" height="20" uuid="ed4cc37a-ec5b-4077-baff-7fc89fd5b019"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -279,7 +279,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA[$F{honorariosCobrados}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="413" y="0" width="100" height="20" uuid="247e94b4-0792-4612-90fd-485a10926a23"/>
+				<reportElement x="430" y="0" width="100" height="20" uuid="df0aa24e-95b0-489c-b38f-074104312c38"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -290,7 +290,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA[$F{descuento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20" uuid="44466634-c503-436d-8375-f76ede98a6db"/>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e3be6c2d-b6bf-4e7e-9f6b-0fc585a42eda"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -301,15 +301,15 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA["Alquiler Cuota "+$F{nroCuota}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="136" y="0" width="12" height="20" uuid="0f1460a5-aeb5-48a4-9096-eaf1c14b4383"/>
+				<reportElement x="151" y="0" width="12" height="20" uuid="e781e226-fe8d-4b55-a4d1-b70d2db6c372"/>
 				<text><![CDATA[$]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="136" y="20" width="12" height="20" uuid="cb498a29-a825-4019-9ec5-bd0acddd9cdf"/>
+				<reportElement x="151" y="20" width="12" height="20" uuid="01241def-6205-4d9b-a210-e2059e35cb34"/>
 				<text><![CDATA[$]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="401" y="0" width="12" height="20" uuid="d2f28e26-f646-42d0-a086-7a5d7c8087f6"/>
+				<reportElement x="418" y="0" width="12" height="20" uuid="19f0431d-5a54-43df-8929-5b8f7bb9b2d1"/>
 				<text><![CDATA[$]]></text>
 			</staticText>
 		</band>
@@ -317,7 +317,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 	<columnFooter>
 		<band height="34" splitType="Stretch">
 			<staticText>
-				<reportElement x="355" y="0" width="100" height="20" uuid="ac64bd91-da8c-4113-8261-ab1503edf203"/>
+				<reportElement x="355" y="0" width="100" height="20" uuid="391f3f6c-c3df-4b96-ac36-3e8554950d8b"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -331,7 +331,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<text><![CDATA[IMPORTE:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="455" y="0" width="100" height="20" uuid="99ba2120-f82b-48e8-ab86-42fbe2fbdd36"/>
+				<reportElement x="455" y="0" width="100" height="20" uuid="1f4f7846-6062-454a-8427-d33d4b337207"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -345,7 +345,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA[$F{valorMov}]]></textFieldExpression>
 			</textField>
 			<frame>
-				<reportElement x="0" y="0" width="555" height="34" uuid="d4027e8c-4412-4bfe-97c3-5069cd7d8f0a"/>
+				<reportElement x="0" y="0" width="555" height="34" uuid="dc0217cd-2914-4e2a-9abc-be8ef98a75c0"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
@@ -354,7 +354,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<staticText>
-					<reportElement x="443" y="0" width="12" height="20" uuid="53de15da-5e25-4cde-92ce-0d4db15050c6"/>
+					<reportElement x="443" y="0" width="12" height="20" uuid="34838b42-b294-4e22-94b1-1d8d7fab1329"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
