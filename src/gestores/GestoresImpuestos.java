@@ -211,6 +211,54 @@ public int GestorAltaTitular(TitularImpuesto titular){
      
         return impuestos;
     }
+    
+    
+    public static Impuesto consultarImpustoCodigoBarra(String codBarra){
+     
+
+        ResultSet rs=null;
+        
+        Impuesto impuesto=null;
+        Inmueble inm=null;
+        Contrato con=null;
+ 
+        
+        String sql="SELECT impuesto.valorImp , impuesto.pagado, impuesto.idDescripcion , cuotaimpuesto.idCcontrato, inmueble.calle" 
+                +"FROM impuesto INNER JOIN descripcionimpuesto ON impuesto.idDescripcion=descripcionimpuesto.idDescripcion" 
+                +"INNER JOIN cuotaimpuesto ON impuesto.idImpuesto=cuotaimpuesto.idImpuesto INNER JOIN contrato ON cuotaimpuesto.idCcontrato=contrato.idContrato" 
+                +"INNER JOIN inmueble ON contrato.idInmueble= inmueble.idInmueble WHERE impuesto.codigoBarra = ?";
+     
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sql);
+			pst.setString(1, codBarra);
+                        
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+                            
+                            impuesto=new Impuesto();
+                            inm= new Inmueble();
+                            con=new Contrato();
+
+                            con.setIdContrato(rs.getInt("contrato.idContrato"));
+                            impuesto.setPorcentaje(rs.getDouble("impuesto.pagado"));
+                            impuesto.setIdImpuestoCompartido(rs.getInt("impuesto.valorImp"));
+                            impuesto.setIdDescripcion(rs.getInt("impuesto.idDescripcion"));
+                            inm.setCalle(rs.getString("inmueble.calle"));
+                            
+                            
+                            impuesto.setContrato(con);
+                            impuesto.setInmueble(inm);
+                           
+                           
+
+                        }
+        } catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuestos por Codigo de Barra"+e.toString());
+		
+	}
+    return impuesto;
+    }
     public static String consultaTitularImpuesto(int idContrato, int idDescipcion){
         String titular=" ";
         String sqlTitulares="SELECT contrato.idContrato,descripcionimpuesto.idDescripcion,titularimp "
@@ -232,6 +280,26 @@ public int GestorAltaTitular(TitularImpuesto titular){
 		
 	}
         return titular;
+    }
+        public static String consultarDescripcion( int idDescipcion){
+        String desc=" ";
+        String sqlTitulares="SELECT descripcionimpuesto.descripcion "
+                + "FROM descripcionimpuesto "
+                + " WHERE idDescripcion=?";
+        ResultSet rs=null;
+        try{
+            PreparedStatement pst=Conexion.getConexionn().prepareStatement(sqlTitulares);
+			pst.setInt(1, idDescipcion);
+			rs=pst.executeQuery();
+
+			while(rs.next()){
+                            desc=rs.getString("descripcionimpuesto.descripcion");
+        }
+        } catch (SQLException e) {
+			JOptionPane.showMessageDialog(new JDialog(),"Error al consultar Impuestos"+e.toString());
+		
+	}
+        return desc;
     }
         public static int consultaIdPorTitular(String titularimp, int idDescipcion){
         int idContrato=0;
