@@ -192,7 +192,7 @@ public class BuscarImpuestoCompartido extends javax.swing.JFrame {
 
 public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/casa.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/Cagliero.png"));
         return retValue;
     }
 }

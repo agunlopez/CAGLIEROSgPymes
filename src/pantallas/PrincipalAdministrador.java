@@ -231,6 +231,7 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         menuAdminImpuestos1 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuPersonas = new javax.swing.JMenu();
         menuBuscarCliente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -1261,9 +1262,9 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         });
         jMenu4.add(jMenuItem13);
 
-        menuAdminImpuestos1.setText("Cargar Impuestos");
+        menuAdminImpuestos1.setText("Codigo de Barra");
 
-        jMenuItem17.setText("Codigo de Barra ");
+        jMenuItem17.setText("Cargar Impuestos");
         jMenuItem17.setActionCommand("Codigo de Barra");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1273,13 +1274,21 @@ public class PrincipalAdministrador extends javax.swing.JFrame  {
         menuAdminImpuestos1.add(jMenuItem17);
         jMenuItem17.getAccessibleContext().setAccessibleName("Codigo de Barra");
 
-        jMenuItem18.setText("Codigo de Barra manual");
+        jMenuItem18.setText("Carga de Impuestos Manual");
         jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem18ActionPerformed(evt);
             }
         });
         menuAdminImpuestos1.add(jMenuItem18);
+
+        jMenuItem2.setText("Consultar Impuestos");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuAdminImpuestos1.add(jMenuItem2);
 
         jMenu4.add(menuAdminImpuestos1);
 
@@ -2653,6 +2662,13 @@ AltaCliente altaPropietario=new AltaCliente();
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ConsultarImpuestoCodigoBarra ConsCodBarra=new ConsultarImpuestoCodigoBarra();
+        ConsCodBarra.setVisible(true);
+        ConsCodBarra.setLocationRelativeTo(null); 
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2757,6 +2773,7 @@ AltaCliente altaPropietario=new AltaCliente();
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

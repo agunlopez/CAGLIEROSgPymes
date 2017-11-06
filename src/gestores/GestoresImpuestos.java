@@ -215,17 +215,18 @@ public int GestorAltaTitular(TitularImpuesto titular){
     
     public static Impuesto consultarImpustoCodigoBarra(String codBarra){
      
-
         ResultSet rs=null;
         
         Impuesto impuesto=null;
         Inmueble inm=null;
         Contrato con=null;
+        Cuotas cuo=null;
+        
  
         
-        String sql="SELECT impuesto.valorImp , impuesto.pagado, impuesto.idDescripcion , cuotaimpuesto.idCcontrato, inmueble.calle" 
-                +"FROM impuesto INNER JOIN descripcionimpuesto ON impuesto.idDescripcion=descripcionimpuesto.idDescripcion" 
-                +"INNER JOIN cuotaimpuesto ON impuesto.idImpuesto=cuotaimpuesto.idImpuesto INNER JOIN contrato ON cuotaimpuesto.idCcontrato=contrato.idContrato" 
+        String sql="SELECT impuesto.valorImp , impuesto.pagado, impuesto.idDescripcion , cuotaimpuesto.idCcontrato, inmueble.calle ,cuotaimpuesto.nroCuota " 
+                +"FROM impuesto INNER JOIN descripcionimpuesto ON impuesto.idDescripcion=descripcionimpuesto.idDescripcion " 
+                +"INNER JOIN cuotaimpuesto ON impuesto.idImpuesto=cuotaimpuesto.idImpuesto INNER JOIN contrato ON cuotaimpuesto.idCcontrato= contrato.idContrato " 
                 +"INNER JOIN inmueble ON contrato.idInmueble= inmueble.idInmueble WHERE impuesto.codigoBarra = ?";
      
         try{
@@ -239,16 +240,18 @@ public int GestorAltaTitular(TitularImpuesto titular){
                             impuesto=new Impuesto();
                             inm= new Inmueble();
                             con=new Contrato();
+                            cuo=new Cuotas();
 
-                            con.setIdContrato(rs.getInt("contrato.idContrato"));
-                            impuesto.setPorcentaje(rs.getDouble("impuesto.pagado"));
-                            impuesto.setIdImpuestoCompartido(rs.getInt("impuesto.valorImp"));
-                            impuesto.setIdDescripcion(rs.getInt("impuesto.idDescripcion"));
-                            inm.setCalle(rs.getString("inmueble.calle"));
-                            
-                            
+                            con.setIdContrato(Integer.parseInt(rs.getString("cuotaimpuesto.idCcontrato")));
+                            cuo.setNroCuota(Integer.parseInt(rs.getString("cuotaimpuesto.nroCuota")));
+                            impuesto.setPorcentaje(Double.parseDouble(rs.getString("pagado")));
+                            impuesto.setValor(Double.parseDouble(rs.getString("valorImp")));
+                            impuesto.setIdDescripcion(Integer.parseInt(rs.getString("idDescripcion")));
+                            inm.setCalle(rs.getString("calle"));
+                            impuesto.setCuotas(cuo);
                             impuesto.setContrato(con);
                             impuesto.setInmueble(inm);
+                            
                            
                            
 

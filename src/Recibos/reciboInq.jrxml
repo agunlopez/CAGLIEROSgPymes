@@ -92,7 +92,7 @@ WHERE movimientos.recibo=$P{Recibo}]]>
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="110" y="39" width="100" height="20" uuid="87d30e6b-8d81-4dff-92c1-f6ad70955e73"/>
+				<reportElement x="110" y="39" width="116" height="20" uuid="87d30e6b-8d81-4dff-92c1-f6ad70955e73"/>
 				<text><![CDATA[Sunchales - Santa Fe]]></text>
 			</staticText>
 		</band>

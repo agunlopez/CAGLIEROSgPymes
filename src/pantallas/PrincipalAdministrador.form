@@ -103,7 +103,7 @@
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="menuAdminImpuestos1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cargar Impuestos"/>
+                <Property name="text" type="java.lang.String" value="Codigo de Barra"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
@@ -111,7 +111,7 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem17">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Codigo de Barra "/>
+                    <Property name="text" type="java.lang.String" value="Cargar Impuestos"/>
                     <Property name="actionCommand" type="java.lang.String" value="Codigo de Barra"/>
                   </Properties>
                   <AccessibilityProperties>
@@ -123,10 +123,18 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jMenuItem18">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Codigo de Barra manual"/>
+                    <Property name="text" type="java.lang.String" value="Carga de Impuestos Manual"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem18ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Consultar Impuestos"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

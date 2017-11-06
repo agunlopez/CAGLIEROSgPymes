@@ -208,7 +208,7 @@ public class ListaClienteAltaInmueble extends javax.swing.JFrame {
     ModeloTablaPropietarioResumen modelo=new ModeloTablaPropietarioResumen(listaCliente);
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("Imagenes/SM.png"));
+                getImage(ClassLoader.getSystemResource("Imagenes/Cagliero.png"));
         return retValue;
     }
 }

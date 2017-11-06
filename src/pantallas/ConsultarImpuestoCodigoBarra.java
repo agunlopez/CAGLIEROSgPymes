@@ -61,9 +61,10 @@ public class ConsultarImpuestoCodigoBarra extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        lblInmueble = new javax.swing.JTextField();
-        lblImporte = new javax.swing.JTextField();
-        lblImpuesto = new javax.swing.JTextField();
+        lblInmueble = new javax.swing.JLabel();
+        lblImpuesto = new javax.swing.JLabel();
+        lblImporte = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agregar Impuesto");
@@ -108,43 +109,16 @@ public class ConsultarImpuestoCodigoBarra extends javax.swing.JFrame {
         jLabel3.setText("Codigo de Barra: ");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Impuesto");
+        jLabel6.setText("Impuesto:");
 
-        lblInmueble.setEnabled(false);
-        lblInmueble.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblInmuebleActionPerformed(evt);
-            }
-        });
-        lblInmueble.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                lblInmuebleKeyTyped(evt);
-            }
-        });
+        lblInmueble.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        lblImporte.setEnabled(false);
-        lblImporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblImporteActionPerformed(evt);
-            }
-        });
-        lblImporte.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                lblImporteKeyTyped(evt);
-            }
-        });
+        lblImpuesto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        lblImpuesto.setEnabled(false);
-        lblImpuesto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblImpuestoActionPerformed(evt);
-            }
-        });
-        lblImpuesto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                lblImpuestoKeyTyped(evt);
-            }
-        });
+        lblImporte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Nro Cuota:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,35 +126,37 @@ public class ConsultarImpuestoCodigoBarra extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel3))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblImporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(pagado, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5))))
+                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addComponent(codBarra, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(82, 82, 82)
-                        .addComponent(ingresar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel2)
-                        .addGap(20, 20, 20)
-                        .addComponent(lblInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pagado)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(4, 4, 4)
-                                .addComponent(lblImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addComponent(ingresar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,25 +168,23 @@ public class ConsultarImpuestoCodigoBarra extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addComponent(codBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ingresar))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel2))
-                    .addComponent(lblInmueble)
-                    .addComponent(lblImpuesto)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(lblImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pagado))))
-                .addGap(78, 78, 78))
+                            .addComponent(jLabel2)
+                            .addComponent(lblInmueble)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(lblImporte)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblImpuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(pagado, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -222,8 +196,15 @@ public class ConsultarImpuestoCodigoBarra extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
-          Impuesto impue =GestoresImpuestos.consultarImpustoCodigoBarra(codBarra.getText());
-          
+        Impuesto impue =GestoresImpuestos.consultarImpustoCodigoBarra(codBarra.getText());
+        int IdDesc=impue.getIdDescripcion();
+        String Desc =GestoresImpuestos.consultarDescripcion(IdDesc);
+
+        lblInmueble.setText(impue.getInmueble().getCalle());
+        lblImpuesto.setText(Desc);
+        lblImporte.setText(String.valueOf(impue.getValor()));
+        pagado.setText(String.valueOf(impue.getCuotas().getNroCuota()));
+
         // TODO add your handling code here:
     }//GEN-LAST:event_ingresarActionPerformed
 
@@ -234,30 +215,6 @@ public class ConsultarImpuestoCodigoBarra extends javax.swing.JFrame {
     private void codBarraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codBarraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codBarraActionPerformed
-
-    private void lblImporteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblImporteKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblImporteKeyTyped
-
-    private void lblImporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblImporteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblImporteActionPerformed
-
-    private void lblImpuestoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblImpuestoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblImpuestoKeyTyped
-
-    private void lblImpuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblImpuestoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblImpuestoActionPerformed
-
-    private void lblInmuebleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblInmuebleKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblInmuebleKeyTyped
-
-    private void lblInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblInmuebleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblInmuebleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,9 +266,10 @@ public class ConsultarImpuestoCodigoBarra extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField lblImporte;
-    private javax.swing.JTextField lblImpuesto;
-    private javax.swing.JTextField lblInmueble;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel lblImporte;
+    private javax.swing.JLabel lblImpuesto;
+    private javax.swing.JLabel lblInmueble;
     private javax.swing.JLabel pagado;
     // End of variables declaration//GEN-END:variables
 

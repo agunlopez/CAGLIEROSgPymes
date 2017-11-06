@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="396" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="396" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f62f4ba4-a378-42b6-8933-5be0a789518d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -28,7 +28,7 @@
 	<title>
 		<band height="79" splitType="Stretch">
 			<image>
-				<reportElement x="0" y="0" width="90" height="60" />
+				<reportElement x="0" y="0" width="90" height="60" uuid="be830bd2-d633-419c-8124-18e5b5e56f8a"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -39,7 +39,7 @@
 				<imageExpression><![CDATA["C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Imagenes\\Cagliero.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="110" y="0" width="100" height="20" />
+				<reportElement x="110" y="0" width="110" height="20" uuid="80b6a6a5-9d33-4a61-98d3-3faa0e4e9abd"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -47,10 +47,10 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[SM Inmobiliaria]]></text>
+				<text><![CDATA[Cagliero Inmobiliaria]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="110" y="20" width="138" height="20" />
+				<reportElement x="110" y="20" width="138" height="20" uuid="fc00ee6d-c2f5-4fbb-9c88-f812d716c631"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -58,10 +58,10 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[12 de Ocrubre y Santa Fe ]]></text>
+				<text><![CDATA[Av. Sarmiento 138]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="110" y="59" width="100" height="20" />
+				<reportElement x="110" y="59" width="100" height="20" uuid="f98fc4fd-e3ec-4fe9-bea7-a10363f3980b"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -69,10 +69,11 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[Tel: 04842469846]]></text>
+				<text><![CDATA[Tel: 03493 42-0846
+]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="0" width="41" height="20" />
+				<reportElement x="339" y="0" width="41" height="20" uuid="ad2067cf-687c-4926-94d6-0797b121df73"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -83,7 +84,7 @@
 				<text><![CDATA[Recibo:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="20" width="41" height="20"/>
+				<reportElement x="339" y="20" width="41" height="20" uuid="1b7d3bc1-fd34-4da7-bfb3-5b62c2de3288"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -94,7 +95,7 @@
 				<text><![CDATA[Fecha: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="380" y="0" width="100" height="20"/>
+				<reportElement x="380" y="0" width="100" height="20" uuid="db649269-e322-40c0-a815-d81bd3b20b1c"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -105,7 +106,7 @@
 				<textFieldExpression><![CDATA[$F{recibo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="380" y="20" width="100" height="20" />
+				<reportElement x="380" y="20" width="100" height="20" uuid="87c52fb3-2406-47d9-87b8-76ff2c1191e1"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -116,7 +117,7 @@
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="110" y="39" width="100" height="20"/>
+				<reportElement x="110" y="39" width="115" height="20" uuid="584316eb-84ed-4e44-84ce-a80e29affbef"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -124,10 +125,10 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<text><![CDATA[Tostado - Santa Fe]]></text>
+				<text><![CDATA[Sunchales - Santa Fe]]></text>
 			</staticText>
 			<frame>
-				<reportElement x="0" y="0" width="555" height="79" />
+				<reportElement x="0" y="0" width="555" height="79" uuid="489c6136-f6c1-4149-9655-112c5ef95826"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -136,7 +137,7 @@
 					<rightPen lineWidth="0.0"/>
 				</box>
 				<frame>
-					<reportElement x="0" y="0" width="555" height="79" />
+					<reportElement x="0" y="0" width="555" height="79" uuid="c2fd10e9-6605-40fa-ab31-60c09db415e8"/>
 					<box>
 						<pen lineWidth="1.0"/>
 						<topPen lineWidth="0.0"/>
@@ -151,7 +152,7 @@
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="2" width="100" height="20" />
+				<reportElement x="0" y="2" width="100" height="20" uuid="eb7c53b7-a3f0-455c-9ff8-8e5b16312378"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -165,7 +166,7 @@
 				<text><![CDATA[Concepto]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="355" y="2" width="100" height="20" />
+				<reportElement x="355" y="2" width="100" height="20" uuid="1c039f37-1445-483f-b2a7-c47f0ef8697e"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -183,14 +184,14 @@
 	<detail>
 		<band height="28" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="248" height="20" />
+				<reportElement x="0" y="0" width="248" height="20" uuid="0168c51a-0994-43ed-a332-cde01e7d37d0"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Devolucion Garantia contrato "+$F{idContrato}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="355" y="0" width="100" height="20" />
+				<reportElement x="355" y="0" width="100" height="20" uuid="f6456248-8213-4adf-b844-8a9a5bf4b88d"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
@@ -201,7 +202,7 @@
 	<columnFooter>
 		<band height="34" splitType="Stretch">
 			<staticText>
-				<reportElement x="355" y="0" width="100" height="20"/>
+				<reportElement x="355" y="0" width="100" height="20" uuid="79cd0ba7-b6d6-47af-b13a-6e7cb9f77eaf"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -215,7 +216,7 @@
 				<text><![CDATA[IMPORTE:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="455" y="0" width="100" height="20" />
+				<reportElement x="455" y="0" width="100" height="20" uuid="c7099596-9b7a-4850-b1d9-3f67af204f69"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -229,7 +230,7 @@
 				<textFieldExpression><![CDATA[$F{valorMov}]]></textFieldExpression>
 			</textField>
 			<frame>
-				<reportElement x="0" y="0" width="555" height="34" />
+				<reportElement x="0" y="0" width="555" height="34" uuid="0c3e53f5-b862-4504-8813-8b77055c2dd0"/>
 				<box>
 					<pen lineWidth="1.0"/>
 					<topPen lineWidth="1.0"/>
