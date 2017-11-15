@@ -1847,7 +1847,7 @@ public class DetallesContrato extends javax.swing.JFrame {
                 evento.setFecha(GestorEventos.getFechaActual());
                 Map parametro=new HashMap();          
                 parametro.put("Recibo",recibo); 
-                JasperReport reciboProp=JasperCompileManager.compileReport("C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\Recibos\\reciboDevolucionGarantia.jrxml");           
+                JasperReport reciboProp=JasperCompileManager.compileReport("C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\reciboDevolucionGarantia.jrxml");           
                 JasperPrint jasperPrint=JasperFillManager.fillReport(reciboProp, parametro, con.conexion());
                 devolucionGara.setSize(1000,700);
                 devolucionGara.setLocationRelativeTo(null);

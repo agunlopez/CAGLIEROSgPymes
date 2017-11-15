@@ -1324,77 +1324,7 @@ public static Date fechaVv=null;
 public static int cantidadCuotas;
 public String titulares[];
 
-public static void CrearContrato(Contrato contrato){
-    
-    
-    Cliente datosPropietario=BusquedaPropietario.busquedaDatos(contrato.getInmueble().getPropietario().getId());
-    Cliente datosInquilino=BusquedaPropietario.busquedaDatos(contrato.getInquilino().getId());
 
-    Inmueble datosIn=BusquedaInmueble.busquedaDatosInmueble(contrato.getInmueble().getId());
-    String meses[]={"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};
-    try{
-            conexion.ConexionReporte con=new conexion.ConexionReporte();
-            Map parametro=new HashMap();
-            Calendar ahora= Calendar.getInstance();
-
-            int diaActual=ahora.get(Calendar.DATE);
-            int mesActual=ahora.get((Calendar.MONTH));
-            int añoActual=ahora.get(Calendar.YEAR);
-            String inquilino=datosInquilino.getNombre()+" "+datosInquilino.getApellido()+" DNI "+datosInquilino.getDni();
-            String domicilioInquilino=datosInquilino.getDireccion();
-            String ciudadInq=datosInquilino.getLocalidad()+" de la provincia de "+datosInquilino.getProvincia();
-            String propietario=datosPropietario.getNombre()+" "+datosPropietario.getApellido()+" DNI "+datosPropietario.getDni();
-            String domicilioProp=datosPropietario.getDireccion();
-            String ciudadProp=datosPropietario.getLocalidad()+" de la provincia de "+datosPropietario.getProvincia();
-            String nacimientoInq=datosInquilino.getFechaNac();
-            String estadoCivil=datosInquilino.getEstadoCivil();
-            String apellidoMaterno=datosInquilino.getApellidoMaterno();
-            String profesion=datosInquilino.getProfesion();
-            String telefono=datosInquilino.getTel();
-            String ciudadInm=datosIn.getLocalidad()+" de la provincia de "+datosIn.getProvincia();
-            String domicilioInm=datosIn.getCalle();
-            int dniInq=contrato.getInquilino().getDni();
-            int mesesContrato=contrato.getTotalCuotas();
-            String fechaInicio=contrato.getFechaInicio();
-            String fechaFin=contrato.getFechaVencimiento();
-            String mes="";
-            for(int i=0;i<meses.length;i++){
-                mes=meses[mesActual];
-            }
-            parametro.put("idContrato",contrato.getIdContrato());
-            parametro.put("dia",diaActual);
-            parametro.put("mes",mes);
-            parametro.put("año",añoActual);
-            parametro.put("inquilino",inquilino);
-            parametro.put("domicilioInquilino",domicilioInquilino);
-            parametro.put("ciudadInquilino",ciudadInq);
-            parametro.put("propietario",propietario);
-            parametro.put("domicilioPropietario",domicilioProp);
-            parametro.put("ciudadPropietario",ciudadProp);
-            parametro.put("nacimientoInquilino",nacimientoInq);
-            parametro.put("estadoCivilInq",estadoCivil);
-            parametro.put("apellidoMaternoInq",apellidoMaterno);
-            parametro.put("profesionInq",profesion);
-            parametro.put("telefonoInq",telefono);
-            parametro.put("ciudadInmueble",ciudadInm);
-            parametro.put("domicilioInmueble",domicilioInm);
-            parametro.put("dniInquilino",dniInq);
-            parametro.put("mesesContrato",mesesContrato);
-            parametro.put("fechaInicio",fechaInicio);
-            parametro.put("fechaFin",fechaFin);
-            JasperReport DocContrato=JasperCompileManager.compileReport("C:\\Users\\Nahuel\\Desktop\\SM Inmobiliaria\\src\\Recibos\\contrato.jrxml");           
-            JasperPrint jasperPrint=JasperFillManager.fillReport(DocContrato, parametro, con.conexion());
-            
-            
-            contratoDoc.setSize(1000,700);
-            contratoDoc.setLocationRelativeTo(null);
-            JRViewer jrv=new JRViewer(jasperPrint);
-            contratoDoc.getContentPane().add(jrv);
-            contratoDoc.setVisible(true);
-        } catch (JRException ex) {
-            Logger.getLogger(PrincipalAdministrador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-}
 public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("Imagenes/Cagliero.png"));
@@ -1484,8 +1414,6 @@ public void AltaContrato(Contrato contrato){
        gestor1.altaContrato(contrato);
        int m=GestorModificarInmueble.ModificarEstadoOcupado(contrato.getInmueble().getId());
        int e=GestorEventos.AltaEvento(evento); 
-       this.setCursor(Cursor.WAIT_CURSOR);
-       CrearContrato(contrato);
        dispose();
    } catch (IOException ex) {
        Logger.getLogger(NuevoContrato.class.getName()).log(Level.SEVERE, null, ex);

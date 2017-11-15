@@ -46,10 +46,17 @@ public class ModeloTablaImpComp extends AbstractTableModel {
             return null;
         } else {
             switch (columna) {
-                
-              
+
                 case 0:{
-                    return lista.get(fila).getIdImpuestoCompartido();
+                    if(fila == 0){
+                        return lista.get(fila).getIdImpuestoCompartido();
+                    }else{
+                        if(lista.get(fila).getIdImpuestoCompartido() == lista.get(fila-1).getIdImpuestoCompartido()){
+                            return " ";
+                        }else{
+                            return lista.get(fila).getIdImpuestoCompartido();
+                        }
+                    } 
                 }      
                 case 1: {
                     return lista.get(fila).getPorcentaje();

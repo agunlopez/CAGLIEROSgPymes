@@ -711,7 +711,7 @@ public static boolean bandera=true;
             Map parametro=new HashMap();
             
             parametro.put("Recibo",recibo); 
-             JasperReport reciboInquilino=JasperCompileManager.compileReport("C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\reciboInq.jrxml");               
+            JasperReport reciboInquilino=JasperCompileManager.compileReport("C:\\Users\\Usuario\\Desktop\\CAGLIERO\\CAGLIERO\\CAGLIERO\\src\\Recibos\\reciboInq.jrxml");               
             JasperPrint jasperPrint=JasperFillManager.fillReport(reciboInquilino, parametro, con.conexion());
             
             
